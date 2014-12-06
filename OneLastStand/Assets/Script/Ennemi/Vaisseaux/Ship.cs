@@ -20,8 +20,7 @@ public class Ship : MonoBehaviour  {
 	
 	public void SubitAttack(int dmg,int fragment){
 		_pv -= dmg;
-		GameObject frag =  Instantiate (_prefabFragment, this.transform.localPosition, Quaternion.identity);
-
+		GameObject frag =  (GameObject)Instantiate (_prefabFragment, this.transform.localPosition, Quaternion.identity);
 
 
 		if (_pv <= 0) {
