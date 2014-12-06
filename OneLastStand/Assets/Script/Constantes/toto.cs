@@ -3,6 +3,8 @@ using System.Collections;
 
 public class toto : MonoBehaviour {
 
+	int tata;
+
 	// Use this for initialization
 	void Start () {
 	
