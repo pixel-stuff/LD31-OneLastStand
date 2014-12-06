@@ -3,8 +3,10 @@ using System.Collections;
 
 public class Hunter : Ship {
 
-	public Hunter() : base() {
 
+	// Use this for initialization
+	void Start(){
+	
 		_TYPE = Enum_ShipType.Hunter;
 		_pv = ConstantesManager.HUNTER_PV;
 		_degatShot= ConstantesManager.HUNTER_SHOOT_DMG;
@@ -13,12 +15,8 @@ public class Hunter : Ship {
 		_normalSpeed=ConstantesManager.HUNTER_NORME_SPEED;
 		_timeBetweenAttack = ConstantesManager.HUNTER_TIME_BETWEEN_ATTACK;
 		_variationTimeBetweenAttackPercent = ConstantesManager.VARIATION_TIME_BETWEEN_ATTACK_PERCENT;
+		
 
-	}
-
-	// Use this for initialization
-	void Start () {
-	
 	}
 	
 	// Update is called once per frame

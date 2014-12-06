@@ -15,12 +15,13 @@ public class Ship : MonoBehaviour  {
 
 	public GameObject _prefabFragment;
 
-	public Ship(){
-		}
+
 	
-	public void SubitAttack(int dmg,int fragment){
+	public void GetHit(int dmg,int fragment){
 		_pv -= dmg;
-		GameObject frag =  (GameObject)Instantiate (_prefabFragment, this.transform.localPosition, Quaternion.identity);
+		GameObject frag = (GameObject) Instantiate (_prefabFragment, this.transform.localPosition, Quaternion.identity);
+		frag.GetComponent<Fragment> ()._quantite = fragment;
+
 
 
 		if (_pv <= 0) {
@@ -32,4 +33,13 @@ public class Ship : MonoBehaviour  {
 	void Update () {
 	
 	}
+	void OnTriggerEnter2D(Collider2D collider)
+	{
+		//collider.gameObject.name ="City"
+		//TODO if allyBullet 
+		// GetHit(bulletValue)
+
+		//else if city
+		//Object.Destroy(this);
+		}
 }

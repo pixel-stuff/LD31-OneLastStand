@@ -8,6 +8,13 @@ public class ConstantesManager {
 	// -------------------------------------------------ENNEMY VAR--------------------------------------------------------
 	public static float VARIATION_TIME_BETWEEN_ATTACK_PERCENT = 10 / 100;
 
+	public static int FREQUENCE_POP=1500;
+	public static int VARIANCE_FREQUENCE_POP_PERCENT=20/100;
+	public static Vector2 POP_POINT_1 = new Vector2(45,5);
+	public static Vector2 POP_POINT_2 = new Vector2(5,45);
+	public static Vector2 POP_POINT_3 = new Vector2(25,25);
+
+	
 
 
 
