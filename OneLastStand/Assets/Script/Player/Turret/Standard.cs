@@ -7,7 +7,11 @@ public class Standard : Turret{
 
 	}
 	
-	public override void Update (){
+	public override void UpdateShoot (){
+		
+	}
+
+	public override void UpdateConstruction (){
 		
 	}
 }

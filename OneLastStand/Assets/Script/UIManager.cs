@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class UIManager {
+public class UIManager : MonoBehaviour{
 
 	public UIManager () {
 	
 	}
 
-	// Update is called once per frame
-	public void Update () {
-	
+	public void UpdateConstruction () {
+	}
+
+	public void UpdateShoot () {
 	}
 }

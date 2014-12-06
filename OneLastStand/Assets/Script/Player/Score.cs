@@ -7,7 +7,11 @@ public class Score{
 		
 	}
 	
-	public void Update (){
+	public void UpdateShoot (){
+		
+	}	
+
+	public void UpdateConstruction (){
 		
 	}
 }
