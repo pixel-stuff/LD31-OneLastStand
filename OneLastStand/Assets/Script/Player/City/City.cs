@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class City : MonoBehaviour{
 
+	public int _pv;
+
 	List<Turret> _listTurret;
 	
 	public GameObject _prefabStandardTurret;
@@ -29,5 +31,9 @@ public class City : MonoBehaviour{
 	}
 
 
+
+	static public Transform getTransform(){
+
+	}
 }
 

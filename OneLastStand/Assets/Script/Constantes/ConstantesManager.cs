@@ -40,5 +40,6 @@ public class ConstantesManager {
 	public static float CRUISER_TIME_BETWEEN_ATTACK = 2000; // time in ms
 
 
-
+	//City var
+	public static int CITY_PV = 10000;
 }
