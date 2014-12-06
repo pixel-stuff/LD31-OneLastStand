@@ -7,6 +7,7 @@ public abstract class Turret{
 		
 	}
 	
-	public abstract void Update ();
+	public abstract void UpdateShoot ();
+	public abstract void UpdateConstruction ();
 }
 

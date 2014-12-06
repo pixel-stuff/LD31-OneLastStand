@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+//Contient toutes les constantes liées au GameDesign
 public class ConstantesManager {
-	public static float VARIATION_TIME_BETWEEN_ATTACK_PERCENT = 10 / 100;
 
 
 	// -------------------------------------------------ENNEMY VAR--------------------------------------------------------
+	public static float VARIATION_TIME_BETWEEN_ATTACK_PERCENT = 10 / 100;
+
+
+
 
 	//Hunter Var
 
@@ -34,9 +38,6 @@ public class ConstantesManager {
 	public static int CRUISER_KAMIKAZE_DMG = 100;
 	public static float CRUISER_NORME_SPEED = 10;
 	public static float CRUISER_TIME_BETWEEN_ATTACK = 2000; // time in ms
-
-	//Contient toutes les constantes liées au GameDesign
-
 
 
 

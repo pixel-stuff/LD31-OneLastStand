@@ -1,9 +1,9 @@
 using UnityEngine;
 using System.Collections;
 
-public class Decharge{
+public class ResourcesManager{
 
-	public Decharge (){
+	public ResourcesManager (){
 	
 	}
 	
