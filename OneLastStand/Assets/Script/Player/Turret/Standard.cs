@@ -1,14 +1,13 @@
 using UnityEngine;
 using System.Collections;
 
-public class Score{
+public class Standard : Turret{
 	
-	public Score(){
-		
+	public Standard() : base(){
+
 	}
 	
 	public void Update (){
 		
 	}
 }
-

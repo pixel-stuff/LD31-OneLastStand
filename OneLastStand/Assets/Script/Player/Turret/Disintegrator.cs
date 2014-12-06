@@ -1,14 +1,13 @@
 using UnityEngine;
 using System.Collections;
 
-public class Score{
+public class Disintegrator : Turret{
 	
-	public Score(){
-		
+	public Disintegrator() : base(){
+
 	}
 	
 	public void Update (){
 		
 	}
 }
-

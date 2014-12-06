@@ -1,9 +1,9 @@
 using UnityEngine;
 using System.Collections;
 
-public class Score{
+public class Turret{
 	
-	public Score(){
+	public Turret(){
 		
 	}
 	

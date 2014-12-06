@@ -1,14 +1,14 @@
 using UnityEngine;
 using System.Collections;
 
-public class City{
-
-	public City(){
+public class EMP : Turret{
 	
+	public EMP() : base(){
+
 	}
 	
 	public void Update (){
-	
+		
 	}
 }
 
