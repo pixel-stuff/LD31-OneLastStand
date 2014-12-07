@@ -33,6 +33,9 @@ public class GameMain : MonoBehaviour {
 			case Enum_StateGame.Shoot:
 				UpdateShoot();
 				break;
+			case Enum_StateGame.Stop:
+				Debug.Log("Pause");
+				break;
 			default:
 				Debug.Log("Wrong StateGame in GameMain");
 				break;

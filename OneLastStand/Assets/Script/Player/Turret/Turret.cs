@@ -17,11 +17,19 @@ public class Turret : MonoBehaviour{
 	public EnnemiManager _ennemiManager;
 	public GameObject _prefabBulletTurret;
 
+	public Enum_TurretAim _enumTurretAim;
+	public string _tagEnnemiManager = "Ennemi";
+
+
+
+
 	void Start(){
 		_enumCurrentStateTurret = Enum_StateTurret.TurretNone;
 		_enumCurrentTurretType = Enum_TurretType.None;
 		_enumOldStateTurret = _enumCurrentStateTurret;
 		_pv = ConstantesManager.CITY_PV_MAX;
+		_enumTurretAim = Enum_TurretAim.None;
+		_ennemiManager = GameObject.FindGameObjectWithTag (_tagEnnemiManager).GetComponent<EnnemiManager>();
 
 		//TODO
 		//ChangeStateTurret (_enumCurrentStateTurret);
@@ -32,8 +40,16 @@ public class Turret : MonoBehaviour{
 	
 	public void UpdateShoot (){
 		Debug.Log ("Turret Update Shoot");
+		GameObject ship = null;
+
+		ship = _ennemiManager.getCloserShipLigne1 (this.transform);
+		if (ship == null) {
+			ship = _ennemiManager.getCloserShipLigne2 (this.transform);
+		}
+
+
 		//TODO 
-		/*Ship ship = null;
+		/*
 		 *foreach(LineAttack lineAtt in _lineAttackAiming){
 		 *		Ship ship = lineAtt.getCloser();
 		 *		if(ship != null){
@@ -42,13 +58,6 @@ public class Turret : MonoBehaviour{
 		 *
 		 * }
 		 *ShootAt(ship);
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
 		 * 
 		 */
 	}

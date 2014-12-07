@@ -12,6 +12,8 @@ public class City : MonoBehaviour{
 
 	public int _nombreTurret = 4; 
 
+	public Enum_StatePlayer _enumStatePlayer;
+
 	ResourcesManager _resourcesManager;
 	List<Truck> _listTruck;
 	
@@ -20,6 +22,7 @@ public class City : MonoBehaviour{
 		_resourcesManager = new ResourcesManager ();
 		_listTruck = new List<Truck>();
 		_pv = ConstantesManager.CITY_PV_MAX;
+		_enumStatePlayer = Enum_StatePlayer.Playing;
 
 		_listTurret = new List<Turret>();
 
@@ -31,16 +34,41 @@ public class City : MonoBehaviour{
 		}
 
 	}
+
+
+	public void getHit(int degat){
+		_pv -= degat;
+		if (_pv <= 0) {
+			_pv =0;
+		}
+	}
 	
 	public void UpdateShoot(){
 		if (_listTurret == null) 
 						return;
+
+		switch (_enumStatePlayer) {
+			case Enum_StatePlayer.Playing:
+
+			break;
+			case Enum_StatePlayer.Winning:
+
+			break;
+			case Enum_StatePlayer.Dead:
+				
+			break;
+			default:
+			Debug.Log ("Wrong _enumStatePlayer in " + this.gameObject.name);
+			break;
+
+		}
 
 		Debug.Log ("City Update Shoot");
 	
 		for (int i=0;i<_listTurret.Count;i++) {
 			_listTurret[i].UpdateShoot();
 		}
+
 		foreach (Truck tur in _listTruck) {
 			tur.UpdateShoot();
 		}
@@ -48,15 +76,14 @@ public class City : MonoBehaviour{
 	}
 
 	public void UpdateConstruction(){
-		foreach (Turret tur in _listTurret) {
+		/*foreach (Turret tur in _listTurret) {
 			tur.UpdateConstruction();
 		}
 		foreach (Truck tur in _listTruck) {
 			tur.UpdateConstruction();
 		}
-		_resourcesManager.UpdateConstruction ();
+		_resourcesManager.UpdateConstruction ();*/
 	}
-
 
 
 }
