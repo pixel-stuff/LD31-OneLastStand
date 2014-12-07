@@ -19,7 +19,7 @@ public class EnnemiManager : MonoBehaviour {
 	{
 		_containerLineAttack = (GameObject)Instantiate (_prefabContainerLineAttack, Vector3.zero, Quaternion.identity);
 	
-		_ligneAttackManager = _containerLineAttack.GetComponents<LineAttackManager> ();
+		_ligneAttackManager = _containerLineAttack.GetComponent<LineAttackManager> ();
 		_lineAttack1 = _ligneAttackManager.getLineAttack (0);
 		_lineAttack2 = _ligneAttackManager.getLineAttack (1);
 		_lineAttack3 = _ligneAttackManager.getLineAttack (2);
@@ -31,15 +31,15 @@ public class EnnemiManager : MonoBehaviour {
 			
 		}
 
-	public Ship getCloserShipLigne1(Transform refe){
+	public GameObject getCloserShipLigne1(Transform refe){
 		return _lineAttack1.getCloserShip (refe);
 	}
 
-	public Ship getCloserShipLigne2(Transform refe){
+	public GameObject getCloserShipLigne2(Transform refe){
 		return _lineAttack2.getCloserShip (refe);
 	}
 
-	public Ship getCloserShipLigne3(Transform refe){
+	public GameObject getCloserShipLigne3(Transform refe){
 		return _lineAttack3.getCloserShip (refe);
 	}
 }

@@ -173,8 +173,8 @@ public class LineAttack : MonoBehaviour{
 
 	}
 
-	public Ship getCloserShip(Transform refe){
-		Ship returnShip;
+	public GameObject getCloserShip(Transform refe){
+		GameObject returnShip=null;
 		float minDistance = float.MaxValue;
 		float distance;
 		foreach (GameObject ship in _listHunter) {

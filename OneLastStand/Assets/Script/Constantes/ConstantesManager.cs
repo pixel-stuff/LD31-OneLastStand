@@ -6,6 +6,7 @@ public class ConstantesManager {
 
 
 	// -------------------------------------------------ENNEMY VAR--------------------------------------------------------
+
 	public static float VARIATION_TIME_BETWEEN_ATTACK_PERCENT = 10 / 100;
 
 	public static float FREQUENCE_POP=1.5f;
@@ -15,6 +16,20 @@ public class ConstantesManager {
 	public static Vector2 POP_POINT_2 = new Vector2(5,45);
 	public static Vector2 POP_POINT_3 = new Vector2(25,25);
 	public static float ERROR_MARGE_POP = 10f;
+
+
+	//Vague Var
+
+	public static int FP_INITIAL = 4;
+	public static int NB_PRECALCULATE_VAGUE = 3;
+	public static float MIN_PERCENT_HUNTER = 20/100;
+	public static float MAX_PERCENT_CRUISER = 50/100;
+
+	public static int COST_HUNTER = 1;
+	public static int COST_FRIGATE = 5;
+	public static int COST_CRUISER = 20;
+
+
 
 
 	//Hunter Var
