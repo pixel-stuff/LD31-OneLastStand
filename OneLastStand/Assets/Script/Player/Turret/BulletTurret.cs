@@ -7,6 +7,7 @@ public class BulletTurret : MonoBehaviour
 	public float _speed; //px/sec
 	public int _pvDamage;
 	public int _fragmentDamage;
+	public Enum_TurretType _enumBulletType;
 
 	// Use this for initialization
 	void Start ()

@@ -73,20 +73,38 @@ public class ConstantesManager {
 
 	//Standard lvl 1 var
 	public static int STANDARD_LVL1_PV_MAX = 200; //shooting/sec
-	public static int STANDARD_LVL1_RATE_OF_FIRE = 10; //shooting/sec
-	public static int STANDARD_LVL1_SHOOT_DAMAGE = 50;
+	public static int STANDARD_LVL1_RATE_OF_FIRE = 15; //shooting/sec
+	public static int STANDARD_LVL1_SHOOT_DAMAGE = 15;
 	public static int STANDARD_LVL1_FRAGMENT_PERCENT = 100; //in percent !
 	
 	//Standard lvl 2 var
 	public static int STANDARD_LVL2_PV_MAX = 400; //shooting/sec
-	public static int STANDARD_LVL2_RATE_OF_FIRE = 15; //shooting/sec
-	public static int STANDARD_LVL2_SHOOT_DAMAGE = 70;
+	public static int STANDARD_LVL2_RATE_OF_FIRE = 20; //shooting/sec
+	public static int STANDARD_LVL2_SHOOT_DAMAGE = 25;
 	public static int STANDARD_LVL2_FRAGMENT_PERCENT = 90; //in percent !
 	
 	//Standard lvl 3 var
 	public static int STANDARD_LVL3_PV_MAX = 600; //shooting/sec
-	public static int STANDARD_LVL3_RATE_OF_FIRE = 20; //shooting/sec
-	public static int STANDARD_LVL3_SHOOT_DAMAGE = 100;
+	public static int STANDARD_LVL3_RATE_OF_FIRE = 25; //shooting/sec
+	public static int STANDARD_LVL3_SHOOT_DAMAGE = 40;
 	public static int STANDARD_LVL3_FRAGMENT_PERCENT = 80; //in percent !
+
+	//EMP lvl 1 var
+	public static int EMP_LVL1_PV_MAX = 200; //shooting/sec
+	public static int EMP_LVL1_RATE_OF_FIRE = 5; //shooting/sec
+	public static int EMP_LVL1_SHOOT_DAMAGE = 60;
+	public static int EMP_LVL1_FRAGMENT_PERCENT = 180; //in percent !
+	
+	//EMP lvl 2 var
+	public static int EMP_LVL2_PV_MAX = 400; //shooting/sec
+	public static int EMP_LVL2_RATE_OF_FIRE = 10; //shooting/sec
+	public static int EMP_LVL2_SHOOT_DAMAGE = 80;
+	public static int EMP_LVL2_FRAGMENT_PERCENT = 200; //in percent !
+	
+	//EMP lvl 3 var
+	public static int EMP_LVL3_PV_MAX = 600; //shooting/sec
+	public static int EMP_LVL3_RATE_OF_FIRE = 15; //shooting/sec
+	public static int EMP_LVL3_SHOOT_DAMAGE = 110;
+	public static int EMP_LVL3_FRAGMENT_PERCENT = 250; //in percent !
 
 }

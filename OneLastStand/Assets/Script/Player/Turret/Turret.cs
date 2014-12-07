@@ -62,7 +62,8 @@ public abstract class Turret : MonoBehaviour{
 		GameObject bullet = (GameObject)Instantiate(_prefabBulletTurret,Vector3.zero,Quaternion.identity);
 		bullet.name += this.gameObject.name;
 		bullet.GetComponent<BulletTurret> ().SetTarget (ship);
-		//TODO setvariable memebre de bullet
+		bullet.GetComponent<BulletTurret> ()._enumBulletType = _enumCurrentTurretType;
+		//TODO setvariable membre de bullet
 	}
 
 
