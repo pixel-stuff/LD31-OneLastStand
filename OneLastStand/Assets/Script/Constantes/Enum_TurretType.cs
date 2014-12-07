@@ -4,5 +4,6 @@ using System.Collections;
 public enum Enum_TurretType {
 	Standard,
 	Disintegrator,
-	EMP
+	EMP,
+	None
 }

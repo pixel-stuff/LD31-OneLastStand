@@ -32,8 +32,5 @@ public class City : MonoBehaviour{
 
 
 
-	static public Transform getTransform(){
-
-	}
 }
 

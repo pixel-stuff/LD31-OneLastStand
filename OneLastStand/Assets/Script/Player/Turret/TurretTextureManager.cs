@@ -3,58 +3,35 @@ using System.Collections;
 
 public class TurretTextureManager : MonoBehaviour{
 
-	public string _pathFolderRoot;
-	public string _pathTypeTurret;
-
-
-	public string _textureLvl1; //1
-	public string _textureLvl2; //2
-	public string _textureLvl3; //3
-	public string _destroy; 	//4
-	public string _none;		//5
-
+	public string _pathFolderRoot = "Turret";
+	
+	public Enum_StateTurret _enumStateTurret;
+	public Enum_TurretType _enumTurretType;
+	
 	public UITexture _currentTexture;
-	private int _currentIntTexture;
 	
 	// Use this for initialization
 	void Start (){
-		_currentIntTexture = 5;
-
+		_enumTurretType = Enum_TurretType.None;
+		_enumStateTurret = Enum_StateTurret.TurretNone;
 	}
-
 	// Update is called once per frame
 	void Update (){
 		string pathTexture = "";
-		switch (_currentIntTexture) {
-			case 1:
-				pathTexture = _pathFolderRoot + "/" + _pathTypeTurret + "/" + _textureLvl1;
-				_currentTexture.mainTexture = Resources.Load<Texture2D> (pathTexture);
-			break;
-			case 2:
-				pathTexture = _pathFolderRoot + "/" + _pathTypeTurret + "/" + _textureLvl2;
-				_currentTexture.mainTexture = Resources.Load<Texture2D> (pathTexture);
-				break; 
-			case 3:
-				pathTexture = _pathFolderRoot + "/" + _pathTypeTurret + "/" + _textureLvl3;
-				_currentTexture.mainTexture = Resources.Load<Texture2D> (pathTexture);
-				break; 
-			case 4:
-				pathTexture = _pathFolderRoot + "/" + _pathTypeTurret + "/" + _destroy;
-				_currentTexture.mainTexture = Resources.Load<Texture2D> (pathTexture);
-				break;   
-			case 5:
-				pathTexture = _pathFolderRoot + "/" + _pathTypeTurret + "/" + _none;
-				_currentTexture.mainTexture = Resources.Load<Texture2D> (pathTexture);
-				break;  
-			default: 
-				Debug.Log ("Wrong _currentIntTexture in " + this.gameObject.name); 
-				break;
+
+
+		if (_enumStateTurret == Enum_StateTurret.TurretDestroy || _enumStateTurret == Enum_StateTurret.TurretNone) {
+						pathTexture = _pathFolderRoot + "/None/" + _enumStateTurret;
+		} else {
+				pathTexture = _pathFolderRoot + "/" + _enumTurretType.ToString () + "/" + _enumStateTurret.ToString ();
 		}
+
+		_currentTexture.mainTexture = Resources.Load<Texture2D> (pathTexture);
 	}
 	
 
-	public void changeLvl(int lvl){
-		_currentIntTexture = lvl;
+	public void changeLvl(Enum_StateTurret state){
+		_enumStateTurret = state;
 	}
 }
 
