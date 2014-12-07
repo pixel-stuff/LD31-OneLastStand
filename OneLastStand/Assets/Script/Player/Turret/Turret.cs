@@ -25,12 +25,13 @@ public class Turret : MonoBehaviour{
 
 
 	void Start(){
-		_enumCurrentStateTurret = Enum_StateTurret.TurretNone;
-		_enumCurrentTurretType = Enum_TurretType.None;
+		_enumCurrentStateTurret = Enum_StateTurret.TurretLevel1;
+		_enumCurrentTurretType = Enum_TurretType.EMP;
 		_enumOldStateTurret = _enumCurrentStateTurret;
 		_pv = ConstantesManager.CITY_PV_MAX;
 		_enumTurretAim = Enum_TurretAim.None;
-		//_ennemiManager = GameObject.FindGameObjectWithTag (_tagEnnemiManager).GetComponent<EnnemiManager>();
+		_ennemiManager = (GameObject.FindGameObjectWithTag (_tagEnnemiManager)).GetComponent<EnnemiManager>();
+		Debug.Log ("PLOP " + _ennemiManager);
 		_bulletSpeed = ConstantesManager.BULLET_TURRET_SPEED;
 		//TODO
 
@@ -38,53 +39,46 @@ public class Turret : MonoBehaviour{
 	}
 	
 	public void UpdateShoot (){
+
 		if (_enumCurrentTurretType == Enum_TurretType.None)
-			return;
+				return;
 
 		if (_enumCurrentStateTurret == Enum_StateTurret.TurretNone)
-			return;
+				return;
 
 
 
-		Debug.Log ("Turret Update Shoot");
+		//Debug.Log ("Turret Update Shoot");
 		GameObject ship = null;
 
 		ship = _ennemiManager.getCloserShipLigne1 (this.transform);
+		//Debug.Log ("SHIP " + ship);
 		_enumTurretAim = Enum_TurretAim.FirstChoice;
 		if (ship == null) {
+			Debug.Log ("getCloserShipLigne1 is null");
 			ship = _ennemiManager.getCloserShipLigne2 (this.transform);
 			_enumTurretAim = Enum_TurretAim.SecondChoice;
-		} else {
-			ship = _ennemiManager.getCloserShipLigne3 (this.transform);
-			_enumTurretAim = Enum_TurretAim.ThirdChoice;
+			if (ship == null) {
+				Debug.Log ("getCloserShipLigne2 is null");
+				ship = _ennemiManager.getCloserShipLigne3 (this.transform);
+				_enumTurretAim = Enum_TurretAim.ThirdChoice;
+			}
 		}
 
-		if (ship == null){
-			_enumTurretAim = Enum_TurretAim.TooFar;
-		}
 
-		if (_ennemiManager.didOneLeft ()) {
+		if (ship == null) {
+			Debug.Log ("All Ligne null");
 			_enumTurretAim = Enum_TurretAim.NoEnnemiFound;
+		} else {
+			float distance = Vector3.Distance(this.transform.position, ship.transform.position);
+			if(distance >= ConstantesManager.DISTANCE_WITH_DANGER_BEFORE_SHOOT){
+				_enumTurretAim = Enum_TurretAim.TooFar;
+				
+				Debug.Log ("Cible Too Far " + distance);
+			}else{
+				ShootAt(ship); //Tire si ship != null et distance suffisante
+			}
 		}
-
-		if (_enumTurretAim == Enum_TurretAim.TooFar || _enumTurretAim == Enum_TurretAim.None || _enumTurretAim == Enum_TurretAim.NoEnnemiFound) 
-			return;
-		
-
-		ShootAt(ship);
-
-		//TODO 
-		/*
-		 *foreach(LineAttack lineAtt in _lineAttackAiming){
-		 *		Ship ship = lineAtt.getCloser();
-		 *		if(ship != null){
-		 *			break;
-		 *		}
-		 *
-		 * }
-		 *ShootAt(ship);
-		 * 
-		 */
 	}
 
 	public void UpdateConstruction (){
@@ -100,8 +94,10 @@ public class Turret : MonoBehaviour{
 	}
 
 	public void ShootAt(GameObject ship){
-		GameObject bull = (GameObject)Instantiate (_prefabBulletTurret, Vector2.zero, Quaternion.identity);
+		Debug.Log ("ShootAt");
+		GameObject bull = (GameObject)Instantiate (_prefabBulletTurret, this.transform.position, Quaternion.identity);
 		bull.GetComponent<BulletTurret> ().Initialize(ship.GetComponent<Ship>(), _enumCurrentTurretType, _shootDamage,_bulletSpeed);
+		bull.transform.parent = this.transform;
 
 	}
 
@@ -121,6 +117,22 @@ public class Turret : MonoBehaviour{
 			_enumCurrentStateTurret = Enum_StateTurret.TurretDestroy;
 			_turretTextureManager.changeStateTurret(_enumCurrentStateTurret);
 		}
+	}
+
+	void OnTriggerEnter2D(Collider2D coll){
+		Ship ship = coll.gameObject.GetComponent<Ship>();
+		ennemiBullet bullet = coll.gameObject.GetComponent<ennemiBullet> ();
+		
+		if (ship != null) {
+			getHit(ship._degatKamikaze);
+			return;
+		}
+		
+		if (bullet != null) {
+			getHit((int)bullet._pvDamage);
+			return;
+		}
+		
 	}
 
 	public void ChangeTypeTurret(Enum_TurretType newType){

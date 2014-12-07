@@ -81,6 +81,7 @@ public class ConstantesManager {
 
 	//City var
 	public static int CITY_PV_MAX = 10000;
+	public static Vector3 CITY_LOCAL_POSITION = new Vector3(100,230,0);
 
 	//Label var
 	public static int LABEL_LIFE_TIME = 3;//sec
@@ -88,6 +89,13 @@ public class ConstantesManager {
 	//Bullet var
 	public static float BULLET_TURRET_SPEED = 250; //px/sec
 	public static float BULLET_TURRET_LIFE_TIME = 5; //sec
+
+	//Turret var
+	public static Vector3 TURRET_1_LOCAL_POSITION = new Vector3(-35,85,0);
+	public static Vector3 TURRET_2_LOCAL_POSITION = new Vector3(35,65,0);
+	public static Vector3 TURRET_3_LOCAL_POSITION = new Vector3(85,5,0);
+	public static Vector3 TURRET_4_LOCAL_POSITION = new Vector3(135,8,0);
+	public static float DISTANCE_WITH_DANGER_BEFORE_SHOOT = 200;//pixel
 
 	//Disintegrator lvl 1 var
 	public static int DISINTEGRATOR_LVL1_PV_MAX = 200; //shooting/sec

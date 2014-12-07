@@ -17,8 +17,9 @@ public class PlayerManager : MonoBehaviour{
 
 	void Start () {
 		_quantiteFrag = 50;
-		_city = ((GameObject)Instantiate (_cityPrefab, Vector2.zero, Quaternion.identity)).GetComponent<City>();
+		_city = ((GameObject)Instantiate (_cityPrefab, this.transform.position, Quaternion.identity)).GetComponent<City>();
 		_city.transform.parent = this.transform;
+		_city.transform.localPosition = ConstantesManager.CITY_LOCAL_POSITION;
 
 		_decharge = ((GameObject)Instantiate (_dechargePrefab, Vector2.zero, Quaternion.identity)).GetComponent<Decharge>();
 		_decharge.transform.parent = this.transform;

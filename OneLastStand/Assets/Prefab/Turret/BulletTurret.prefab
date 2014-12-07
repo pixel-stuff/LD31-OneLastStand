@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 30, y: 30, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -61,8 +61,8 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
-  mShader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  mTexture: {fileID: 0}
+  mShader: {fileID: 10750, guid: 0000000000000000f000000000000000, type: 0}
+  mTexture: {fileID: 2800000, guid: cc61f157f8bbe96449bb5ee2610d5588, type: 3}
   mMat: {fileID: 0}
 --- !u!114 &11400002
 MonoBehaviour:
@@ -77,8 +77,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _speed: 0
   _pvDamage: 0
-  _fragmentDamage: 0
   _enumBulletType: 3
+  _LastDirection: {x: 0, y: 0}
+  _lifeTime: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

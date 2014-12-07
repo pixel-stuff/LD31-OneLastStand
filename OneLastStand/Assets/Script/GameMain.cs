@@ -9,6 +9,7 @@ public class GameMain : MonoBehaviour {
 
 	public GameObject _playerPrefab;
 	public GameObject _ennemiPrefab;
+	public GameObject _BottomLeftAnchorPrefab;
 
 	Enum_StateGame _enumStateGame;
 
@@ -21,8 +22,8 @@ public class GameMain : MonoBehaviour {
 		StartShoot ();
 
 
-		_playerManager = ((GameObject)Instantiate(_playerPrefab, Vector2.zero,Quaternion.identity)).GetComponent<PlayerManager>();
-		_playerManager.transform.parent = this.transform;
+		_playerManager = ((GameObject)Instantiate(_playerPrefab, _BottomLeftAnchorPrefab.transform.position,Quaternion.identity)).GetComponent<PlayerManager>();
+		_playerManager.transform.parent = _BottomLeftAnchorPrefab.transform;
 
 		_ennemiManager = ((GameObject)Instantiate(_ennemiPrefab, Vector2.zero,Quaternion.identity)).GetComponent<EnnemiManager>();
 		_ennemiManager.transform.parent = this.transform;

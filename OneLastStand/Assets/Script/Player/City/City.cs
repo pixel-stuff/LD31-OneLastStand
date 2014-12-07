@@ -15,24 +15,35 @@ public class City : MonoBehaviour{
 	public Enum_StatePlayer _enumStatePlayer;
 
 	ResourcesManager _resourcesManager;
-	List<Truck> _listTruck;
 	
 
 	void Start(){
 		_resourcesManager = new ResourcesManager ();
-		_listTruck = new List<Truck>();
 		_pv = ConstantesManager.CITY_PV_MAX;
 		_enumStatePlayer = Enum_StatePlayer.Playing;
 
 		_listTurret = new List<Turret>();
 
 		for (int i=0; i<_nombreTurret; i++) {
-			GameObject turret = (GameObject)Instantiate (_prefabTurret, Vector2.zero, Quaternion.identity);
+			GameObject turret = (GameObject)Instantiate (_prefabTurret, this.transform.position, Quaternion.identity);
 			turret.name += i;
 			turret.transform.parent = this.transform;
 			_listTurret.Add (turret.GetComponent<Turret>());
 		}
 
+		_listTurret [0].transform.localPosition = ConstantesManager.TURRET_1_LOCAL_POSITION;
+		_listTurret [1].transform.localPosition = ConstantesManager.TURRET_2_LOCAL_POSITION;
+		_listTurret [2].transform.localPosition = ConstantesManager.TURRET_3_LOCAL_POSITION;
+		_listTurret [3].transform.localPosition = ConstantesManager.TURRET_4_LOCAL_POSITION;
+
+	}
+
+	public void StartShoot(){
+		
+	}
+	
+	public void StartConstruction(){
+		
 	}
 
 
@@ -40,37 +51,37 @@ public class City : MonoBehaviour{
 		_pv -= degat;
 		if (_pv <= 0) {
 			_pv =0;
+			_enumStatePlayer = Enum_StatePlayer.Dead;
 		}
+		Debug.Log ("City take Damage -" + degat);
 	}
 	
 	public void UpdateShoot(){
-		if (_listTurret == null) 
-						return;
-
 		switch (_enumStatePlayer) {
-			case Enum_StatePlayer.Playing:
-
+		case Enum_StatePlayer.Playing:
+			
 			break;
-			case Enum_StatePlayer.Winning:
-
+		case Enum_StatePlayer.Winning:
+			Debug.Log ("PALYER WIN");
 			break;
-			case Enum_StatePlayer.Dead:
-				
+		case Enum_StatePlayer.Dead:
+			Debug.Log ("PALYER DEAD");
 			break;
-			default:
+		default:
 			Debug.Log ("Wrong _enumStatePlayer in " + this.gameObject.name);
 			break;
 		}
 
-		Debug.Log ("City Update Shoot");
+		if (_enumStatePlayer != Enum_StatePlayer.Playing) 
+					return;
+		
+		CheckVictoryCondition ();
 	
 		for (int i=0;i<_listTurret.Count;i++) {
 			_listTurret[i].UpdateShoot();
 		}
 
-		foreach (Truck tur in _listTruck) {
-			tur.UpdateShoot();
-		}
+
 		_resourcesManager.UpdateShoot ();
 	}
 
@@ -84,6 +95,54 @@ public class City : MonoBehaviour{
 		_resourcesManager.UpdateConstruction ();*/
 	}
 
+	
+	public void CheckVictoryCondition (){
+		if (_enumStatePlayer == Enum_StatePlayer.Dead)
+						return;
+
+		int numberTurretWithNoTarget = 0;
+
+		foreach (Turret tur in _listTurret) {
+			if( tur._enumTurretAim == Enum_TurretAim.NoEnnemiFound){
+				numberTurretWithNoTarget++;
+			}
+		}
+
+		if (numberTurretWithNoTarget >= _nombreTurret) {
+			_enumStatePlayer = Enum_StatePlayer.Winning;
+		}
+	}
+
+
+	void OnTriggerEnter2D(Collider2D coll){
+		Ship ship = coll.gameObject.GetComponent<Ship>();
+		ennemiBullet bullet = coll.gameObject.GetComponent<ennemiBullet> ();
+
+		if (ship != null) {
+			getHit(ship._degatKamikaze);
+			return;
+		}
+
+		if (bullet != null) {
+			getHit((int)bullet._pvDamage);
+			return;
+		}
+
+	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
