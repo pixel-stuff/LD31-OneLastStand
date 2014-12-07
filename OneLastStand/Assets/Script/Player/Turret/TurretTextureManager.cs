@@ -23,7 +23,7 @@ public class TurretTextureManager : MonoBehaviour{
 
 		//Instantiate (_TurretSoclePrefab, Vector2.zero, Quaternion.identity);
 
-		_enumTurretType = Enum_TurretType.None;
+		_enumTurretType = Enum_TurretType.Standard;
 		_enumStateTurret = Enum_StateTurret.TurretNone;
 	}
 	// Update is called once per frame
@@ -41,6 +41,7 @@ public class TurretTextureManager : MonoBehaviour{
 		}
 
 		_currentTurretTexture.mainTexture = Resources.Load<Texture2D> (pathTextureTurret);
+		_currentBaseTexture.mainTexture = Resources.Load<Texture2D> (pathTextureBase);
 	}
 	
 

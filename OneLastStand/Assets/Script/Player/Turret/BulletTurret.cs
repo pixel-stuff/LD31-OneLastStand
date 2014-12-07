@@ -7,6 +7,8 @@ public class BulletTurret : MonoBehaviour
 	public float _speed; //px/sec
 	public float _pvDamage;
 	public Enum_TurretType _enumBulletType;
+	public Vector2 _LastDirection;
+
 
 	public float _lifeTime;
 	private float _timeCreation;
@@ -26,8 +28,15 @@ public class BulletTurret : MonoBehaviour
 			return;
 		}
 
-		//float dist = Vector3.Distance(_shipTarget.transform.position,this.transform.position);
-		//TODO Déplacer la bullet
+		if (_shipTarget == null) {
+			this.transform.position = _LastDirection * (Time.deltaTime * _speed);
+		} else {
+
+			float dist = Vector3.Distance (_shipTarget.transform.position, this.transform.position);
+			Vector3 vec Vector3.MoveTowards (transform.position, _shipTarget.transform.position, Time.deltaTime * _speed);
+			transform.position = vec;
+			_LastDirection = Vector3.Normalize(vec);
+		}
 
 
 	}
@@ -37,6 +46,8 @@ public class BulletTurret : MonoBehaviour
 		_enumBulletType = type;
 		_pvDamage = damage;
 		_speed = speed;
+		_LastDirection = Vector3.Normalize(Vector3.MoveTowards(transform.position, _shipTarget.transform.position, 1f));
+		
 	}
 
 	void OnTriggerEnter2D(Collider2D coll){
