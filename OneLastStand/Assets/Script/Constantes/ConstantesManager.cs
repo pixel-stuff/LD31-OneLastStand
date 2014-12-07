@@ -8,11 +8,13 @@ public class ConstantesManager {
 	// -------------------------------------------------ENNEMY VAR--------------------------------------------------------
 	public static float VARIATION_TIME_BETWEEN_ATTACK_PERCENT = 10 / 100;
 
-	public static int FREQUENCE_POP=1500;
+	public static float FREQUENCE_POP=1.5f;
 	public static int VARIANCE_FREQUENCE_POP_PERCENT=20/100;
+
 	public static Vector2 POP_POINT_1 = new Vector2(45,5);
 	public static Vector2 POP_POINT_2 = new Vector2(5,45);
 	public static Vector2 POP_POINT_3 = new Vector2(25,25);
+	public static float ERROR_MARGE_POP = 10f;
 
 	
 
@@ -25,7 +27,7 @@ public class ConstantesManager {
 	public static int HUNTER_SHOOT_DMG = 10;
 	public static int HUNTER_KAMIKAZE_DMG = 100;
 	public static float HUNTER_NORME_SPEED = 10;
-	public static float HUNTER_TIME_BETWEEN_ATTACK = 2000; // time in ms
+	public static float HUNTER_TIME_BETWEEN_ATTACK = 2f; // time in s
 
 
 	//Frigate Var
@@ -35,7 +37,7 @@ public class ConstantesManager {
 	public static int FRIGATE_SHOOT_DMG = 10;
 	public static int FRIGATE_KAMIKAZE_DMG = 100;
 	public static float FRIGATE_NORME_SPEED = 10;
-	public static float FRIGATE_TIME_BETWEEN_ATTACK = 2000; // time in ms
+	public static float FRIGATE_TIME_BETWEEN_ATTACK = 2f; // time in s
 
 	//Cruiser Var
 
@@ -44,7 +46,7 @@ public class ConstantesManager {
 	public static int CRUISER_SHOOT_DMG = 10;
 	public static int CRUISER_KAMIKAZE_DMG = 100;
 	public static float CRUISER_NORME_SPEED = 10;
-	public static float CRUISER_TIME_BETWEEN_ATTACK = 2000; // time in ms
+	public static float CRUISER_TIME_BETWEEN_ATTACK = 2f; // time in s
 
 
 	// -------------------------------------------------PLAYER VAR--------------------------------------------------------
