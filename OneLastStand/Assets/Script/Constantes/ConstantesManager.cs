@@ -38,7 +38,7 @@ public class ConstantesManager {
 	public static float HUNTER_FRAG_DISINTEGRATOR_PERCENT = 16f/100f;
 	public static float HUNTER_FRAG_EMP_PERCENT = 180f/100f;
 
-	public static int HUNTER_PV = 100;
+	public static int HUNTER_PV = 1000;
 	public static int HUNTER_SCORE = 100;
 	public static int HUNTER_SHOOT_DMG = 10;
 	public static int HUNTER_KAMIKAZE_DMG = 100;

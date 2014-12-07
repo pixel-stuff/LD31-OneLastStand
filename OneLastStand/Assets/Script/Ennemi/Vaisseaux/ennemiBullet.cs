@@ -4,7 +4,7 @@ using System;
 
 public class ennemiBullet : MonoBehaviour {
 
-	GameObject _cityTarget;
+	Vector3 _cityTarget;
 	public float _speed; //px/sec
 	public float _pvDamage;
 	public Enum_ShipType _enumBulletType;
@@ -35,8 +35,8 @@ public class ennemiBullet : MonoBehaviour {
 			Vector3 origin = this.transform.position;
 			Vector3 vectorMove=(Time.deltaTime * _speed)*_LastDirection;
 			transform.position =  origin + vectorMove;
-			Vector3 target = _cityTarget.transform.position;
-			_LastDirection = Vector3.Normalize(target - origin);
+
+			_LastDirection = Vector3.Normalize(_cityTarget - origin);
 
 		}
 		
@@ -45,14 +45,17 @@ public class ennemiBullet : MonoBehaviour {
 	
 	public void Initialize(GameObject city, Enum_ShipType type, int damage, float speed,Vector3 initialePos){
 		//Debug.Log ("Ennemi bullet INIT" + this.transform.position );
+		float decaX = UnityEngine.Random.Range (-40f, 0);
+		float decaY = UnityEngine.Random.Range (-40f, 0);
 		this.transform.position = initialePos;
-		_cityTarget = city;
+		_cityTarget = city.transform.position;
 		_enumBulletType = type;
 		_pvDamage = damage;
 		_speed = speed;
-		Vector3 target = _cityTarget.transform.position;
+		_cityTarget.x += decaX;
+		_cityTarget.y += decaY;
 		Vector3 origin = this.transform.position;
-		_LastDirection = Vector3.Normalize(target - origin);
+		_LastDirection = Vector3.Normalize(_cityTarget - origin);
 		float orientation = 90-  (360f/(2*3.141592654f))*(float)(Math.Atan(_LastDirection.x/ _LastDirection.y));
 		this.transform.Rotate(new Vector3(0, 0, orientation));
 

@@ -132,7 +132,7 @@ public class City : MonoBehaviour{
 
 		if (ship != null) {
 			getHit(ship._degatKamikaze);
-			Destroy(ship.gameObject);
+			ship._onDestroy=true;
 			return;
 		}
 
