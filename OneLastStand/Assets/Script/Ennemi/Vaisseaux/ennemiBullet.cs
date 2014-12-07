@@ -44,7 +44,7 @@ public class ennemiBullet : MonoBehaviour {
 	}
 	
 	public void Initialize(GameObject city, Enum_ShipType type, int damage, float speed){
-		Debug.Log ("Ennemi bullet INIT" + this.transform.position );
+		//Debug.Log ("Ennemi bullet INIT" + this.transform.position );
 		_cityTarget = city;
 		_enumBulletType = type;
 		_pvDamage = damage;

@@ -95,51 +95,51 @@ public class ConstantesManager {
 	public static Vector3 TURRET_2_LOCAL_POSITION = new Vector3(35,65,0);
 	public static Vector3 TURRET_3_LOCAL_POSITION = new Vector3(85,5,0);
 	public static Vector3 TURRET_4_LOCAL_POSITION = new Vector3(135,8,0);
-	public static float DISTANCE_WITH_DANGER_BEFORE_SHOOT = 200;//pixel
+	public static float DISTANCE_WITH_DANGER_BEFORE_SHOOT = 1000;//pixel
 
 	//Disintegrator lvl 1 var
 	public static int DISINTEGRATOR_LVL1_PV_MAX = 200; //shooting/sec
-	public static int DISINTEGRATOR_LVL1_RATE_OF_FIRE = 10; //shooting/sec
+	public static float DISINTEGRATOR_LVL1_RATE_OF_FIRE = 1f; //shooting/sec
 	public static int DISINTEGRATOR_LVL1_SHOOT_DAMAGE = 50;
 
 	//Disintegrator lvl 2 var
 	public static int DISINTEGRATOR_LVL2_PV_MAX = 400; //shooting/sec
-	public static int DISINTEGRATOR_LVL2_RATE_OF_FIRE = 15; //shooting/sec
+	public static float DISINTEGRATOR_LVL2_RATE_OF_FIRE = 2; //shooting/sec
 	public static int DISINTEGRATOR_LVL2_SHOOT_DAMAGE = 70;
 
 	//Disintegrator lvl 3 var
 	public static int DISINTEGRATOR_LVL3_PV_MAX = 600; //shooting/sec
-	public static int DISINTEGRATOR_LVL3_RATE_OF_FIRE = 20; //shooting/sec
+	public static float DISINTEGRATOR_LVL3_RATE_OF_FIRE = 3f; //shooting/sec
 	public static int DISINTEGRATOR_LVL3_SHOOT_DAMAGE = 100;
 
 	//Standard lvl 1 var
 	public static int STANDARD_LVL1_PV_MAX = 200; //shooting/sec
-	public static int STANDARD_LVL1_RATE_OF_FIRE = 15; //shooting/sec
+	public static float STANDARD_LVL1_RATE_OF_FIRE = 1f; //shooting/sec
 	public static int STANDARD_LVL1_SHOOT_DAMAGE = 15;
 	
 	//Standard lvl 2 var
 	public static int STANDARD_LVL2_PV_MAX = 400; //shooting/sec
-	public static int STANDARD_LVL2_RATE_OF_FIRE = 20; //shooting/sec
+	public static float STANDARD_LVL2_RATE_OF_FIRE = 2f; //shooting/sec
 	public static int STANDARD_LVL2_SHOOT_DAMAGE = 25;
 	
 	//Standard lvl 3 var
 	public static int STANDARD_LVL3_PV_MAX = 600; //shooting/sec
-	public static int STANDARD_LVL3_RATE_OF_FIRE = 25; //shooting/sec
+	public static float STANDARD_LVL3_RATE_OF_FIRE = 3f; //shooting/sec
 	public static int STANDARD_LVL3_SHOOT_DAMAGE = 40;
 
 	//EMP lvl 1 var
 	public static int EMP_LVL1_PV_MAX = 200; //shooting/sec
-	public static int EMP_LVL1_RATE_OF_FIRE = 5; //shooting/sec
+	public static float EMP_LVL1_RATE_OF_FIRE = 1f; //shooting/sec
 	public static int EMP_LVL1_SHOOT_DAMAGE = 60;
 	
 	//EMP lvl 2 var
 	public static int EMP_LVL2_PV_MAX = 400; //shooting/sec
-	public static int EMP_LVL2_RATE_OF_FIRE = 10; //shooting/sec
+	public static float EMP_LVL2_RATE_OF_FIRE = 2f; //shooting/sec
 	public static int EMP_LVL2_SHOOT_DAMAGE = 80;
 	
 	//EMP lvl 3 var
 	public static int EMP_LVL3_PV_MAX = 600; //shooting/sec
-	public static int EMP_LVL3_RATE_OF_FIRE = 15; //shooting/sec
+	public static float EMP_LVL3_RATE_OF_FIRE = 3f; //shooting/sec
 	public static int EMP_LVL3_SHOOT_DAMAGE = 110;
 
 }

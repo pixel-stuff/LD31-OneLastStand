@@ -6,7 +6,7 @@ public class Turret : MonoBehaviour{
 
 
 	public int _pv;
-	public int _rateOfFire;
+	public float _rateOfFire;
 	public int _shootDamage;
 	public float _bulletSpeed;
 
@@ -23,6 +23,8 @@ public class Turret : MonoBehaviour{
 
 
 
+	float _timeLastShoot = Time.time;
+
 
 	void Start(){
 		_enumCurrentStateTurret = Enum_StateTurret.TurretLevel1;
@@ -33,7 +35,9 @@ public class Turret : MonoBehaviour{
 		_ennemiManager = (GameObject.FindGameObjectWithTag (_tagEnnemiManager)).GetComponent<EnnemiManager>();
 		Debug.Log ("PLOP " + _ennemiManager);
 		_bulletSpeed = ConstantesManager.BULLET_TURRET_SPEED;
-		//TODO
+		_pv = ConstantesManager.STANDARD_LVL1_PV_MAX;
+		_rateOfFire = ConstantesManager.STANDARD_LVL1_RATE_OF_FIRE; //shooting/sec
+		_shootDamage = ConstantesManager.STANDARD_LVL1_PV_MAX;
 
 
 	}
@@ -46,6 +50,10 @@ public class Turret : MonoBehaviour{
 		if (_enumCurrentStateTurret == Enum_StateTurret.TurretNone)
 				return;
 
+		if (!isAllowedToShoot ()) {
+			Debug.Log ("IS NOT ALLOWED TO SHOOT");
+			return;
+		}
 
 
 		//Debug.Log ("Turret Update Shoot");
@@ -88,7 +96,15 @@ public class Turret : MonoBehaviour{
 	public void StartShoot(){
 		_enumTurretAim = Enum_TurretAim.None;
 	}
-	
+
+	private bool isAllowedToShoot(){
+		if (Time.time - _timeLastShoot >= 1/_rateOfFire) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	public void StartConstruction(){
 		
 	}
@@ -98,6 +114,7 @@ public class Turret : MonoBehaviour{
 		GameObject bull = (GameObject)Instantiate (_prefabBulletTurret, this.transform.position, Quaternion.identity);
 		bull.GetComponent<BulletTurret> ().Initialize(ship.GetComponent<Ship>(), _enumCurrentTurretType, _shootDamage,_bulletSpeed);
 		bull.transform.parent = this.transform;
+		_timeLastShoot = Time.time;
 
 	}
 
@@ -142,8 +159,8 @@ public class Turret : MonoBehaviour{
 		switch(_enumCurrentTurretType){
 			case Enum_TurretType.Disintegrator:
 				_pv = ConstantesManager.DISINTEGRATOR_LVL1_PV_MAX;
-				_rateOfFire = ConstantesManager.DISINTEGRATOR_LVL1_PV_MAX; //shooting/sec
-				_shootDamage = ConstantesManager.DISINTEGRATOR_LVL1_PV_MAX;
+				_rateOfFire = ConstantesManager.DISINTEGRATOR_LVL1_RATE_OF_FIRE; //shooting/sec
+				_shootDamage = ConstantesManager.DISINTEGRATOR_LVL1_SHOOT_DAMAGE;
 				break;
 			case Enum_TurretType.EMP:
 				_pv = ConstantesManager.EMP_LVL1_PV_MAX;
@@ -218,56 +235,56 @@ public class Turret : MonoBehaviour{
 
 	private void  SetDisintegratorlv1(){
 		_pv = ConstantesManager.DISINTEGRATOR_LVL1_PV_MAX;
-		_rateOfFire = ConstantesManager.DISINTEGRATOR_LVL1_PV_MAX; //shooting/sec
-		_shootDamage = ConstantesManager.DISINTEGRATOR_LVL1_PV_MAX;
+		_rateOfFire = ConstantesManager.DISINTEGRATOR_LVL1_RATE_OF_FIRE; //shooting/sec
+		_shootDamage = ConstantesManager.DISINTEGRATOR_LVL1_SHOOT_DAMAGE;
 	}
 
 	private void  SetDisintegratorlv2(){
 		_pv = ConstantesManager.DISINTEGRATOR_LVL2_PV_MAX;
-		_rateOfFire = ConstantesManager.DISINTEGRATOR_LVL2_PV_MAX; //shooting/sec
-		_shootDamage = ConstantesManager.DISINTEGRATOR_LVL2_PV_MAX;
+		_rateOfFire = ConstantesManager.DISINTEGRATOR_LVL2_RATE_OF_FIRE; //shooting/sec
+		_shootDamage = ConstantesManager.DISINTEGRATOR_LVL2_SHOOT_DAMAGE;
 	}
 
 	private void  SetDisintegratorlv3(){
 		_pv = ConstantesManager.DISINTEGRATOR_LVL3_PV_MAX;
-		_rateOfFire = ConstantesManager.DISINTEGRATOR_LVL3_PV_MAX; //shooting/sec
-		_shootDamage = ConstantesManager.DISINTEGRATOR_LVL3_PV_MAX;
+		_rateOfFire = ConstantesManager.DISINTEGRATOR_LVL3_RATE_OF_FIRE; //shooting/sec
+		_shootDamage = ConstantesManager.DISINTEGRATOR_LVL3_SHOOT_DAMAGE;
 	}
 
 	private void  SetEMPlv1(){
 		_pv = ConstantesManager.EMP_LVL1_PV_MAX;
-		_rateOfFire = ConstantesManager.EMP_LVL1_PV_MAX; //shooting/sec
-		_shootDamage = ConstantesManager.EMP_LVL1_PV_MAX;
+		_rateOfFire = ConstantesManager.EMP_LVL1_RATE_OF_FIRE; //shooting/sec
+		_shootDamage = ConstantesManager.EMP_LVL1_SHOOT_DAMAGE;
 	}
 	
 	private void  SetEMPlv2(){
 		_pv = ConstantesManager.EMP_LVL2_PV_MAX;
-		_rateOfFire = ConstantesManager.EMP_LVL2_PV_MAX; //shooting/sec
-		_shootDamage = ConstantesManager.EMP_LVL2_PV_MAX;
+		_rateOfFire = ConstantesManager.EMP_LVL2_RATE_OF_FIRE; //shooting/sec
+		_shootDamage = ConstantesManager.EMP_LVL2_SHOOT_DAMAGE;
 	}
 	
 	private void  SetEMPlv3(){
 		_pv = ConstantesManager.EMP_LVL3_PV_MAX;
-		_rateOfFire = ConstantesManager.EMP_LVL3_PV_MAX; //shooting/sec
-		_shootDamage = ConstantesManager.EMP_LVL3_PV_MAX;
+		_rateOfFire = ConstantesManager.EMP_LVL3_RATE_OF_FIRE; //shooting/sec
+		_shootDamage = ConstantesManager.EMP_LVL3_SHOOT_DAMAGE;
 	}
 
 	private void  SetStandardlv1(){
 		_pv = ConstantesManager.STANDARD_LVL1_PV_MAX;
-		_rateOfFire = ConstantesManager.STANDARD_LVL1_PV_MAX; //shooting/sec
-		_shootDamage = ConstantesManager.STANDARD_LVL1_PV_MAX;
+		_rateOfFire = ConstantesManager.STANDARD_LVL1_RATE_OF_FIRE; //shooting/sec
+		_shootDamage = ConstantesManager.STANDARD_LVL1_SHOOT_DAMAGE;
 	}
 	
 	private void  SetStandardlv2(){
 		_pv = ConstantesManager.STANDARD_LVL2_PV_MAX;
-		_rateOfFire = ConstantesManager.STANDARD_LVL2_PV_MAX; //shooting/sec
-		_shootDamage = ConstantesManager.STANDARD_LVL2_PV_MAX;
+		_rateOfFire = ConstantesManager.STANDARD_LVL2_RATE_OF_FIRE; //shooting/sec
+		_shootDamage = ConstantesManager.STANDARD_LVL2_SHOOT_DAMAGE;
 	}
 	
 	private void  SetStandardlv3(){
 		_pv = ConstantesManager.STANDARD_LVL3_PV_MAX;
-		_rateOfFire = ConstantesManager.STANDARD_LVL3_PV_MAX; //shooting/sec
-		_shootDamage = ConstantesManager.STANDARD_LVL3_PV_MAX;
+		_rateOfFire = ConstantesManager.STANDARD_LVL3_RATE_OF_FIRE; //shooting/sec
+		_shootDamage = ConstantesManager.STANDARD_LVL3_SHOOT_DAMAGE;
 	}
 }
 
