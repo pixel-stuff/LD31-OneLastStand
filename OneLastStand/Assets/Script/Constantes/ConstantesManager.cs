@@ -77,6 +77,10 @@ public class ConstantesManager {
 	//City var
 	public static int CITY_PV_MAX = 10000;
 
+	//Bullet var
+	public static float BULLET_TURRET_SPEED = 250; //px/sec
+	public static float BULLET_TURRET_LIFE_TIME = 5; //sec
+
 	//Disintegrator lvl 1 var
 	public static int DISINTEGRATOR_LVL1_PV_MAX = 200; //shooting/sec
 	public static int DISINTEGRATOR_LVL1_RATE_OF_FIRE = 10; //shooting/sec

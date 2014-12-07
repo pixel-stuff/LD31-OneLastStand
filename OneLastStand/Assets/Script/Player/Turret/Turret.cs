@@ -8,6 +8,7 @@ public class Turret : MonoBehaviour{
 	public int _pv;
 	public int _rateOfFire;
 	public int _shootDamage;
+	public float _bulletSpeed;
 
 	public TurretTextureManager _turretTextureManager;
 	public Enum_StateTurret _enumOldStateTurret;
@@ -29,8 +30,8 @@ public class Turret : MonoBehaviour{
 		_enumOldStateTurret = _enumCurrentStateTurret;
 		_pv = ConstantesManager.CITY_PV_MAX;
 		_enumTurretAim = Enum_TurretAim.None;
-		_ennemiManager = GameObject.FindGameObjectWithTag (_tagEnnemiManager).GetComponent<EnnemiManager>();
-
+		//_ennemiManager = GameObject.FindGameObjectWithTag (_tagEnnemiManager).GetComponent<EnnemiManager>();
+		_bulletSpeed = ConstantesManager.BULLET_TURRET_SPEED;
 		//TODO
 
 
@@ -66,9 +67,11 @@ public class Turret : MonoBehaviour{
 			_enumTurretAim = Enum_TurretAim.NoEnnemiFound;
 		}
 
-		GameObject bull = (GameObject)Instantiate (_prefabBulletTurret, Vector2.zero, Quaternion.identity);
-		bull.GetComponent<BulletTurret> ().SetTarget (ship.GetComponent<Ship>());
-		bull.GetComponent<BulletTurret> ().SetTypeBullet (_enumCurrentTurretType, _enumCurrentStateTurret);
+		if (_enumTurretAim == Enum_TurretAim.TooFar || _enumTurretAim == Enum_TurretAim.None || _enumTurretAim == Enum_TurretAim.NoEnnemiFound) 
+			return;
+		
+
+		ShootAt(ship);
 
 		//TODO 
 		/*
@@ -96,12 +99,10 @@ public class Turret : MonoBehaviour{
 		
 	}
 
-	public void ShootAt(Ship ship){
-		GameObject bullet = (GameObject)Instantiate(_prefabBulletTurret,Vector3.zero,Quaternion.identity);
-		bullet.name += this.gameObject.name;
-		bullet.GetComponent<BulletTurret> ().SetTarget (ship);
-		bullet.GetComponent<BulletTurret> ()._enumBulletType = _enumCurrentTurretType;
-		//TODO setvariable membre de bullet
+	public void ShootAt(GameObject ship){
+		GameObject bull = (GameObject)Instantiate (_prefabBulletTurret, Vector2.zero, Quaternion.identity);
+		bull.GetComponent<BulletTurret> ().Initialize(ship.GetComponent<Ship>(), _enumCurrentTurretType, _shootDamage,_bulletSpeed);
+
 	}
 
 

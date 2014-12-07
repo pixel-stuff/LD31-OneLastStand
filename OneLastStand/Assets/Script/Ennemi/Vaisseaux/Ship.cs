@@ -12,6 +12,7 @@ public class Ship : MonoBehaviour  {
 	public float _normalSpeed;
 	public float _timeBetweenAttack;
 	public float _variationTimeBetweenAttackPercent;
+	public float _bulletSpeed;
 
 	public float _percentFragByStandard;
 	public float _percentFragByDisa;
