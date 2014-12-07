@@ -32,19 +32,34 @@ public class Turret : MonoBehaviour{
 		_ennemiManager = GameObject.FindGameObjectWithTag (_tagEnnemiManager).GetComponent<EnnemiManager>();
 
 		//TODO
-		//ChangeStateTurret (_enumCurrentStateTurret);
-		//ChangeTypeTurret (_enumCurrentTurretType);
 
 
 	}
 	
 	public void UpdateShoot (){
+		if (_enumCurrentTurretType == Enum_TurretType.None)
+			return;
+
+		if (_enumCurrentStateTurret == Enum_StateTurret.TurretNone)
+			return;
+
+
+
 		Debug.Log ("Turret Update Shoot");
 		GameObject ship = null;
 
 		ship = _ennemiManager.getCloserShipLigne1 (this.transform);
+		_enumTurretAim = Enum_TurretAim.FirstChoice;
 		if (ship == null) {
 			ship = _ennemiManager.getCloserShipLigne2 (this.transform);
+			_enumTurretAim = Enum_TurretAim.SecondChoice;
+		} else {
+			ship = _ennemiManager.getCloserShipLigne3 (this.transform);
+			_enumTurretAim = Enum_TurretAim.ThirdChoice;
+		}
+
+		if (ship == null) {
+			_enumTurretAim = Enum_TurretAim.NoEnnemiFound;
 		}
 
 
