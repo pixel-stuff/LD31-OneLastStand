@@ -10,15 +10,14 @@ public class City : MonoBehaviour{
 	
 	public GameObject _prefabTurret;
 
+	public GameObject _labelEphemerePrefab;
+
 	public int _nombreTurret = 4; 
 
 	public Enum_StateCity _enumStateCity;
 
-	ResourcesManager _resourcesManager;
-	
 
 	void Start(){
-		_resourcesManager = new ResourcesManager ();
 		_pv = ConstantesManager.CITY_PV_MAX;
 		_enumStateCity = Enum_StateCity.Fighting;
 
@@ -39,11 +38,15 @@ public class City : MonoBehaviour{
 	}
 
 	public void StartShoot(){
-		
+		for (int i=0;i<_listTurret.Count;i++) {
+			_listTurret[i].StartShoot();
+		}
 	}
 	
 	public void StartConstruction(){
-		
+		for (int i=0;i<_listTurret.Count;i++) {
+			_listTurret[i].StartConstruction();
+		}
 	}
 
 
@@ -82,7 +85,6 @@ public class City : MonoBehaviour{
 		}
 
 
-		_resourcesManager.UpdateShoot ();
 	}
 
 	public void UpdateConstruction(){
@@ -93,6 +95,13 @@ public class City : MonoBehaviour{
 			tur.UpdateConstruction();
 		}
 		_resourcesManager.UpdateConstruction ();*/
+	}
+
+	public void ShowLifeChange(int life){
+		GameObject label = (GameObject)Instantiate (_labelEphemerePrefab, new Vector2 (30, 30), Quaternion.identity);
+		label.transform.parent = this.transform;
+		label.GetComponent<UILabel> ().color = ConstantesManager.LIFE_LABEL_COLOR;
+		label.GetComponent<UILabel> ().text = "" + life;
 	}
 
 	

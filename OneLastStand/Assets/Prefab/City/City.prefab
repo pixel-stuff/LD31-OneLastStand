@@ -93,8 +93,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _pv: 0
   _prefabTurret: {fileID: 100004, guid: 4b7c357e31acd8640b518864fb9eef63, type: 2}
+  _labelEphemerePrefab: {fileID: 100000, guid: 6efadcf600eb83941bb2e7fdd2781d7e, type: 2}
   _nombreTurret: 4
-  _enumStatePlayer: 0
+  _enumStateCity: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

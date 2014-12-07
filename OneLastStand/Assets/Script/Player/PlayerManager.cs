@@ -29,10 +29,16 @@ public class PlayerManager : MonoBehaviour{
 	}
 
 	public void StartShoot(){
-		
+		_city.StartShoot ();
+		_decharge.StartShoot ();
 	}
 	
 	public void StartConstruction(){
+		AddToScore (ConstantesManager.POINT_SURVIVE_VAGUE);
+
+
+		_city.StartConstruction ();
+		_decharge.StartConstruction ();
 		
 	}
 	

@@ -77,8 +77,10 @@ public class ConstantesManager {
 
 	//Player var
 	public static Color SCORE_LABEL_COLOR = new Color (0,255,0);
-	public static Color FRAGMENT_LABEL_COLOR = new Color (255,0,0);
+	public static Color FRAGMENT_LABEL_COLOR = new Color (0,255,0);
+	public static Color LIFE_LABEL_COLOR = new Color (255,0,0);
 	public static float TIME_IN_CONSTRUCTION_STATE = 30f;//sec
+	public static int POINT_SURVIVE_VAGUE = 1000;
 
 	//City var
 	public static int CITY_PV_MAX = 10000;

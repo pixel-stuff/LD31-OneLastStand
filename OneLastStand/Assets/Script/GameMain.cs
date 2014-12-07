@@ -61,6 +61,11 @@ public class GameMain : MonoBehaviour {
 	}
 
 	void UpdateConstruction () {
+		if (IsPlayerWin ()) {
+			Debug.Log ("GAMEMAIN -> STARTCONSTRUCTION");
+			StartConstruction();
+		}
+
 		_ennemiManager.UpdateConstruction ();
 		_playerManager.UpdateConstruction ();
 		_uiManager.UpdateConstruction ();
@@ -70,5 +75,13 @@ public class GameMain : MonoBehaviour {
 		_ennemiManager.UpdateShoot ();
 		_playerManager.UpdateShoot ();
 		_uiManager.UpdateShoot ();
+	}
+
+	bool IsPlayerWin (){
+		if (_playerManager._enumStatePlayer == Enum_StatePlayer.Winning) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
