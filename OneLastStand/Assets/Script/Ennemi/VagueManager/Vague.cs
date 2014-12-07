@@ -9,6 +9,7 @@ public class Vague {
 		_frigateNumber = fN;
 		_cruiserNumber = cN;
 		_number = num;
+	
 	}
 
 	public int _FP;

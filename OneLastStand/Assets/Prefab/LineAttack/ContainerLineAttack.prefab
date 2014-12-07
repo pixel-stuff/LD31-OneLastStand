@@ -203,7 +203,7 @@ MonoBehaviour:
   widgetContainer: {fileID: 0}
   panelContainer: {fileID: 0}
   side: 4
-  halfPixelOffset: 0
+  halfPixelOffset: 1
   runOnlyOnce: 0
   relativeOffset: {x: 0, y: 0}
   pixelOffset: {x: 0, y: 0}
