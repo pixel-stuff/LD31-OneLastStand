@@ -110,7 +110,7 @@ public class LineAttack : MonoBehaviour{
 	}
 
 	public void UpdateShoot(){
-		Debug.Log (this.gameObject.name + " UpdateShoot ");
+		//Debug.Log (this.gameObject.name + " UpdateShoot ");
 
 		if (_spawnCooldown > 0.0f) {
 

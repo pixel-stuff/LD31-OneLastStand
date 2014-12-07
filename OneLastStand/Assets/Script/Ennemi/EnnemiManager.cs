@@ -51,7 +51,7 @@ public class EnnemiManager : MonoBehaviour {
 
 	public void UpdateShoot(){
 	
-		Debug.Log ("EnnemiManager UpdateShoot");
+		//Debug.Log ("EnnemiManager UpdateShoot");
 
 		if (!_alreadyInit) {
 			if(_vagueManager ==null){

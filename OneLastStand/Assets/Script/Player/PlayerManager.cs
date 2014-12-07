@@ -43,7 +43,7 @@ public class PlayerManager : MonoBehaviour{
 	}
 	
 	public void UpdateShoot(){
-		Debug.Log ("PlayerManager UpdateShoot");
+		//Debug.Log ("PlayerManager UpdateShoot");
 
 		CheckPlayerState ();
 
@@ -62,17 +62,17 @@ public class PlayerManager : MonoBehaviour{
 	private void CheckPlayerState(){
 		switch (_city._enumStateCity) {
 			case Enum_StateCity.Fighting:
-				_enumStatePlayer = Enum_StatePlayer.Playing;
-				break;
+			_enumStatePlayer = Enum_StatePlayer.Playing;
+			break;
 
 		case Enum_StateCity.Winning:
-				_enumStatePlayer = Enum_StatePlayer.Winning;
-				break;
+			_enumStatePlayer = Enum_StatePlayer.Winning;
+			Debug.Log ("PlayerManager REPERE WIN");
+			break;
 
 		case Enum_StateCity.Destroy:
-				_enumStatePlayer = Enum_StatePlayer.Dead;
-				break;
-			
+			_enumStatePlayer = Enum_StatePlayer.Dead;
+			break;
 		}
 	}
 

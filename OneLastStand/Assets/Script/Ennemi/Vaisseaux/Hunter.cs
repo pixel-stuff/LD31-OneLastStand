@@ -32,6 +32,6 @@ public class Hunter : Ship {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log (this.gameObject.name + " Update");
+		//Debug.Log (this.gameObject.name + " Update");
 	}
 }

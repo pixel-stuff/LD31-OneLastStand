@@ -72,11 +72,11 @@ public abstract class Ship : MonoBehaviour  {
 	}
 
 	public void UpdateShoot(){
-		Debug.Log (this.gameObject.name + " Update");
+		//Debug.Log (this.gameObject.name + " Update");
 		if (!alreadyInit) {
-						init ();
+			init ();
 			alreadyInit=true;
-				}
+		}
 		//systéme de tir 
 
 		if (_shootCooldown > 0.0f) {
@@ -106,7 +106,7 @@ public abstract class Ship : MonoBehaviour  {
 
 	void OnTriggerEnter2D(Collider2D collider)
 	{
-		Debug.Log ("on trigered ship");
+		//Debug.Log ("on trigered ship");
 
 		BulletTurret bulletElement = collider.gameObject.GetComponent<BulletTurret> ();
 		if (bulletElement != null) {

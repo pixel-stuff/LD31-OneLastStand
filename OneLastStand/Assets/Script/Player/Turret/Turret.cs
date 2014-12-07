@@ -33,7 +33,7 @@ public class Turret : MonoBehaviour{
 		_pv = ConstantesManager.CITY_PV_MAX;
 		_enumTurretAim = Enum_TurretAim.None;
 		_ennemiManager = (GameObject.FindGameObjectWithTag (_tagEnnemiManager)).GetComponent<EnnemiManager>();
-		Debug.Log ("PLOP " + _ennemiManager);
+		//Debug.Log ("PLOP " + _ennemiManager);
 		_bulletSpeed = ConstantesManager.BULLET_TURRET_SPEED;
 		_pv = ConstantesManager.STANDARD_LVL1_PV_MAX;
 		_rateOfFire = ConstantesManager.STANDARD_LVL1_RATE_OF_FIRE; //shooting/sec
@@ -51,7 +51,7 @@ public class Turret : MonoBehaviour{
 				return;
 
 		if (!isAllowedToShoot ()) {
-			Debug.Log ("IS NOT ALLOWED TO SHOOT");
+			//Debug.Log ("IS NOT ALLOWED TO SHOOT");
 			return;
 		}
 
@@ -63,11 +63,11 @@ public class Turret : MonoBehaviour{
 		//Debug.Log ("SHIP " + ship);
 		_enumTurretAim = Enum_TurretAim.FirstChoice;
 		if (ship == null) {
-			Debug.Log ("getCloserShipLigne1 is null");
+			//Debug.Log ("getCloserShipLigne1 is null");
 			ship = _ennemiManager.getCloserShipLigne2 (this.transform);
 			_enumTurretAim = Enum_TurretAim.SecondChoice;
 			if (ship == null) {
-				Debug.Log ("getCloserShipLigne2 is null");
+				//Debug.Log ("getCloserShipLigne2 is null");
 				ship = _ennemiManager.getCloserShipLigne3 (this.transform);
 				_enumTurretAim = Enum_TurretAim.ThirdChoice;
 			}
@@ -75,7 +75,7 @@ public class Turret : MonoBehaviour{
 
 
 		if (ship == null) {
-			Debug.Log ("All Ligne null");
+			//Debug.Log ("All Ligne null");
 			_enumTurretAim = Enum_TurretAim.NoEnnemiFound;
 		} else {
 			float distance = Vector3.Distance(this.transform.position, ship.transform.position);
@@ -110,7 +110,7 @@ public class Turret : MonoBehaviour{
 	}
 
 	public void ShootAt(GameObject ship){
-		Debug.Log ("ShootAt");
+		//Debug.Log ("ShootAt");
 		GameObject bull = (GameObject)Instantiate (_prefabBulletTurret, this.transform.position, Quaternion.identity);
 		bull.GetComponent<BulletTurret> ().Initialize(ship.GetComponent<Ship>(), _enumCurrentTurretType, _shootDamage,_bulletSpeed);
 		bull.transform.parent = this.transform;

@@ -56,7 +56,8 @@ public class City : MonoBehaviour{
 			_pv =0;
 			_enumStateCity = Enum_StateCity.Destroy;
 		}
-		Debug.Log ("City take Damage -" + degat);
+		//Debug.Log ("City take Damage -" + degat);
+		ShowLifeChange (degat);
 	}
 	
 	public void UpdateShoot(){
@@ -98,8 +99,9 @@ public class City : MonoBehaviour{
 	}
 
 	public void ShowLifeChange(int life){
-		GameObject label = (GameObject)Instantiate (_labelEphemerePrefab, new Vector2 (30, 30), Quaternion.identity);
+		GameObject label = (GameObject)Instantiate (_labelEphemerePrefab, this.transform.position , Quaternion.identity);
 		label.transform.parent = this.transform;
+		label.transform.localPosition = new Vector2 (30, 100);
 		label.GetComponent<UILabel> ().color = ConstantesManager.LIFE_LABEL_COLOR;
 		label.GetComponent<UILabel> ().text = "" + life;
 	}
@@ -119,6 +121,7 @@ public class City : MonoBehaviour{
 
 		if (numberTurretWithNoTarget >= _nombreTurret) {
 			_enumStateCity = Enum_StateCity.Winning;
+			//Debug.Log ("City REPERE WIN");
 		}
 	}
 

@@ -9,6 +9,7 @@ public class GameMain : MonoBehaviour {
 
 	public GameObject _playerPrefab;
 	public GameObject _ennemiPrefab;
+	public GameObject _uiManagerPrefab;
 	public GameObject _BottomLeftAnchorPrefab;
 
 	Enum_StateGame _enumStateGame;
@@ -19,14 +20,20 @@ public class GameMain : MonoBehaviour {
 		_playerManager = new PlayerManager ();
 		_uiManager = new UIManager ();
 		_enumStateGame = Enum_StateGame.Shoot;
-		StartShoot ();
 
 
 		_playerManager = ((GameObject)Instantiate(_playerPrefab, _BottomLeftAnchorPrefab.transform.position,Quaternion.identity)).GetComponent<PlayerManager>();
 		_playerManager.transform.parent = _BottomLeftAnchorPrefab.transform;
 
-		_ennemiManager = ((GameObject)Instantiate(_ennemiPrefab, Vector2.zero,Quaternion.identity)).GetComponent<EnnemiManager>();
+		_ennemiManager = ((GameObject)Instantiate(_ennemiPrefab, this.transform.position,Quaternion.identity)).GetComponent<EnnemiManager>();
 		_ennemiManager.transform.parent = this.transform;
+
+		
+		_uiManager = ((GameObject)Instantiate(_uiManagerPrefab,this.transform.position,Quaternion.identity)).GetComponent<UIManager>();
+		_uiManager.transform.parent = this.transform;
+
+		
+		StartShoot ();
 	}
 	
 	// Update is called once per frame
@@ -48,12 +55,14 @@ public class GameMain : MonoBehaviour {
 	}
 
 	public void StartShoot(){
+		_enumStateGame = Enum_StateGame.Shoot;
 		_ennemiManager.StartShoot ();
 		_playerManager.StartShoot ();
 		_uiManager.StartShoot ();
 	}
 	
 	public void StartConstruction(){
+		_enumStateGame = Enum_StateGame.Construction;
 		_ennemiManager.StartConstruction ();
 		_playerManager.StartConstruction ();
 		_uiManager.StartConstruction ();
@@ -61,17 +70,19 @@ public class GameMain : MonoBehaviour {
 	}
 
 	void UpdateConstruction () {
+
+		//StartShoot ();
+		/*_ennemiManager.UpdateConstruction ();
+		_playerManager.UpdateConstruction ();
+		_uiManager.UpdateConstruction ();*/
+	}
+
+	void UpdateShoot () {
 		if (IsPlayerWin ()) {
 			Debug.Log ("GAMEMAIN -> STARTCONSTRUCTION");
 			StartConstruction();
 		}
 
-		_ennemiManager.UpdateConstruction ();
-		_playerManager.UpdateConstruction ();
-		_uiManager.UpdateConstruction ();
-	}
-
-	void UpdateShoot () {
 		_ennemiManager.UpdateShoot ();
 		_playerManager.UpdateShoot ();
 		_uiManager.UpdateShoot ();
@@ -79,7 +90,9 @@ public class GameMain : MonoBehaviour {
 
 	bool IsPlayerWin (){
 		if (_playerManager._enumStatePlayer == Enum_StatePlayer.Winning) {
+			Debug.Log ("GAMEMAI REPERE WIN");
 			return true;
+
 		} else {
 			return false;
 		}

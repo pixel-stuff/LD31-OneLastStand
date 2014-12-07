@@ -414,4 +414,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerPrefab: {fileID: 100000, guid: 7bde55078dc22ab429035f03c9433754, type: 2}
   _ennemiPrefab: {fileID: 100000, guid: 121d193ae3e66424cb87102e6a5f04e8, type: 2}
+  _uiManagerPrefab: {fileID: 100000, guid: 7ddbad1838b2084438869aea9b8f4701, type: 2}
   _BottomLeftAnchorPrefab: {fileID: 1481614840}
