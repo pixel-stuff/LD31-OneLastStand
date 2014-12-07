@@ -23,11 +23,12 @@ public class LineAttack : MonoBehaviour{
 	public float  _errorMargePop;
 
 
-	private float _spawnCooldown;
+	private float _spawnCooldown=0.0f;
 	public float _frequencePop;
 	public float _errorFrequencePop;
 
-	private bool _spawnPossible;
+
+	private bool _spawnPossible=false;
 
 	public LineAttack(){
 	}
@@ -93,11 +94,11 @@ public class LineAttack : MonoBehaviour{
 		_zonePop2 = ConstantesManager.POP_POINT_2;
 		_zonePop3 = ConstantesManager.POP_POINT_3;
 		_errorMargePop = ConstantesManager.ERROR_MARGE_POP;
-		_spawnCooldown = 0f;
+
 		_frequencePop = ConstantesManager.FREQUENCE_POP;
-		Debug.Log("FREQUENCE  " + _frequencePop );
+	
 		_errorFrequencePop = ConstantesManager.VARIANCE_FREQUENCE_POP_PERCENT;
-		_spawnPossible = false;
+
 
 
 	}
@@ -108,16 +109,16 @@ public class LineAttack : MonoBehaviour{
 	}
 
 	public void UpdateShoot(){
-		Debug.Log ( this.gameObject.name +  " UpdateShoot" + _spawnCooldown);
+		Debug.Log (this.gameObject.name + " UpdateShoot ");
 
-		if (_spawnCooldown > 0f) {
-			Debug.Log("-- spawn");
+		if (_spawnCooldown > 0.0f) {
+
 			_spawnCooldown -= Time.deltaTime;
 				}
-		if (_spawnCooldown <= 0f && _spawnPossible) {
+		if (_spawnCooldown <= 0.0f && _spawnPossible) {
 
-			_spawnCooldown = _frequencePop;//Random.Range(_frequencePop*(1-_errorFrequencePop),_frequencePop*(1+_errorFrequencePop));
-			Debug.Log("new spawn cooldown  " +_spawnCooldown );
+			_spawnCooldown = Random.Range(_frequencePop*(1-_errorFrequencePop),_frequencePop*(1+_errorFrequencePop));
+
 
 			int tabRand =Random.Range(0,2);
 			if (SpawnPossible(tabRand)){
