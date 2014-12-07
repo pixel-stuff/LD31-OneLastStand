@@ -24,6 +24,8 @@ public abstract class Ship : MonoBehaviour  {
 
 	public Vector3 _direction;
 
+
+	public bool _onDestroy =false;
 		public GameObject _prefabFragment;
 
 	public GameObject _prefabEnnemiBullet;
@@ -56,7 +58,7 @@ public abstract class Ship : MonoBehaviour  {
 
 
 		if (_pv <= 0) {
-			Destroy(this.gameObject);
+			_onDestroy=true;
 			//this.gameObject.SetActive(false);
 		}
 
@@ -72,6 +74,10 @@ public abstract class Ship : MonoBehaviour  {
 	}
 
 	public void UpdateShoot(){
+		 if (_onDestroy) {
+			Destroy(this.gameObject);
+			return;
+				}
 		Debug.Log (this.gameObject.name + " Update");
 		if (!alreadyInit) {
 						init ();
