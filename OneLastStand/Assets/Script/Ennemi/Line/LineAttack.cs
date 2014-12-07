@@ -36,7 +36,7 @@ public class LineAttack : MonoBehaviour{
 
 
 	public void setShips(int nbHunter,int nbFrigate, int nbCruiser){
-
+		Start ();
 		if (_listHunter != null) { // if instancier
 			_listHunter.Clear();
 			_listFrigate.Clear();
@@ -84,6 +84,7 @@ public class LineAttack : MonoBehaviour{
 		} else {
 			vecBase=_zonePop3;
 		}
+
 		return new Vector3 (vecBase.x + margeX, vecBase.y + margeY, 0);
 
 
