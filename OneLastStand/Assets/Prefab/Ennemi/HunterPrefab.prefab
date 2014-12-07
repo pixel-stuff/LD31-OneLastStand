@@ -55,7 +55,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Size: {x: 1, y: 1}
   m_Center: {x: 0, y: 0}
 --- !u!114 &11400000
@@ -108,6 +108,7 @@ MonoBehaviour:
   alreadyInit: 0
   _shootCooldown: 0
   _direction: {x: 0, y: 0, z: 0}
+  _onDestroy: 0
   _prefabFragment: {fileID: 100000, guid: 84107ceab7b59ee4b97ae89923635eb9, type: 2}
   _prefabEnnemiBullet: {fileID: 100000, guid: 0bf90f9049ee48d459461c0b11b191ef, type: 2}
 --- !u!114 &11400004
