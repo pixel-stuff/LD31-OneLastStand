@@ -12,7 +12,15 @@ public class City : MonoBehaviour{
 
 	public int _nombreTurret = 4; 
 
+	ResourcesManager _resourcesManager;
+	List<Truck> _listTruck;
+	
+
 	void Start(){
+		_resourcesManager = new ResourcesManager ();
+		_listTruck = new List<Truck>();
+		_pv = ConstantesManager.CITY_PV_MAX;
+
 		_listTurret = new List<Turret>();
 
 		for (int i=0; i<_nombreTurret; i++) {
@@ -25,15 +33,28 @@ public class City : MonoBehaviour{
 	}
 	
 	public void UpdateShoot(){
-		foreach (Turret tur in _listTurret) {
+		if (_listTurret == null) 
+						return;
+
+		Debug.Log ("City Update Shoot");
+	
+		for (int i=0;i<_listTurret.Count;i++) {
+			_listTurret[i].UpdateShoot();
+		}
+		foreach (Truck tur in _listTruck) {
 			tur.UpdateShoot();
 		}
+		_resourcesManager.UpdateShoot ();
 	}
 
 	public void UpdateConstruction(){
 		foreach (Turret tur in _listTurret) {
 			tur.UpdateConstruction();
 		}
+		foreach (Truck tur in _listTruck) {
+			tur.UpdateConstruction();
+		}
+		_resourcesManager.UpdateConstruction ();
 	}
 
 

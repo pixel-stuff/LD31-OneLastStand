@@ -9,10 +9,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
-  - 114: {fileID: 11400002}
   m_Layer: 0
-  m_Name: City
-  m_TagString: City
+  m_Name: BaseTexture
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52,20 +51,6 @@ MonoBehaviour:
   mShader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   mTexture: {fileID: 0}
   mMat: {fileID: 0}
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa4f9f1c85228904d9a8ca5f0fbdf2fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _pv: 0
-  _prefabTurret: {fileID: 100004, guid: 4b7c357e31acd8640b518864fb9eef63, type: 2}
-  _nombreTurret: 4
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

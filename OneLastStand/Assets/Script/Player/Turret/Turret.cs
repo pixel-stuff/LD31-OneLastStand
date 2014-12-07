@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public abstract class Turret : MonoBehaviour{
+public class Turret : MonoBehaviour{
 
 
 	public int _pv;
@@ -15,7 +15,6 @@ public abstract class Turret : MonoBehaviour{
 	public Enum_TurretType _enumCurrentTurretType;
 
 	public EnnemiManager _ennemiManager;
-
 	public GameObject _prefabBulletTurret;
 
 	void Start(){
@@ -32,6 +31,7 @@ public abstract class Turret : MonoBehaviour{
 	}
 	
 	public void UpdateShoot (){
+		Debug.Log ("Turret Update Shoot");
 		//TODO 
 		/*Ship ship = null;
 		 *foreach(LineAttack lineAtt in _lineAttackAiming){

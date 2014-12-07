@@ -7,6 +7,9 @@ public class GameMain : MonoBehaviour {
 	PlayerManager _playerManager;
 	UIManager _uiManager;
 
+	public GameObject _playerPrefab;
+	public GameObject _ennemiPrefab;
+
 	Enum_StateGame _enumStateGame;
 
 	// Use this for initialization
@@ -14,7 +17,11 @@ public class GameMain : MonoBehaviour {
 		_ennemiManager = new EnnemiManager ();
 		_playerManager = new PlayerManager ();
 		_uiManager = new UIManager ();
-		_enumStateGame = Enum_StateGame.Construction;
+		_enumStateGame = Enum_StateGame.Shoot;
+
+
+		_playerManager = ((GameObject)Instantiate(_playerPrefab, Vector2.zero,Quaternion.identity)).GetComponent<PlayerManager>();
+		_playerManager.transform.parent = this.transform;
 	}
 	
 	// Update is called once per frame

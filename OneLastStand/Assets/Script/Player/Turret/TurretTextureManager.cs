@@ -8,11 +8,18 @@ public class TurretTextureManager : MonoBehaviour{
 	public Enum_StateTurret _enumStateTurret;
 	public Enum_TurretType _enumTurretType;
 	
-	public UITexture _currentTurretTexture;
-	public UITexture _currentBaseTexture;
-	
+	private UITexture _currentTurretTexture;
+	private UITexture _currentBaseTexture;
+
+	public GameObject _TurretTexturePrefab;
+	public GameObject _TurretBasePrefab;
+
 	// Use this for initialization
 	void Start (){
+		_currentTurretTexture = ((GameObject)Instantiate(_TurretTexturePrefab, Vector2.zero,Quaternion.identity)).GetComponent<UITexture>();
+
+		_currentBaseTexture = ((GameObject)Instantiate(_TurretBasePrefab, Vector2.zero,Quaternion.identity)).GetComponent<UITexture>();
+
 		_enumTurretType = Enum_TurretType.None;
 		_enumStateTurret = Enum_StateTurret.TurretNone;
 	}

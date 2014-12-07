@@ -190,6 +190,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2110408898}
+  - 114: {fileID: 2110408901}
   - 20: {fileID: 2110408897}
   - 92: {fileID: 2110408896}
   - 124: {fileID: 2110408895}
@@ -344,3 +345,16 @@ MonoBehaviour:
   submitKey1: 330
   cancelKey0: 27
   cancelKey1: 331
+--- !u!114 &2110408901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2110408893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e549df6208d4a8b449a4e5dac22cec7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerPrefab: {fileID: 100000, guid: 7bde55078dc22ab429035f03c9433754, type: 2}
+  _ennemiPrefab: {fileID: 0}

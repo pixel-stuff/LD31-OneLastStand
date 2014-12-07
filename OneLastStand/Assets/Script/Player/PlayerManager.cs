@@ -4,36 +4,32 @@ using System.Collections.Generic;
 
 public class PlayerManager : MonoBehaviour{
 
-	ResourcesManager _resourcesManager;
+
 	City _city;
-	List<Truck> _listTruck;
-	Decharge _decharge;
-	Score _score;
+	//Decharge _decharge;
+	//Score _score;
+
+	public GameObject _cityPrefab;
 
 
-	public PlayerManager () {
-		_resourcesManager = new ResourcesManager ();
-		_listTruck = new List<Truck>();
-		_decharge = new Decharge ();
-		_score = new Score ();
+
+	void Start () {
+
+		_city = ((GameObject)Instantiate (_cityPrefab, Vector2.zero, Quaternion.identity)).GetComponent<City>();
+		_city.transform.parent = this.transform;
 	}
 	
 	public void UpdateShoot(){
-		_resourcesManager.UpdateShoot ();
-		_decharge.UpdateShoot ();
-		_score.UpdateShoot ();
-		foreach (Truck tur in _listTruck) {
-			tur.UpdateShoot();
-		}
+		Debug.Log ("PlayerManager UpdateShoot");
+		//_decharge.UpdateShoot ();
+		//_score.UpdateShoot ();
+		_city.UpdateShoot ();
 	}
 	
 	public void UpdateConstruction(){
-		_resourcesManager.UpdateConstruction ();
-		_decharge.UpdateConstruction ();
-		_score.UpdateConstruction ();
-		foreach (Truck tur in _listTruck) {
-			tur.UpdateConstruction();
-		}
+		//_decharge.UpdateConstruction ();
+		//_score.UpdateConstruction ();
+		_city.UpdateConstruction ();
 	}
 
 	static public void AddToScore(){
