@@ -27,7 +27,7 @@ public class Hunter : Ship {
 		_shootCooldown=Random.Range(0,2);
 		_city=GameObject.FindGameObjectWithTag("City");
 
-
+		UpdateDirection ();
 		}
 	
 	// Update is called once per frame

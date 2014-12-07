@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class ennemiBullet : MonoBehaviour {
 
@@ -24,7 +25,7 @@ public class ennemiBullet : MonoBehaviour {
 	void Update ()
 	{
 		if (Time.time - _timeCreation >= _lifeTime) {
-			Object.Destroy(this.gameObject);
+			Destroy(this.gameObject);
 			return;
 		}
 		
@@ -32,13 +33,11 @@ public class ennemiBullet : MonoBehaviour {
 			this.transform.position = _LastDirection * (Time.deltaTime * _speed);
 		} else {
 			Vector3 origin = this.transform.position;
-			//float dist = Vector3.Distance (_cityTarget.transform.position, this.transform.position);
 			Vector3 vectorMove=(Time.deltaTime * _speed)*_LastDirection;
-			//Vector3 vec = Vector3.MoveTowards (transform.position, _cityTarget.transform.position, Time.deltaTime * _speed);
 			transform.position =  origin + vectorMove;
 			Vector3 target = _cityTarget.transform.position;
 			_LastDirection = Vector3.Normalize(target - origin);
-			//_LastDirection = Vector3.Normalize(vec);
+
 		}
 		
 		
@@ -53,6 +52,9 @@ public class ennemiBullet : MonoBehaviour {
 		Vector3 target = _cityTarget.transform.position;
 		Vector3 origin = this.transform.position;
 		_LastDirection = Vector3.Normalize(target - origin);
+		float orientation = 90-  (360f/(2*3.141592654f))*(float)(Math.Atan(_LastDirection.x/ _LastDirection.y));
+		this.transform.Rotate(new Vector3(0, 0, orientation));
+
 	//	_LastDirection = Vector3.Normalize(new Vector3(target.x - target.x,
 		                                             /*  target.y - target.y,
 		                                               target.z - target.z));*/

@@ -10,7 +10,7 @@ public class ConstantesManager {
 	public static float VARIATION_TIME_BETWEEN_ATTACK_PERCENT = 10 / 100;
 
 	public static float FREQUENCE_POP=1.5f;
-	public static int VARIANCE_FREQUENCE_POP_PERCENT=20/100;
+	public static float VARIANCE_FREQUENCE_POP_PERCENT=20f/100f;
 
 	public static Vector2 POP_POINT_1 = new Vector2(45,5);
 	public static Vector2 POP_POINT_2 = new Vector2(5,45);
@@ -34,23 +34,23 @@ public class ConstantesManager {
 
 	//Hunter Var
 
-	public static float HUNTER_FRAG_STANDARD_PERCENT = 100/100;
-	public static float HUNTER_FRAG_DISINTEGRATOR_PERCENT = 16/100;
-	public static float HUNTER_FRAG_EMP_PERCENT = 180/100;
+	public static float HUNTER_FRAG_STANDARD_PERCENT = 100f/100f;
+	public static float HUNTER_FRAG_DISINTEGRATOR_PERCENT = 16f/100f;
+	public static float HUNTER_FRAG_EMP_PERCENT = 180f/100f;
 
 	public static int HUNTER_PV = 100;
 	public static int HUNTER_SCORE = 100;
 	public static int HUNTER_SHOOT_DMG = 10;
 	public static int HUNTER_KAMIKAZE_DMG = 100;
-	public static float HUNTER_NORME_SPEED = 10;
+	public static float HUNTER_NORME_SPEED = 50;
 	public static float HUNTER_TIME_BETWEEN_ATTACK = 2f; // time in s
 
 
 	//Frigate Var
 
-	public static float FRIGATE_FRAG_STANDARD_PERCENT = 90/100;
-	public static float FRIGATE_FRAG_DISINTEGRATOR_PERCENT = 25/100;
-	public static float FRIGATE_FRAG_EMP_PERCENT = 200/100;
+	public static float FRIGATE_FRAG_STANDARD_PERCENT = 90f/100f;
+	public static float FRIGATE_FRAG_DISINTEGRATOR_PERCENT = 25f/100f;
+	public static float FRIGATE_FRAG_EMP_PERCENT = 200f/100f;
 	
 	public static int FRIGATE_PV = 100;
 	public static int FRIGATE_SCORE = 100;
@@ -61,9 +61,9 @@ public class ConstantesManager {
 
 	//Cruiser Var
 
-	public static float CRUISER_FRAG_STANDARD_PERCENT = 80/100;
-	public static float CRUISER_FRAG_DISINTEGRATOR_PERCENT = 33/100;
-	public static float CRUISER_FRAG_EMP_PERCENT = 250/100;
+	public static float CRUISER_FRAG_STANDARD_PERCENT = 80f/100f;
+	public static float CRUISER_FRAG_DISINTEGRATOR_PERCENT = 33f/100f;
+	public static float CRUISER_FRAG_EMP_PERCENT = 250f/100f;
 
 	public static int CRUISER_PV = 100;
 	public static int CRUISER_SCORE = 100;

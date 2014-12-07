@@ -22,6 +22,7 @@ public class Cruiser : Ship {
 		_percentFragByEMP = ConstantesManager.CRUISER_FRAG_EMP_PERCENT;
 		_shootCooldown=Random.Range(0,2);
 		_city=GameObject.FindGameObjectWithTag("City");
+		UpdateDirection ();
 		}
 
 	// Use this for initialization

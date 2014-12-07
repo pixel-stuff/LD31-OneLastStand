@@ -21,6 +21,7 @@ public class Frigate : Ship {
 		_percentFragByEMP = ConstantesManager.FRIGATE_FRAG_EMP_PERCENT;
 		_shootCooldown=Random.Range(0,2);
 		_city=GameObject.FindGameObjectWithTag("City");
+		UpdateDirection ();
 		}
 		
 	// Update is called once per frame

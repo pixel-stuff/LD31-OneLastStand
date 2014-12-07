@@ -22,7 +22,7 @@ public abstract class Ship : MonoBehaviour  {
 
 	public float _shootCooldown=0.0f;
 
-
+	public Vector3 _direction;
 
 		public GameObject _prefabFragment;
 
@@ -63,6 +63,13 @@ public abstract class Ship : MonoBehaviour  {
 
 	public abstract void init ();
 
+	public void UpdateDirection(){
+		Vector3 target = _city.transform.position;
+		Vector3 origin = this.transform.position;
+		_direction = Vector3.Normalize(target - origin);
+
+	}
+
 	public void UpdateShoot(){
 		Debug.Log (this.gameObject.name + " Update");
 		if (!alreadyInit) {
@@ -84,6 +91,10 @@ public abstract class Ship : MonoBehaviour  {
 			bull.transform.parent=this.transform;
 
 				}
+		Vector3 origin = this.transform.position;
+		Vector3 vectorMove=(Time.deltaTime * _normalSpeed)*_direction;
+		transform.position =  origin + vectorMove;
+		UpdateDirection ();
 
 
 	}
