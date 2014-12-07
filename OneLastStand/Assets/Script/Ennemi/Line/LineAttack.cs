@@ -27,6 +27,8 @@ public class LineAttack : MonoBehaviour{
 	public float _frequencePop;
 	public float _errorFrequencePop;
 
+	private bool _spawnPossible;
+
 	public LineAttack(){
 	}
 
@@ -64,7 +66,7 @@ public class LineAttack : MonoBehaviour{
 			newCruiser.gameObject.SetActive(false);
 			_listCruiser.Add(newCruiser);
 		}
-
+		_spawnPossible = true;
 	}
 
 	Vector3 getPositionSpawn(){
@@ -106,19 +108,86 @@ public class LineAttack : MonoBehaviour{
 		if (_spawnCooldown > 0) {
 			_spawnCooldown -= Time.deltaTime;
 				}
-		if (CanPop) {
+		if (CanPop && _spawnPossible) {
 			_spawnCooldown = Random.Range(_frequencePop*(1-_errorFrequencePop),_frequencePop*(1+_errorFrequencePop));
-			//TODO spawn 1er non deja actif sur un tableau aléatoire.
 
-				}
+			int tabRand =Random.Range(0,2);
+			if (SpawnPossible(tabRand)){
+				SpawnFirst(tabRand);
+			}else{
+				int tabRand2 = RandomRangeExcept(0,2,tabRand);
+				if (SpawnPossible(tabRand2)){
+					SpawnFirst(tabRand2);
+				}else{
+					if (SpawnPossible(5-(tabRand+tabRand2))){
+						SpawnFirst(5-(tabRand+tabRand2));
+					}else{
+						_spawnPossible=false;
+					}
+
+					}
+
+			}
 		}
+					}
 
 	void UpdateConstruction(){
 		}
+
+	public bool SpawnPossible(int selecttab){
+
+		List<GameObject> select = null;
+		if (selecttab == 0) {
+			select=_listHunter;
+		} else if (selecttab == 1) {
+			select=_listFrigate;
+		} else {
+			select=_listCruiser;
+		}
+
+		foreach (GameObject ship in select) {
+						if (!ship.gameObject.activeSelf) {
+								return true;
+						}
+				}
+		return false;
+		}
+
+	public void SpawnFirst(int selecttab){
+		
+		List<GameObject> select = null;
+		if (selecttab == 0) {
+			select=_listHunter;
+		} else if (selecttab == 1) {
+			select=_listFrigate;
+		} else {
+			select=_listCruiser;
+		}
+		
+		foreach (GameObject ship in select) {
+			if (!ship.gameObject.activeSelf) {
+				ship.gameObject.SetActive(true);
+				return ;
+			}
+		}
+
+	}
+
+
+
 
 	public bool CanPop{
 		get{
 			return _spawnCooldown <=0f;
 				}
 	}
+	public int RandomRangeExcept (int min, int max, int except) {
+		int number;
+		do {
+			number = Random.Range (min, max);
+		} while (number == except);
+		return number;
+	}
+
+
 }
