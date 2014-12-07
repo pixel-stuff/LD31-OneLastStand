@@ -138,6 +138,30 @@ public class LineAttack : MonoBehaviour{
 
 			}
 		}
+
+		//Logique de passage des upadate shoot
+		foreach (GameObject ship in _listHunter) {
+			if (ship != null) {
+				if (ship.gameObject.activeSelf) {
+				ship.gameObject.GetComponent<Hunter>().UpdateShoot();
+				}
+			}
+		}
+		foreach (GameObject ship in _listFrigate) {
+			if (ship != null) {
+				if (ship.gameObject.activeSelf) {
+					ship.gameObject.GetComponent<Frigate>().UpdateShoot();
+				}
+			}
+		}
+		foreach (GameObject ship in _listCruiser) {
+			if (ship != null) {
+				if (ship.gameObject.activeSelf) {
+					ship.gameObject.GetComponent<Cruiser>().UpdateShoot();
+				}
+			}
+		}
+
 					}
 
 	public void UpdateConstruction(){
