@@ -25,6 +25,7 @@ public class Hunter : Ship {
 		_percentFragByDisa = ConstantesManager.HUNTER_FRAG_DISINTEGRATOR_PERCENT;
 		_percentFragByEMP = ConstantesManager.HUNTER_FRAG_EMP_PERCENT;
 		_shootCooldown=Random.Range(0,2);
+		_killYFragment=ConstantesManager.FRAGMENT_KILL_Y;
 		_city=GameObject.FindGameObjectWithTag("City");
 
 		UpdateDirection ();

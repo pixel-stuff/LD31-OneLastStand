@@ -3,6 +3,8 @@ using System.Collections;
 
 //Contient toutes les constantes liées au GameDesign
 public class ConstantesManager {
+	//Fragment
+	public static float FRAGMENT_KILL_Y = -105f;
 
 
 	// -------------------------------------------------ENNEMY VAR--------------------------------------------------------

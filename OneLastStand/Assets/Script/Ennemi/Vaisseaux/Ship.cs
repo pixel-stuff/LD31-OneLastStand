@@ -31,6 +31,8 @@ public abstract class Ship : MonoBehaviour  {
 	public GameObject _prefabEnnemiBullet;
 
 
+	public float _killYFragment=-100f;
+
 	
 	public void GetHit(int dmg,Enum_TurretType turretType){
 		_pv -= dmg;
@@ -53,7 +55,8 @@ public abstract class Ship : MonoBehaviour  {
 
 
 		GameObject frag = (GameObject) Instantiate (_prefabFragment, this.transform.localPosition, Quaternion.identity);
-		frag.GetComponent<Fragment> ()._quantite = fragment;
+		frag.GetComponent<Fragment> ().Initialize (this.transform.position, _killYFragment,fragment); 
+		frag.transform.parent=this.transform.parent.transform;
 
 
 
@@ -67,7 +70,11 @@ public abstract class Ship : MonoBehaviour  {
 	public abstract void init ();
 
 	public void UpdateDirection(){
+		float decaX = UnityEngine.Random.Range (-40f, 0);
+		float decaY = UnityEngine.Random.Range (-40f, 0);
 		Vector3 target = _city.transform.position;
+		target.x += decaX;
+		target.y += decaY;
 		Vector3 origin = this.transform.position;
 		_direction = Vector3.Normalize(target - origin);
 
