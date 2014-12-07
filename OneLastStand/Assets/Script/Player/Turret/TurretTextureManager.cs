@@ -8,7 +8,8 @@ public class TurretTextureManager : MonoBehaviour{
 	public Enum_StateTurret _enumStateTurret;
 	public Enum_TurretType _enumTurretType;
 	
-	public UITexture _currentTexture;
+	public UITexture _currentTurretTexture;
+	public UITexture _currentBaseTexture;
 	
 	// Use this for initialization
 	void Start (){
@@ -17,16 +18,19 @@ public class TurretTextureManager : MonoBehaviour{
 	}
 	// Update is called once per frame
 	void Update (){
-		string pathTexture = "";
+		string pathTextureTurret = "";
+		string pathTextureBase = "";
 
 
-		if (_enumStateTurret == Enum_StateTurret.TurretDestroy || _enumStateTurret == Enum_StateTurret.TurretNone) {
-						pathTexture = _pathFolderRoot + "/None/" + _enumStateTurret;
+		if (_enumStateTurret == Enum_StateTurret.TurretDestroy) {
+			pathTextureBase = _pathFolderRoot + "/" + _enumTurretType.ToString() + "/" + "TurrentDestroy";
+			pathTextureTurret = "";
 		} else {
-				pathTexture = _pathFolderRoot + "/" + _enumTurretType.ToString () + "/" + _enumStateTurret.ToString ();
+			pathTextureBase = _pathFolderRoot + "/" + _enumTurretType.ToString() + "/" + "TurrentBase";
+			pathTextureTurret = _pathFolderRoot + "/" + _enumTurretType.ToString () + "/" + _enumStateTurret.ToString ();
 		}
 
-		_currentTexture.mainTexture = Resources.Load<Texture2D> (pathTexture);
+		_currentTurretTexture.mainTexture = Resources.Load<Texture2D> (pathTextureTurret);
 	}
 	
 
