@@ -79,4 +79,8 @@ public class EnnemiManager : MonoBehaviour {
 	public GameObject getCloserShipLigne3(Transform refe){
 		return _lineAttack3.getCloserShip (refe);
 	}
+
+	public bool didOneLeft(){
+		return (_lineAttack1.didOneLeft() || _lineAttack2.didOneLeft() || _lineAttack3.didOneLeft() );
+		}
 }

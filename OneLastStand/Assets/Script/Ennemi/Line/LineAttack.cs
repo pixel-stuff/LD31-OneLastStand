@@ -232,5 +232,18 @@ public class LineAttack : MonoBehaviour{
 		return number;
 	}
 
+	public bool didOneLeft(){
+		foreach (GameObject ship in _listHunter) {
+			return true;
+				}
+		foreach (GameObject ship in _listFrigate) {
+			return true;
+		}
+		foreach (GameObject ship in _listCruiser) {
+			return true;
+		}
+		return false;
+
+	}
 
 }
