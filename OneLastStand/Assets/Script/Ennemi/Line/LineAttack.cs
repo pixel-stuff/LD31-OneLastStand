@@ -95,6 +95,7 @@ public class LineAttack : MonoBehaviour{
 		_errorMargePop = ConstantesManager.ERROR_MARGE_POP;
 		_spawnCooldown = 0f;
 		_frequencePop = ConstantesManager.FREQUENCE_POP;
+		Debug.Log("FREQUENCE  " + _frequencePop );
 		_errorFrequencePop = ConstantesManager.VARIANCE_FREQUENCE_POP_PERCENT;
 		_spawnPossible = false;
 
@@ -107,13 +108,16 @@ public class LineAttack : MonoBehaviour{
 	}
 
 	public void UpdateShoot(){
-		Debug.Log ( this.gameObject.name +  " UpdateShoot");
+		Debug.Log ( this.gameObject.name +  " UpdateShoot" + _spawnCooldown);
 
-		if (_spawnCooldown > 0) {
+		if (_spawnCooldown > 0f) {
+			Debug.Log("-- spawn");
 			_spawnCooldown -= Time.deltaTime;
 				}
-		if (CanPop && _spawnPossible) {
-			_spawnCooldown = Random.Range(_frequencePop*(1-_errorFrequencePop),_frequencePop*(1+_errorFrequencePop));
+		if (_spawnCooldown <= 0f && _spawnPossible) {
+
+			_spawnCooldown = _frequencePop;//Random.Range(_frequencePop*(1-_errorFrequencePop),_frequencePop*(1+_errorFrequencePop));
+			Debug.Log("new spawn cooldown  " +_spawnCooldown );
 
 			int tabRand =Random.Range(0,2);
 			if (SpawnPossible(tabRand)){
@@ -150,9 +154,12 @@ public class LineAttack : MonoBehaviour{
 		}
 
 		foreach (GameObject ship in select) {
+			if(ship!=null){
+
 						if (!ship.gameObject.activeSelf) {
 								return true;
 						}
+			}
 				}
 		return false;
 		}
@@ -169,9 +176,11 @@ public class LineAttack : MonoBehaviour{
 		}
 		
 		foreach (GameObject ship in select) {
+			if(ship!=null){
 			if (!ship.gameObject.activeSelf) {
 				ship.gameObject.SetActive(true);
 				return ;
+			}
 			}
 		}
 
@@ -182,31 +191,37 @@ public class LineAttack : MonoBehaviour{
 		float minDistance = float.MaxValue;
 		float distance;
 		foreach (GameObject ship in _listHunter) {
+			if(ship!=null){
 			if (ship.gameObject.activeSelf) {
 			distance = Vector3.Distance(refe.position,ship.transform.position);
 			if(distance < minDistance){
 				minDistance=distance;
 				returnShip=ship;
+			}
 			}
 			}
 		}
 
 		foreach (GameObject ship in _listFrigate) {
+			if(ship!=null){
 			if (ship.gameObject.activeSelf) {
 			distance = Vector3.Distance(refe.position,ship.transform.position);
 			if(distance < minDistance){
 				minDistance=distance;
 				returnShip=ship;
+			}
 			}
 			}
 		}
 
 		foreach (GameObject ship in _listCruiser) {
+			if(ship!=null){
 			if (ship.gameObject.activeSelf) {
 			distance = Vector3.Distance(refe.position,ship.transform.position);
 			if(distance < minDistance){
 				minDistance=distance;
 				returnShip=ship;
+			}
 			}
 			}
 			
@@ -219,11 +234,7 @@ public class LineAttack : MonoBehaviour{
 
 
 
-	public bool CanPop{
-		get{
-			return _spawnCooldown <=0f;
-				}
-	}
+
 	public int RandomRangeExcept (int min, int max, int except) {
 		int number;
 		do {
@@ -234,13 +245,19 @@ public class LineAttack : MonoBehaviour{
 
 	public bool didOneLeft(){
 		foreach (GameObject ship in _listHunter) {
+			if(ship!=null){
 			return true;
+			}
 				}
 		foreach (GameObject ship in _listFrigate) {
+			if(ship!=null){
 			return true;
+			}
 		}
 		foreach (GameObject ship in _listCruiser) {
+			if(ship!=null){
 			return true;
+			}
 		}
 		return false;
 
