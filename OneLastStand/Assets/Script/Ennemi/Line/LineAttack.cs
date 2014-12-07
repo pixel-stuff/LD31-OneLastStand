@@ -145,6 +145,7 @@ public class LineAttack : MonoBehaviour{
 			if (ship != null) {
 				if (ship.gameObject.activeSelf) {
 				ship.gameObject.GetComponent<Hunter>().UpdateShoot();
+
 				}
 			}
 		}

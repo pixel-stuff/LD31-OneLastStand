@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-
+using System;
 public class BulletTurret : MonoBehaviour
 {
 	Ship _shipTarget;
@@ -24,18 +24,21 @@ public class BulletTurret : MonoBehaviour
 	void Update ()
 	{
 		if (Time.time - _timeCreation >= _lifeTime) {
-			Object.Destroy(this.gameObject);
+			Destroy(this.gameObject);
 			return;
 		}
 
 		if (_shipTarget == null) {
-			this.transform.position = _LastDirection * (Time.deltaTime * _speed);
+			Vector3 origin = this.transform.position;
+			Vector3 vectorMove=(Time.deltaTime * _speed)*_LastDirection;
+			transform.position =  origin + vectorMove;
 		} else {
 
-			float dist = Vector3.Distance (_shipTarget.transform.position, this.transform.position);
-			Vector3 vec = Vector3.MoveTowards (transform.position, _shipTarget.transform.position, Time.deltaTime * _speed);
-			transform.position = vec;
-			_LastDirection = Vector3.Normalize(vec);
+			Vector3 origin = this.transform.position;
+			Vector3 vectorMove=(Time.deltaTime * _speed)*_LastDirection;
+			transform.position =  origin + vectorMove;
+			Vector3 target = _shipTarget.transform.position;
+			_LastDirection = Vector3.Normalize(target - origin);
 		}
 
 
@@ -46,16 +49,20 @@ public class BulletTurret : MonoBehaviour
 		_enumBulletType = type;
 		_pvDamage = damage;
 		_speed = speed;
-		_LastDirection = Vector3.Normalize(Vector3.MoveTowards(transform.position, _shipTarget.transform.position, 1f));
+		Vector3 target = _shipTarget.transform.position;
+		Vector3 origin = this.transform.position;
+		_LastDirection = Vector3.Normalize(target - origin);
+		float orientation = 90-  (360f/(2*3.141592654f))*(float)(Math.Atan(_LastDirection.x/ _LastDirection.y));
+		this.transform.Rotate(new Vector3(0, 0, orientation));
 		
 	}
 
 	void OnTriggerEnter2D(Collider2D coll){
-		Ship element = coll.gameObject.GetComponent<Ship> ();
+	/*	Ship element = coll.gameObject.GetComponent<Ship> ();
 		if (element == null) 
 			return;
 
-		Destroy (this.gameObject);
+		Destroy (this.gameObject);*/
 	}
 }
 

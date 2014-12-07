@@ -56,7 +56,7 @@ public abstract class Ship : MonoBehaviour  {
 
 
 		if (_pv <= 0) {
-			Object.Destroy(this);
+			Object.Destroy(this.gameObject);
 		}
 
 		}
@@ -105,15 +105,12 @@ public abstract class Ship : MonoBehaviour  {
 
 	void OnTriggerEnter2D(Collider2D collider)
 	{
-		Debug.Log ("BBWWWWWWWWWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-		City cityElement = collider.gameObject.GetComponent<City> ();
-		if (cityElement != null) {
-			Destroy(this.gameObject);
-				}
+		Debug.Log ("on trigered ship");
 
 		BulletTurret bulletElement = collider.gameObject.GetComponent<BulletTurret> ();
 		if (bulletElement != null) {
 			GetHit((int) bulletElement._pvDamage, bulletElement._enumBulletType);
+			Destroy(bulletElement.gameObject);
 				}
 
 		}
