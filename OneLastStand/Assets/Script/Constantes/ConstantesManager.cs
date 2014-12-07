@@ -74,8 +74,16 @@ public class ConstantesManager {
 
 
 	// -------------------------------------------------PLAYER VAR--------------------------------------------------------
+
+	//Player var
+	public static Color SCORE_LABEL_COLOR = new Color (0,255,0);
+	public static Color FRAGMENT_LABEL_COLOR = new Color (255,0,0);
+
 	//City var
 	public static int CITY_PV_MAX = 10000;
+
+	//Label var
+	public static int LABEL_LIFE_TIME = 3;//sec
 
 	//Bullet var
 	public static float BULLET_TURRET_SPEED = 250; //px/sec

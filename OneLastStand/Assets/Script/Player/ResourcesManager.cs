@@ -1,9 +1,9 @@
 using UnityEngine;
 using System.Collections;
 
-public class ResourcesManager{
+public class ResourcesManager : MonoBehaviour{
 
-	public ResourcesManager (){
+	void Start (){
 	
 	}
 	

@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: PlayerPrefab
+  m_Name: 8-Bit-Madness
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,12 +36,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17dd3ef9bfa7903468c233b4aa9fdf9d, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b4eb3a400afab046abb8471a9d746d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cityPrefab: {fileID: 100000, guid: 33b35f3708ac03e459bc30e0af73ef4b, type: 2}
-  _dechargePrefab: {fileID: 100000, guid: 888d1f9febcdfa8479090f898752ef38, type: 2}
-  _labelEphemerePrefab: {fileID: 100000, guid: 6efadcf600eb83941bb2e7fdd2781d7e, type: 2}
+  mMat: {fileID: 0}
+  mUVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  mFont:
+    mSize: 0
+    mBase: 0
+    mWidth: 0
+    mHeight: 0
+    mSpriteName: 
+    mSaved: []
+  mSpacingX: 0
+  mSpacingY: 0
+  mAtlas: {fileID: 0}
+  mReplacement: {fileID: 0}
+  mPixelSize: 1
+  mSymbols: []
+  mDynamicFont: {fileID: 12800000, guid: 38db565ffffd6cd48848aa9235258b65, type: 3}
+  mDynamicFontSize: 16
+  mDynamicFontStyle: 0
+  mDynamicFontOffset: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
