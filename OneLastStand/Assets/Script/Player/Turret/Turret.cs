@@ -58,10 +58,17 @@ public class Turret : MonoBehaviour{
 			_enumTurretAim = Enum_TurretAim.ThirdChoice;
 		}
 
-		if (ship == null) {
+		if (ship == null){
+			_enumTurretAim = Enum_TurretAim.TooFar;
+		}
+
+		if (_ennemiManager.didOneLeft ()) {
 			_enumTurretAim = Enum_TurretAim.NoEnnemiFound;
 		}
 
+		GameObject bull = (GameObject)Instantiate (_prefabBulletTurret, Vector2.zero, Quaternion.identity);
+		bull.GetComponent<BulletTurret> ().SetTarget (ship.GetComponent<BulletTurret>());
+		bull.GetComponent<BulletTurret> ().SetTypeBullet (_enumCurrentTurretType, _enumCurrentStateTurret);
 
 		//TODO 
 		/*
@@ -78,8 +85,16 @@ public class Turret : MonoBehaviour{
 	}
 
 	public void UpdateConstruction (){
+
 	}
 
+	public void StartShoot(){
+		_enumTurretAim = Enum_TurretAim.None;
+	}
+	
+	public void StartConstruction(){
+		
+	}
 
 	public void ShootAt(Ship ship){
 		GameObject bullet = (GameObject)Instantiate(_prefabBulletTurret,Vector3.zero,Quaternion.identity);

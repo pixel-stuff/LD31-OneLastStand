@@ -6,7 +6,6 @@ public class BulletTurret : MonoBehaviour
 	Ship _shipTarget;
 	public float _speed; //px/sec
 	public int _pvDamage;
-	public int _fragmentDamage;
 	public Enum_TurretType _enumBulletType;
 
 	// Use this for initialization
@@ -26,13 +25,16 @@ public class BulletTurret : MonoBehaviour
 		_shipTarget = ship;
 	}
 
+	public void SetTypeBullet(Enum_TurretType _enumTurretType, Enum_StateTurret lvl){
+
+	}
+
 	void OnTriggerEnter2D(Collider2D coll){
 		Ship element = coll.gameObject.GetComponent<Ship> ();
 		if (element == null) 
 			return;
 
 		Destroy (this.gameObject);
-	
 	}
 }
 
