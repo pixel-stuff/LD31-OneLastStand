@@ -13,6 +13,10 @@ public class Frigate : Ship {
 		_normalSpeed=ConstantesManager.FRIGATE_NORME_SPEED;
 		_timeBetweenAttack = ConstantesManager.FRIGATE_TIME_BETWEEN_ATTACK;
 		_variationTimeBetweenAttackPercent = ConstantesManager.VARIATION_TIME_BETWEEN_ATTACK_PERCENT;
+
+		_percentFragByStandard = ConstantesManager.FRIGATE_FRAG_STANDARD_PERCENT;
+		_percentFragByDisa = ConstantesManager.FRIGATE_FRAG_DISINTEGRATOR_PERCENT;
+		_percentFragByEMP = ConstantesManager.FRIGATE_FRAG_EMP_PERCENT;
 		
 	}
 

@@ -16,11 +16,12 @@ public class ConstantesManager {
 	public static Vector2 POP_POINT_3 = new Vector2(25,25);
 	public static float ERROR_MARGE_POP = 10f;
 
-	
-
-
 
 	//Hunter Var
+
+	public static float HUNTER_FRAG_STANDARD_PERCENT = 100/100;
+	public static float HUNTER_FRAG_DISINTEGRATOR_PERCENT = 16/100;
+	public static float HUNTER_FRAG_EMP_PERCENT = 180/100;
 
 	public static int HUNTER_PV = 100;
 	public static int HUNTER_SCORE = 100;
@@ -31,6 +32,10 @@ public class ConstantesManager {
 
 
 	//Frigate Var
+
+	public static float FRIGATE_FRAG_STANDARD_PERCENT = 90/100;
+	public static float FRIGATE_FRAG_DISINTEGRATOR_PERCENT = 25/100;
+	public static float FRIGATE_FRAG_EMP_PERCENT = 200/100;
 	
 	public static int FRIGATE_PV = 100;
 	public static int FRIGATE_SCORE = 100;
@@ -40,6 +45,10 @@ public class ConstantesManager {
 	public static float FRIGATE_TIME_BETWEEN_ATTACK = 2f; // time in s
 
 	//Cruiser Var
+
+	public static float CRUISER_FRAG_STANDARD_PERCENT = 80/100;
+	public static float CRUISER_FRAG_DISINTEGRATOR_PERCENT = 33/100;
+	public static float CRUISER_FRAG_EMP_PERCENT = 250/100;
 
 	public static int CRUISER_PV = 100;
 	public static int CRUISER_SCORE = 100;
