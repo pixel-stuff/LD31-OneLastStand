@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 public class VagueManager {
 	public static int _plusVariationFP =5;
-	public List<Vague> _tabVague;
+	//public List<Vague> _tabVague;
+	public Vague _tabVague;
 
 	public int _fp;
 	public int _numVague;
@@ -17,27 +18,37 @@ public class VagueManager {
 	public int _costFrigate;
 	public int _costCruiser;
 
+	public bool _instanciate = false;
+
 	public VagueManager(){
 
+
+		}
+
+
+	public void Instanciate(){
 		_numVague = 1;
 		_fp = ConstantesManager.FP_INITIAL;
-
+		
 		_nbPrecalculateVag = ConstantesManager.NB_PRECALCULATE_VAGUE;
-
+		
 		_minPercentHunter = ConstantesManager.MIN_PERCENT_HUNTER;
 		_maxPercentCruiser = ConstantesManager.MAX_PERCENT_CRUISER;
-
+		
 		_costHunter = ConstantesManager.COST_HUNTER;
 		_costFrigate = ConstantesManager.COST_FRIGATE;
 		_costCruiser = ConstantesManager.COST_CRUISER;
-
-		for (int i =0; i< _nbPrecalculateVag; i++) {
+		
+		/*for (int i =0; i< _nbPrecalculateVag; i++) {
 			createNextVague();
+			
+		}*/
 
-				}
+		_instanciate = true;
 		}
 
 	public void createNextVague(){
+	
 
 		int fp = _fp;
 		int nbH = 0;
@@ -93,7 +104,7 @@ public class VagueManager {
 
 				} while(fp > 0);
 
-		_tabVague.Add(new Vague(_fp,nbH,nbF,nbC,_numVague));
+		_tabVague=new Vague(_fp,nbH,nbF,nbC,_numVague);
 
 		updateVague ();
 		
@@ -105,10 +116,13 @@ public class VagueManager {
 
 		}
 	public Vague getIncomingVague(){
-		updateVague ();
-		Vague ret = _tabVague [0];
-		_tabVague.RemoveAt (0);
-		return ret;
+		if (!_instanciate) {
+			Instanciate();
+				}
+		createNextVague ();
+		/*Vague ret = _tabVague [0];
+		_tabVague.RemoveAt (0);*/
+		return _tabVague;
 
 		}
 
