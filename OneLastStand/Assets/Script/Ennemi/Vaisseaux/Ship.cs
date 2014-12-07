@@ -56,7 +56,8 @@ public abstract class Ship : MonoBehaviour  {
 
 
 		if (_pv <= 0) {
-			Object.Destroy(this.gameObject);
+			Destroy(this.gameObject);
+			//this.gameObject.SetActive(false);
 		}
 
 		}
@@ -87,8 +88,8 @@ public abstract class Ship : MonoBehaviour  {
 
 			//shoot 
 			GameObject bull = (GameObject)Instantiate (_prefabEnnemiBullet, this.transform.position, Quaternion.identity);
-			bull.GetComponent<ennemiBullet> ().Initialize(_city, _TYPE, _degatShot,_bulletSpeed);
-			bull.transform.parent=this.transform;
+			bull.GetComponent<ennemiBullet> ().Initialize(_city, _TYPE, _degatShot,_bulletSpeed,this.transform.position);
+			bull.transform.parent=this.transform.parent.transform;
 
 				}
 		Vector3 origin = this.transform.position;
