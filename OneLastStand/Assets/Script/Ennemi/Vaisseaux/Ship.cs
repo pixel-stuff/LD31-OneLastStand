@@ -105,7 +105,7 @@ public abstract class Ship : MonoBehaviour  {
 
 	void OnTriggerEnter2D(Collider2D collider)
 	{
-
+		Debug.Log ("BBWWWWWWWWWAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 		City cityElement = collider.gameObject.GetComponent<City> ();
 		if (cityElement != null) {
 			Destroy(this.gameObject);

@@ -120,11 +120,13 @@ public class City : MonoBehaviour{
 
 		if (ship != null) {
 			getHit(ship._degatKamikaze);
+			Destroy(ship.gameObject);
 			return;
 		}
 
 		if (bullet != null) {
 			getHit((int)bullet._pvDamage);
+			Destroy(bullet.gameObject);
 			return;
 		}
 

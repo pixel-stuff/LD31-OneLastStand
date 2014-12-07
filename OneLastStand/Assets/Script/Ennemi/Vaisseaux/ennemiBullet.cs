@@ -60,12 +60,14 @@ public class ennemiBullet : MonoBehaviour {
 		                                               target.z - target.z));*/
 		
 	}
-	
+	/*
 	void OnTriggerEnter2D(Collider2D coll){
+
+		Debug.Log("collider EnnemiBullet");
 		City element = coll.gameObject.GetComponent<City> ();
 		if (element == null) 
 			return;
 		
 		Destroy (this.gameObject);
-	}
+	}*/
 }

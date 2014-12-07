@@ -82,7 +82,7 @@ public class Turret : MonoBehaviour{
 			if(distance >= ConstantesManager.DISTANCE_WITH_DANGER_BEFORE_SHOOT){
 				_enumTurretAim = Enum_TurretAim.TooFar;
 				
-				Debug.Log ("Cible Too Far " + distance);
+				//Debug.Log ("Cible Too Far " + distance);
 			}else{
 				ShootAt(ship); //Tire si ship != null et distance suffisante
 			}
