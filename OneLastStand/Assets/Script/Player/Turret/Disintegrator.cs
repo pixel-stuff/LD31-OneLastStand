@@ -7,11 +7,5 @@ public class Disintegrator : Turret{
 
 	}
 	
-	public override void UpdateShoot (){
-		
-	}
-	
-	public override void UpdateConstruction (){
-		
-	}
+
 }

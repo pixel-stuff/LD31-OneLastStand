@@ -8,13 +8,19 @@ public class City : MonoBehaviour{
 
 	List<Turret> _listTurret;
 	
-	public GameObject _prefabStandardTurret;
-	public GameObject _prefabEMPTurret;
-	public GameObject _prefabDisintegratorTurret;
+	public GameObject _prefabTurret;
 
-	public City(){
+	public int _nombreTurret = 4; 
+
+	void Start(){
 		_listTurret = new List<Turret>();
-		//_listTurret.Add
+
+		for (int i=0; i<_nombreTurret; i++) {
+			GameObject turret = (GameObject)Instantiate (_prefabTurret, Vector2.zero, Quaternion.identity);
+			turret.name += i;
+			turret.transform.parent = this.transform;
+			_listTurret.Add (turret.GetComponent<Turret>());
+		}
 
 	}
 	

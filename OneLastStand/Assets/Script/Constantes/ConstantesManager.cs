@@ -47,6 +47,44 @@ public class ConstantesManager {
 	public static float CRUISER_TIME_BETWEEN_ATTACK = 2000; // time in ms
 
 
+	// -------------------------------------------------PLAYER VAR--------------------------------------------------------
 	//City var
 	public static int CITY_PV = 10000;
+
+	//Disintegrator lvl 1 var
+	public static int DISINTEGRATOR_LVL1_PV_MAX = 200; //shooting/sec
+	public static int DISINTEGRATOR_LVL1_RATE_OF_FIRE = 10; //shooting/sec
+	public static int DISINTEGRATOR_LVL1_SHOOT_DAMAGE = 50;
+	public static int DISINTEGRATOR_LVL1_FRAGMENT_PERCENT = 16; //in percent !
+
+	//Disintegrator lvl 2 var
+	public static int DISINTEGRATOR_LVL2_PV_MAX = 400; //shooting/sec
+	public static int DISINTEGRATOR_LVL2_RATE_OF_FIRE = 15; //shooting/sec
+	public static int DISINTEGRATOR_LVL2_SHOOT_DAMAGE = 70;
+	public static int DISINTEGRATOR_LVL2_FRAGMENT_PERCENT = 25; //in percent !
+
+	//Disintegrator lvl 3 var
+	public static int DISINTEGRATOR_LVL3_PV_MAX = 600; //shooting/sec
+	public static int DISINTEGRATOR_LVL3_RATE_OF_FIRE = 20; //shooting/sec
+	public static int DISINTEGRATOR_LVL3_SHOOT_DAMAGE = 100;
+	public static int DISINTEGRATOR_LVL3_FRAGMENT_PERCENT = 33; //in percent !
+
+	//Standard lvl 1 var
+	public static int STANDARD_LVL1_PV_MAX = 200; //shooting/sec
+	public static int STANDARD_LVL1_RATE_OF_FIRE = 10; //shooting/sec
+	public static int STANDARD_LVL1_SHOOT_DAMAGE = 50;
+	public static int STANDARD_LVL1_FRAGMENT_PERCENT = 100; //in percent !
+	
+	//Standard lvl 2 var
+	public static int STANDARD_LVL2_PV_MAX = 400; //shooting/sec
+	public static int STANDARD_LVL2_RATE_OF_FIRE = 15; //shooting/sec
+	public static int STANDARD_LVL2_SHOOT_DAMAGE = 70;
+	public static int STANDARD_LVL2_FRAGMENT_PERCENT = 90; //in percent !
+	
+	//Standard lvl 3 var
+	public static int STANDARD_LVL3_PV_MAX = 600; //shooting/sec
+	public static int STANDARD_LVL3_RATE_OF_FIRE = 20; //shooting/sec
+	public static int STANDARD_LVL3_SHOOT_DAMAGE = 100;
+	public static int STANDARD_LVL3_FRAGMENT_PERCENT = 80; //in percent !
+
 }

@@ -9,10 +9,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
-  - 114: {fileID: 11400002}
   - 58: {fileID: 5800000}
   m_Layer: 0
-  m_Name: Turret
+  m_Name: BulletTurret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,21 +63,6 @@ MonoBehaviour:
   mShader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
   mTexture: {fileID: 0}
   mMat: {fileID: 0}
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b4c119befca292468c454213ecede51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _pathFolderRoot: Turret
-  _enumStateTurret: 3
-  _enumTurretType: 3
-  _currentTexture: {fileID: 11400000}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

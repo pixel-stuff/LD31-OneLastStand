@@ -30,8 +30,12 @@ public class TurretTextureManager : MonoBehaviour{
 	}
 	
 
-	public void changeLvl(Enum_StateTurret state){
+	public void changeStateTurret(Enum_StateTurret state){
 		_enumStateTurret = state;
+	}
+
+	public void changeTypeTurret(Enum_TurretType type){
+		_enumTurretType = type;
 	}
 }
 
