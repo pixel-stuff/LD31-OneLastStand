@@ -73,7 +73,7 @@ public class GameMain : MonoBehaviour {
 
 	void UpdateConstruction () {
 
-		//StartShoot ();
+		StartShoot ();
 		/*_ennemiManager.UpdateConstruction ();
 		_playerManager.UpdateConstruction ();
 		_uiManager.UpdateConstruction ();*/

@@ -81,7 +81,7 @@ public class VagueManager {
 				possible=0;
 			}
 
-			int selectShip = Random.Range(0,possible);
+			int selectShip = Random.Range(0,possible+1);
 
 			if (selectShip == 0){
 				nbH++;

@@ -29,6 +29,7 @@ public class PlayerManager : MonoBehaviour{
 	}
 
 	public void StartShoot(){
+		_enumStatePlayer = Enum_StatePlayer.Playing;
 		_city.StartShoot ();
 		_decharge.StartShoot ();
 	}

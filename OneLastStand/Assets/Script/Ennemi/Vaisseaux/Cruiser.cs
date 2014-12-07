@@ -16,7 +16,7 @@ public class Cruiser : Ship {
 		_normalSpeed=ConstantesManager.CRUISER_NORME_SPEED;
 		_timeBetweenAttack = ConstantesManager.CRUISER_TIME_BETWEEN_ATTACK;
 		_variationTimeBetweenAttackPercent = ConstantesManager.VARIATION_TIME_BETWEEN_ATTACK_PERCENT;
-		
+		_bulletSpeed=ConstantesManager.CRUISER_SHOT_SPEED;
 		_percentFragByStandard = ConstantesManager.CRUISER_FRAG_STANDARD_PERCENT;
 		_percentFragByDisa = ConstantesManager.CRUISER_FRAG_DISINTEGRATOR_PERCENT;
 		_percentFragByEMP = ConstantesManager.CRUISER_FRAG_EMP_PERCENT;
