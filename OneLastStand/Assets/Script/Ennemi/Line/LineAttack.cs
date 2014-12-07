@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -19,11 +19,14 @@ public class LineAttack : MonoBehaviour{
 
 	public Vector2 _zonePop2; 
 	public Vector2 _zonePop3; 
-	public _zonePop1; 
-	public _errorMargePop;
+	public Vector2 _zonePop1; 
+	public float  _errorMargePop;
 
 
-	private float spawnCooldown;
+	private float _spawnCooldown;
+	public float _frequencePop;
+	public float _errorFrequencePop;
+
 	public LineAttack(){
 	}
 
@@ -87,7 +90,9 @@ public class LineAttack : MonoBehaviour{
 		_zonePop2 = ConstantesManager.POP_POINT_2;
 		_zonePop3 = ConstantesManager.POP_POINT_3;
 		_errorMargePop = ConstantesManager.ERROR_MARGE_POP;
-		spawnCooldown = 0f;
+		_spawnCooldown = 0f;
+		_frequencePop = ConstantesManager.FREQUENCE_POP;
+		_errorFrequencePop = ConstantesManager.VARIANCE_FREQUENCE_POP_PERCENT;
 
 
 	}
@@ -98,10 +103,22 @@ public class LineAttack : MonoBehaviour{
 	}
 
 	void UpdateShoot(){
-		if (spawnCooldown > 0) {
-			spawnCooldown -= Time.deltaTime;
+		if (_spawnCooldown > 0) {
+			_spawnCooldown -= Time.deltaTime;
+				}
+		if (CanPop) {
+			_spawnCooldown = Random.Range(_frequencePop*(1-_errorFrequencePop),_frequencePop*(1+_errorFrequencePop));
+			//TODO spawn 1er non deja actif sur un tableau aléatoire.
+
 				}
 		}
+
 	void UpdateConstruction(){
 		}
+
+	public bool CanPop{
+		get{
+			return _spawnCooldown <=0f;
+				}
+	}
 }
