@@ -12,7 +12,7 @@ public class City : MonoBehaviour{
 
 	public int _nombreTurret = 4; 
 
-	public Enum_StatePlayer _enumStatePlayer;
+	public Enum_StateCity _enumStateCity;
 
 	ResourcesManager _resourcesManager;
 	
@@ -20,7 +20,7 @@ public class City : MonoBehaviour{
 	void Start(){
 		_resourcesManager = new ResourcesManager ();
 		_pv = ConstantesManager.CITY_PV_MAX;
-		_enumStatePlayer = Enum_StatePlayer.Playing;
+		_enumStateCity = Enum_StateCity.Fighting;
 
 		_listTurret = new List<Turret>();
 
@@ -51,28 +51,28 @@ public class City : MonoBehaviour{
 		_pv -= degat;
 		if (_pv <= 0) {
 			_pv =0;
-			_enumStatePlayer = Enum_StatePlayer.Dead;
+			_enumStateCity = Enum_StateCity.Destroy;
 		}
 		Debug.Log ("City take Damage -" + degat);
 	}
 	
 	public void UpdateShoot(){
-		switch (_enumStatePlayer) {
-		case Enum_StatePlayer.Playing:
+		switch (_enumStateCity) {
+		case Enum_StateCity.Fighting:
 			
 			break;
-		case Enum_StatePlayer.Winning:
-			Debug.Log ("PALYER WIN");
+		case Enum_StateCity.Winning:
+			Debug.Log ("CITY WIN");
 			break;
-		case Enum_StatePlayer.Dead:
-			Debug.Log ("PALYER DEAD");
+		case Enum_StateCity.Destroy:
+			Debug.Log ("CITY DESTROY");
 			break;
 		default:
 			Debug.Log ("Wrong _enumStatePlayer in " + this.gameObject.name);
 			break;
 		}
 
-		if (_enumStatePlayer != Enum_StatePlayer.Playing) 
+		if (_enumStateCity != Enum_StateCity.Fighting) 
 					return;
 		
 		CheckVictoryCondition ();
@@ -97,7 +97,7 @@ public class City : MonoBehaviour{
 
 	
 	public void CheckVictoryCondition (){
-		if (_enumStatePlayer == Enum_StatePlayer.Dead)
+		if (_enumStateCity == Enum_StateCity.Destroy)
 						return;
 
 		int numberTurretWithNoTarget = 0;
@@ -109,7 +109,7 @@ public class City : MonoBehaviour{
 		}
 
 		if (numberTurretWithNoTarget >= _nombreTurret) {
-			_enumStatePlayer = Enum_StatePlayer.Winning;
+			_enumStateCity = Enum_StateCity.Winning;
 		}
 	}
 

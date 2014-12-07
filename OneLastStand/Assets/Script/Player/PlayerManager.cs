@@ -13,6 +13,7 @@ public class PlayerManager : MonoBehaviour{
 	public GameObject _cityPrefab;
 	public GameObject _dechargePrefab;
 	public GameObject _labelEphemerePrefab;
+	public Enum_StatePlayer _enumStatePlayer;
 
 
 	void Start () {
@@ -23,6 +24,8 @@ public class PlayerManager : MonoBehaviour{
 
 		_decharge = ((GameObject)Instantiate (_dechargePrefab, Vector2.zero, Quaternion.identity)).GetComponent<Decharge>();
 		_decharge.transform.parent = this.transform;
+
+		_enumStatePlayer = Enum_StatePlayer.Playing;
 	}
 
 	public void StartShoot(){
@@ -35,15 +38,36 @@ public class PlayerManager : MonoBehaviour{
 	
 	public void UpdateShoot(){
 		Debug.Log ("PlayerManager UpdateShoot");
-		//_score.UpdateShoot ();
-		_city.UpdateShoot ();
+
+		CheckPlayerState ();
+
+
+		if (_enumStatePlayer == Enum_StatePlayer.Playing) {
+			_city.UpdateShoot ();
+		}
 		_decharge.UpdateShoot ();
 	}
 	
 	public void UpdateConstruction(){
 		_decharge.UpdateConstruction ();
-		//_score.UpdateConstruction ();
 		_city.UpdateConstruction ();
+	}
+
+	private void CheckPlayerState(){
+		switch (_city._enumStateCity) {
+			case Enum_StateCity.Fighting:
+				_enumStatePlayer = Enum_StatePlayer.Playing;
+				break;
+
+		case Enum_StateCity.Winning:
+				_enumStatePlayer = Enum_StatePlayer.Winning;
+				break;
+
+		case Enum_StateCity.Destroy:
+				_enumStatePlayer = Enum_StatePlayer.Dead;
+				break;
+			
+		}
 	}
 
 	public void AddToScore(int score){

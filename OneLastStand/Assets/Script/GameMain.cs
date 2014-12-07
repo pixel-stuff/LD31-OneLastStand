@@ -48,10 +48,15 @@ public class GameMain : MonoBehaviour {
 	}
 
 	public void StartShoot(){
-		
+		_ennemiManager.StartShoot ();
+		_playerManager.StartShoot ();
+		_uiManager.StartShoot ();
 	}
 	
 	public void StartConstruction(){
+		_ennemiManager.StartConstruction ();
+		_playerManager.StartConstruction ();
+		_uiManager.StartConstruction ();
 		
 	}
 

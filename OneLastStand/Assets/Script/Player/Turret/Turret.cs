@@ -79,7 +79,7 @@ public class Turret : MonoBehaviour{
 			_enumTurretAim = Enum_TurretAim.NoEnnemiFound;
 		} else {
 			float distance = Vector3.Distance(this.transform.position, ship.transform.position);
-			if(distance >= ConstantesManager.DISTANCE_WITH_DANGER_BEFORE_SHOOT){
+			if(distance >= ConstantesManager.DISTANCE_OF_VUE_SHOOT){
 				_enumTurretAim = Enum_TurretAim.TooFar;
 				
 				//Debug.Log ("Cible Too Far " + distance);

@@ -78,6 +78,7 @@ public class ConstantesManager {
 	//Player var
 	public static Color SCORE_LABEL_COLOR = new Color (0,255,0);
 	public static Color FRAGMENT_LABEL_COLOR = new Color (255,0,0);
+	public static float TIME_IN_CONSTRUCTION_STATE = 30f;//sec
 
 	//City var
 	public static int CITY_PV_MAX = 10000;
@@ -95,7 +96,7 @@ public class ConstantesManager {
 	public static Vector3 TURRET_2_LOCAL_POSITION = new Vector3(35,65,0);
 	public static Vector3 TURRET_3_LOCAL_POSITION = new Vector3(85,5,0);
 	public static Vector3 TURRET_4_LOCAL_POSITION = new Vector3(135,8,0);
-	public static float DISTANCE_WITH_DANGER_BEFORE_SHOOT = 1000;//pixel
+	public static float DISTANCE_OF_VUE_SHOOT = 1000;//pixel
 
 	//Disintegrator lvl 1 var
 	public static int DISINTEGRATOR_LVL1_PV_MAX = 200; //shooting/sec

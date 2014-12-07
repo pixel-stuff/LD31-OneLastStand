@@ -7,6 +7,15 @@ public class UIManager : MonoBehaviour{
 	
 	}
 
+	public void StartShoot ()
+	{
+
+	}
+
+	public void StartConstruction ()
+	{
+	}
+
 	public void UpdateConstruction () {
 	}
 
