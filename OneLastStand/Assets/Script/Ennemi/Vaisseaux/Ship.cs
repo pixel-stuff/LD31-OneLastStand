@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Ship : MonoBehaviour  {
+public abstract class Ship : MonoBehaviour  {
 
 	public Enum_ShipType _TYPE;
-	public City _city;
+	public GameObject _city;
 	public int _pv;
 	public int _degatShot;
 	public int _degatKamikaze;
@@ -18,9 +18,15 @@ public class Ship : MonoBehaviour  {
 	public float _percentFragByDisa;
 	public float _percentFragByEMP;
 
+	public bool alreadyInit=false;
+
+	public float _shootCooldown=0.0f;
 
 
-	public GameObject _prefabFragment;
+
+		public GameObject _prefabFragment;
+
+	public GameObject _prefabEnnemiBullet;
 
 
 	
@@ -55,9 +61,31 @@ public class Ship : MonoBehaviour  {
 
 		}
 
+	public abstract void init ();
 
 	public void UpdateShoot(){
 		Debug.Log (this.gameObject.name + " Update");
+		if (!alreadyInit) {
+						init ();
+			alreadyInit=true;
+				}
+		//systéme de tir 
+
+		if (_shootCooldown > 0.0f) {
+			
+			_shootCooldown -= Time.deltaTime;
+		}
+		if (_shootCooldown <= 0.0f) {
+			_shootCooldown =Random.Range(_timeBetweenAttack*(1-_variationTimeBetweenAttackPercent),_timeBetweenAttack*(1+_variationTimeBetweenAttackPercent));
+
+			//shoot 
+			GameObject bull = (GameObject)Instantiate (_prefabEnnemiBullet, this.transform.position, Quaternion.identity);
+			bull.GetComponent<ennemiBullet> ().Initialize(_city, _TYPE, _degatShot,_bulletSpeed);
+			bull.transform.parent=this.transform;
+
+				}
+
+
 	}
 	
 	public void UpdateConstruction(){
@@ -66,12 +94,16 @@ public class Ship : MonoBehaviour  {
 
 	void OnTriggerEnter2D(Collider2D collider)
 	{
-		//collider.gameObject.name ="City"
 
-		//TODO if allyBullet 
-		// GetHit(bulletValue)
+		City cityElement = collider.gameObject.GetComponent<City> ();
+		if (cityElement != null) {
+			Destroy(this.gameObject);
+				}
 
-		//else if city
-		//Object.Destroy(this);
+		BulletTurret bulletElement = collider.gameObject.GetComponent<BulletTurret> ();
+		if (bulletElement != null) {
+			GetHit((int) bulletElement._pvDamage, bulletElement._enumBulletType);
+				}
+
 		}
 }

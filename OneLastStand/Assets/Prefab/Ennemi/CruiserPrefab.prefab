@@ -72,10 +72,14 @@ MonoBehaviour:
   _normalSpeed: 10
   _timeBetweenAttack: 2
   _variationTimeBetweenAttackPercent: 0
+  _bulletSpeed: 0
   _percentFragByStandard: 0
   _percentFragByDisa: 0
   _percentFragByEMP: 2
+  alreadyInit: 0
+  _shootCooldown: 0
   _prefabFragment: {fileID: 100000, guid: 84107ceab7b59ee4b97ae89923635eb9, type: 2}
+  _prefabEnnemiBullet: {fileID: 100000, guid: 0bf90f9049ee48d459461c0b11b191ef, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

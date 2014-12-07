@@ -9,9 +9,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
-  - 114: {fileID: 11400002}
   m_Layer: 0
-  m_Name: HunterPrefab
+  m_Name: ennemiBulletPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,49 +36,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5c5ca47aa5c01740810b7c66662099f, type: 3}
+  m_Script: {fileID: 11500000, guid: cc1c43ad27ec36b449b27eb11465a93e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mColor: {r: 1, g: 1, b: 1, a: 1}
-  mPivot: 4
-  mDepth: 1
-  mRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  mShader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  mTexture: {fileID: 0}
-  mMat: {fileID: 0}
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e9ec29afe2b95034f95b873fb41961c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _TYPE: 0
-  _city: {fileID: 0}
-  _pv: 0
-  _degatShot: 0
-  _degatKamikaze: 0
-  _score: 0
-  _normalSpeed: 0
-  _timeBetweenAttack: 0
-  _variationTimeBetweenAttackPercent: 0
-  _bulletSpeed: 0
-  _percentFragByStandard: 0
-  _percentFragByDisa: 0
-  _percentFragByEMP: 0
-  alreadyInit: 0
-  _shootCooldown: 0
-  _prefabFragment: {fileID: 100000, guid: 84107ceab7b59ee4b97ae89923635eb9, type: 2}
-  _prefabEnnemiBullet: {fileID: 100000, guid: 0bf90f9049ee48d459461c0b11b191ef, type: 2}
+  _speed: 0
+  _pvDamage: 0
+  _enumBulletType: 0
+  _LastDirection: {x: 0, y: 0}
+  _lifeTime: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
