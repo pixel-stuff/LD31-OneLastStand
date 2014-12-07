@@ -33,7 +33,7 @@ public class BulletTurret : MonoBehaviour
 		} else {
 
 			float dist = Vector3.Distance (_shipTarget.transform.position, this.transform.position);
-			Vector3 vec Vector3.MoveTowards (transform.position, _shipTarget.transform.position, Time.deltaTime * _speed);
+			Vector3 vec = Vector3.MoveTowards (transform.position, _shipTarget.transform.position, Time.deltaTime * _speed);
 			transform.position = vec;
 			_LastDirection = Vector3.Normalize(vec);
 		}
