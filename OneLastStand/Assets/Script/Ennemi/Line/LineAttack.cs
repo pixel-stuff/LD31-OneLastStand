@@ -173,6 +173,45 @@ public class LineAttack : MonoBehaviour{
 
 	}
 
+	public Ship getCloserShip(Transform refe){
+		Ship returnShip;
+		float minDistance = float.MaxValue;
+		float distance;
+		foreach (GameObject ship in _listHunter) {
+			if (ship.gameObject.activeSelf) {
+			distance = Vector3.Distance(refe.position,ship.transform.position);
+			if(distance < minDistance){
+				minDistance=distance;
+				returnShip=ship;
+			}
+			}
+		}
+
+		foreach (GameObject ship in _listFrigate) {
+			if (ship.gameObject.activeSelf) {
+			distance = Vector3.Distance(refe.position,ship.transform.position);
+			if(distance < minDistance){
+				minDistance=distance;
+				returnShip=ship;
+			}
+			}
+		}
+
+		foreach (GameObject ship in _listCruiser) {
+			if (ship.gameObject.activeSelf) {
+			distance = Vector3.Distance(refe.position,ship.transform.position);
+			if(distance < minDistance){
+				minDistance=distance;
+				returnShip=ship;
+			}
+			}
+			
+		}
+
+		return returnShip;
+
+	}
+
 
 
 
