@@ -4,9 +4,7 @@ using System.Collections.Generic;
 
 public abstract class Turret : MonoBehaviour{
 
-	static public int _idStatic = 0;
 
-	public int _id;
 	public int _pv;
 	public int _rateOfFire;
 	public int _shootDamage;
@@ -16,7 +14,7 @@ public abstract class Turret : MonoBehaviour{
 	public Enum_StateTurret _enumCurrentStateTurret;
 	public Enum_TurretType _enumCurrentTurretType;
 
-	public List<LineAttack> _lineAttackAiming;
+	public EnnemiManager _ennemiManager;
 
 	public GameObject _prefabBulletTurret;
 
@@ -26,13 +24,11 @@ public abstract class Turret : MonoBehaviour{
 		_enumOldStateTurret = _enumCurrentStateTurret;
 		_pv = ConstantesManager.CITY_PV_MAX;
 
-		_lineAttackAiming = new List<LineAttack> ();
 		//TODO
-		/* Arranger lineAttack par ordre de préférence*/
+		//ChangeStateTurret (_enumCurrentStateTurret);
+		//ChangeTypeTurret (_enumCurrentTurretType);
 
 
-		_id = _idStatic;
-		_idStatic++;
 	}
 	
 	public void UpdateShoot (){
