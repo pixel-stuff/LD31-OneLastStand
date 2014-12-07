@@ -78,7 +78,7 @@ public abstract class Ship : MonoBehaviour  {
 			Destroy(this.gameObject);
 			return;
 				}
-		Debug.Log (this.gameObject.name + " Update");
+		//Debug.Log (this.gameObject.name + " Update");
 
 		if (!alreadyInit) {
 			init ();

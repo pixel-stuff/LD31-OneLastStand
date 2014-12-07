@@ -121,10 +121,11 @@ public class Turret : MonoBehaviour{
 
 	public void Repare(int lifeAdding){
 		_pv += lifeAdding;
-		Enum_StateTurret tempState = _enumOldStateTurret;
+
+		/*Enum_StateTurret tempState = _enumOldStateTurret;
 		_enumOldStateTurret = _enumCurrentStateTurret;
 		_enumCurrentStateTurret = tempState;
-		_turretTextureManager.changeStateTurret (_enumCurrentStateTurret);
+		_turretTextureManager.changeStateTurret (_enumCurrentStateTurret);*/
 	}
 
 	public void getHit(int degat){

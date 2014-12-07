@@ -76,18 +76,23 @@ public class ConstantesManager {
 	// -------------------------------------------------PLAYER VAR--------------------------------------------------------
 
 	//Player var
-	public static Color SCORE_LABEL_COLOR = new Color (0,255,0);
-	public static Color FRAGMENT_LABEL_COLOR = new Color (0,255,0);
-	public static Color LIFE_LABEL_COLOR = new Color (255,0,0);
 	public static float TIME_IN_CONSTRUCTION_STATE = 30f;//sec
 	public static int POINT_SURVIVE_VAGUE = 1000;
+	public static float TIME_MIN_IN_SHOOT_STATE = 4;//sec
 
 	//City var
 	public static int CITY_PV_MAX = 10000;
 	public static Vector3 CITY_LOCAL_POSITION = new Vector3(100,230,0);
 
+	//Truck var
+	public static float TRUCK_SPEED_BASE = 20;//px/sec
+	public static int TRUCK_QUANTITE_TRANSPADABLE_BASE = 500;
+
 	//Label var
 	public static int LABEL_LIFE_TIME = 3;//sec
+	public static Color SCORE_LABEL_COLOR = new Color (255,0,0);
+	public static Color FRAGMENT_LABEL_COLOR = new Color (0,0,255);
+	public static Color LIFE_LABEL_COLOR = new Color (0,255,0);
 
 	//Bullet var
 	public static float BULLET_TURRET_SPEED = 250; //px/sec

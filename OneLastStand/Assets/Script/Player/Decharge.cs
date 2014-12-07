@@ -33,18 +33,18 @@ public class Decharge : MonoBehaviour{
 		_quantiteFragment += frag;
 		GameObject label = (GameObject)Instantiate (_labelPrefab,this.transform.position, Quaternion.identity);
 		label.transform.parent = this.transform;
-		label.transform.localPosition =  new Vector3 (30, 30, 0);
+		label.transform.localPosition =  new Vector3 (30, 100, 0);
 		label.GetComponent<UILabel> ().color = ConstantesManager.FRAGMENT_LABEL_COLOR;
-		label.GetComponent<UILabel> ().text = "" + frag;
+		label.GetComponent<UILabel> ().text = "+" + frag;
 	}
 
 	public void subFragment(int frag){
 		_quantiteFragment -= frag;
 		GameObject label = (GameObject)Instantiate (_labelPrefab, this.transform.position, Quaternion.identity);
 		label.transform.parent = this.transform;
-		label.transform.localPosition =  new Vector3 (30, 30, 0);
+		label.transform.localPosition =  new Vector3 (30, 100, 0);
 		label.GetComponent<UILabel> ().color = ConstantesManager.FRAGMENT_LABEL_COLOR;
-		label.GetComponent<UILabel> ().text = "" + frag;
+		label.GetComponent<UILabel> ().text = "-" + frag;
 	}
 }
 

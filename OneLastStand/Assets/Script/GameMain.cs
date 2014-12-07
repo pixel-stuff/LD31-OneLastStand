@@ -55,6 +55,7 @@ public class GameMain : MonoBehaviour {
 	}
 
 	public void StartShoot(){
+		Debug.Log ("STARTSHOOT GAMEMAIN");
 		_enumStateGame = Enum_StateGame.Shoot;
 		_ennemiManager.StartShoot ();
 		_playerManager.StartShoot ();
@@ -62,6 +63,7 @@ public class GameMain : MonoBehaviour {
 	}
 	
 	public void StartConstruction(){
+		Debug.Log ("STARTCONSTRUCTION GAMEMAIN");
 		_enumStateGame = Enum_StateGame.Construction;
 		_ennemiManager.StartConstruction ();
 		_playerManager.StartConstruction ();
@@ -79,7 +81,6 @@ public class GameMain : MonoBehaviour {
 
 	void UpdateShoot () {
 		if (IsPlayerWin ()) {
-			Debug.Log ("GAMEMAIN -> STARTCONSTRUCTION");
 			StartConstruction();
 		}
 
@@ -90,7 +91,7 @@ public class GameMain : MonoBehaviour {
 
 	bool IsPlayerWin (){
 		if (_playerManager._enumStatePlayer == Enum_StatePlayer.Winning) {
-			Debug.Log ("GAMEMAI REPERE WIN");
+			//Debug.Log ("GAMEMAI REPERE WIN");
 			return true;
 
 		} else {

@@ -16,8 +16,15 @@ public class City : MonoBehaviour{
 
 	public Enum_StateCity _enumStateCity;
 
+	public GameObject _truckPrefab;
+	Truck _truck;
+
+	public float _timeMinInShootState;
+	float _timeStartShootState;
+
 
 	void Start(){
+		_timeMinInShootState = ConstantesManager.TIME_MIN_IN_SHOOT_STATE;
 		_pv = ConstantesManager.CITY_PV_MAX;
 		_enumStateCity = Enum_StateCity.Fighting;
 
@@ -38,6 +45,7 @@ public class City : MonoBehaviour{
 	}
 
 	public void StartShoot(){
+		_timeStartShootState = Time.time;
 		for (int i=0;i<_listTurret.Count;i++) {
 			_listTurret[i].StartShoot();
 		}
@@ -57,7 +65,12 @@ public class City : MonoBehaviour{
 			_enumStateCity = Enum_StateCity.Destroy;
 		}
 		//Debug.Log ("City take Damage -" + degat);
-		ShowLifeChange (degat);
+		AddLifeLabel (degat);
+	}
+
+	public void Repare(int lifeAdding){
+		_pv += lifeAdding;
+
 	}
 	
 	public void UpdateShoot(){
@@ -78,8 +91,10 @@ public class City : MonoBehaviour{
 
 		if (_enumStateCity != Enum_StateCity.Fighting) 
 					return;
-		
-		CheckVictoryCondition ();
+
+		if (Time.time - _timeStartShootState >= _timeMinInShootState) {
+			CheckVictoryCondition ();
+		}
 	
 		for (int i=0;i<_listTurret.Count;i++) {
 			_listTurret[i].UpdateShoot();
@@ -98,12 +113,20 @@ public class City : MonoBehaviour{
 		_resourcesManager.UpdateConstruction ();*/
 	}
 
-	public void ShowLifeChange(int life){
+	public void AddLifeLabel(int life){
 		GameObject label = (GameObject)Instantiate (_labelEphemerePrefab, this.transform.position , Quaternion.identity);
 		label.transform.parent = this.transform;
 		label.transform.localPosition = new Vector2 (30, 100);
 		label.GetComponent<UILabel> ().color = ConstantesManager.LIFE_LABEL_COLOR;
-		label.GetComponent<UILabel> ().text = "" + life;
+		label.GetComponent<UILabel> ().text = "+" + life;
+	}
+
+	public void SubLifeLabel(int life){
+		GameObject label = (GameObject)Instantiate (_labelEphemerePrefab, this.transform.position , Quaternion.identity);
+		label.transform.parent = this.transform;
+		label.transform.localPosition = new Vector2 (30, 100);
+		label.GetComponent<UILabel> ().color = ConstantesManager.LIFE_LABEL_COLOR;
+		label.GetComponent<UILabel> ().text = "-" + life;
 	}
 
 	

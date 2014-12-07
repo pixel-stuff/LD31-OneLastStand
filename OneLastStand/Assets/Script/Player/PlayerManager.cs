@@ -78,34 +78,38 @@ public class PlayerManager : MonoBehaviour{
 
 	public void AddToScore(int score){
 		_score += score;
-		GameObject label = (GameObject)Instantiate (_labelEphemerePrefab, new Vector2 (30, 30), Quaternion.identity);
-		label.transform.parent = this.transform;
+		GameObject label = (GameObject)Instantiate (_labelEphemerePrefab, _city.transform.position , Quaternion.identity);
+		label.transform.parent = _city.transform;
+		label.transform.localPosition = new Vector2 (30, 100);
 		label.GetComponent<UILabel> ().color = ConstantesManager.SCORE_LABEL_COLOR;
-		label.GetComponent<UILabel> ().text = "" + score;
+		label.GetComponent<UILabel> ().text = "+" + score;
 	}
 
 	public void SubToScore(int score){
 		_score += score;
-		GameObject label = (GameObject)Instantiate (_labelEphemerePrefab, new Vector2 (30, 30), Quaternion.identity);
-		label.transform.parent = this.transform;
+		GameObject label = (GameObject)Instantiate (_labelEphemerePrefab, _city.transform.position , Quaternion.identity);
+		label.transform.parent = _city.transform;
+		label.transform.localPosition = new Vector2 (30, 100);
 		label.GetComponent<UILabel> ().color = ConstantesManager.SCORE_LABEL_COLOR;
-		label.GetComponent<UILabel> ().text = "" + score;
+		label.GetComponent<UILabel> ().text = "-" + score;
 	}
 
-	public void AddToFragment(int frag){
+	public void AddToFragmentPlayer(int frag){
 		_quantiteFrag += frag;
-		GameObject label = (GameObject)Instantiate (_labelEphemerePrefab, new Vector2 (-30, 30), Quaternion.identity);
-		label.transform.parent = this.transform;
+		GameObject label = (GameObject)Instantiate (_labelEphemerePrefab, _city.transform.position , Quaternion.identity);
+		label.transform.parent = _city.transform;
+		label.transform.localPosition = new Vector2 (30, 100);
 		label.GetComponent<UILabel> ().color = ConstantesManager.FRAGMENT_LABEL_COLOR;
-		label.GetComponent<UILabel> ().text = "" + frag;
+		label.GetComponent<UILabel> ().text = "+" + frag;
 	}
 
-	public void SubToFragment(int frag){
+	public void SubToFragmentPlayer(int frag){
 		_quantiteFrag += frag;
-		GameObject label = (GameObject)Instantiate (_labelEphemerePrefab, new Vector2 (-30, 30), Quaternion.identity);
-		label.transform.parent = this.transform;
+		GameObject label = (GameObject)Instantiate (_labelEphemerePrefab, _city.transform.position , Quaternion.identity);
+		label.transform.parent = _city.transform;
+		label.transform.localPosition = new Vector2 (30, 100);
 		label.GetComponent<UILabel> ().color = ConstantesManager.FRAGMENT_LABEL_COLOR;
-		label.GetComponent<UILabel> ().text = "" + frag;
+		label.GetComponent<UILabel> ().text = "-" + frag;
 	}
 
 }
