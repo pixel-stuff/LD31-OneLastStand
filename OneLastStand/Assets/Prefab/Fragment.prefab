@@ -9,9 +9,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 400000}
   - 114: {fileID: 11400000}
+  - 123: {fileID: 12300000}
   m_Layer: 0
-  m_Name: EnnemiPrefab
-  m_TagString: Ennemi
+  m_Name: Fragment
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,18 +37,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7bf29b03d365e548a7ca69ae1ef281d, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c574ff56db543a49ad07e72483c1313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefabContainerLineAttack: {fileID: 100006, guid: a95d66ea425d8c14298cae0409b6f533,
-    type: 2}
-  _containerLineAttack: {fileID: 0}
-  _ligneAttackManager: {fileID: 0}
-  _lineAttack1: {fileID: 0}
-  _lineAttack2: {fileID: 0}
-  _lineAttack3: {fileID: 0}
-  _toto: {fileID: 0}
-  _alreadyInit: 0
+  _quantite: 0
+--- !u!123 &12300000
+LensFlare:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_Flare: {fileID: 0}
+  m_Color: {r: .977941155, g: .151005641, b: .151005641, a: 0}
+  m_Brightness: 1
+  m_FadeSpeed: 3
+  m_IgnoreLayers:
+    serializedVersion: 2
+    m_Bits: 6
+  m_Directional: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -128,9 +128,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df4f28f61e5c070458c5dd7b9a8942c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefabHunter: {fileID: 0}
-  _prefabFrigate: {fileID: 0}
-  _prefabCruiser: {fileID: 0}
+  _prefabHunter: {fileID: 100000, guid: 681cf710d31849c469707a6367b8a88a, type: 2}
+  _prefabFrigate: {fileID: 100000, guid: d0914cf576fb6894ba9cac7f7124b911, type: 2}
+  _prefabCruiser: {fileID: 100000, guid: 53f65319b8e98a94aba2d9f87e30c65e, type: 2}
   _zonePop2: {x: 0, y: 0}
   _zonePop3: {x: 0, y: 0}
   _zonePop1: {x: 0, y: 0}
@@ -148,9 +148,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df4f28f61e5c070458c5dd7b9a8942c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefabHunter: {fileID: 0}
-  _prefabFrigate: {fileID: 0}
-  _prefabCruiser: {fileID: 0}
+  _prefabHunter: {fileID: 100000, guid: 681cf710d31849c469707a6367b8a88a, type: 2}
+  _prefabFrigate: {fileID: 100000, guid: d0914cf576fb6894ba9cac7f7124b911, type: 2}
+  _prefabCruiser: {fileID: 100000, guid: 53f65319b8e98a94aba2d9f87e30c65e, type: 2}
   _zonePop2: {x: 0, y: 0}
   _zonePop3: {x: 0, y: 0}
   _zonePop1: {x: 0, y: 0}
@@ -168,9 +168,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df4f28f61e5c070458c5dd7b9a8942c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefabHunter: {fileID: 0}
-  _prefabFrigate: {fileID: 0}
-  _prefabCruiser: {fileID: 0}
+  _prefabHunter: {fileID: 100000, guid: 681cf710d31849c469707a6367b8a88a, type: 2}
+  _prefabFrigate: {fileID: 100000, guid: d0914cf576fb6894ba9cac7f7124b911, type: 2}
+  _prefabCruiser: {fileID: 100000, guid: 53f65319b8e98a94aba2d9f87e30c65e, type: 2}
   _zonePop2: {x: 0, y: 0}
   _zonePop3: {x: 0, y: 0}
   _zonePop1: {x: 0, y: 0}

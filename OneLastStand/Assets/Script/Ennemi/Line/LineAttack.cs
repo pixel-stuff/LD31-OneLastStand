@@ -33,6 +33,7 @@ public class LineAttack : MonoBehaviour{
 	}
 
 
+
 	public void setShips(int nbHunter,int nbFrigate, int nbCruiser){
 
 		if (_listHunter != null) { // if instancier
@@ -95,6 +96,7 @@ public class LineAttack : MonoBehaviour{
 		_spawnCooldown = 0f;
 		_frequencePop = ConstantesManager.FREQUENCE_POP;
 		_errorFrequencePop = ConstantesManager.VARIANCE_FREQUENCE_POP_PERCENT;
+		_spawnPossible = false;
 
 
 	}
@@ -104,7 +106,9 @@ public class LineAttack : MonoBehaviour{
 	
 	}
 
-	void UpdateShoot(){
+	public void UpdateShoot(){
+		Debug.Log ( this.gameObject.name +  " UpdateShoot");
+
 		if (_spawnCooldown > 0) {
 			_spawnCooldown -= Time.deltaTime;
 				}
@@ -131,7 +135,7 @@ public class LineAttack : MonoBehaviour{
 		}
 					}
 
-	void UpdateConstruction(){
+	public void UpdateConstruction(){
 		}
 
 	public bool SpawnPossible(int selecttab){

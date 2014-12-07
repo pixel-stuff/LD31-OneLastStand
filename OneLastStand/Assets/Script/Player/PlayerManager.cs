@@ -18,6 +18,14 @@ public class PlayerManager : MonoBehaviour{
 		_city = ((GameObject)Instantiate (_cityPrefab, Vector2.zero, Quaternion.identity)).GetComponent<City>();
 		_city.transform.parent = this.transform;
 	}
+
+	public void StartShoot(){
+		
+	}
+	
+	public void StartConstruction(){
+		
+	}
 	
 	public void UpdateShoot(){
 		Debug.Log ("PlayerManager UpdateShoot");

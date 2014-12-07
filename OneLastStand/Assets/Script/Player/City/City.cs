@@ -60,7 +60,6 @@ public class City : MonoBehaviour{
 			default:
 			Debug.Log ("Wrong _enumStatePlayer in " + this.gameObject.name);
 			break;
-
 		}
 
 		Debug.Log ("City Update Shoot");

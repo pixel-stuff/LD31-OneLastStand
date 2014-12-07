@@ -53,10 +53,16 @@ public class Ship : MonoBehaviour  {
 		}
 
 		}
-	// Update is called once per frame
-	void Update () {
-	
+
+
+	public void UpdateShoot(){
+		Debug.Log (this.gameObject.name + " Update");
 	}
+	
+	public void UpdateConstruction(){
+	}
+
+
 	void OnTriggerEnter2D(Collider2D collider)
 	{
 		//collider.gameObject.name ="City"

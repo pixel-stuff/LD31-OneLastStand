@@ -15,6 +15,5 @@ public class LineAttackManager : MonoBehaviour {
 
 	public LineAttack getLineAttack(int valueLigne){
 		return this.gameObject.GetComponentsInChildren<LineAttack> ()[valueLigne];
-
-		}
+	}
 }

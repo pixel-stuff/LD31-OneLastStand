@@ -18,10 +18,14 @@ public class GameMain : MonoBehaviour {
 		_playerManager = new PlayerManager ();
 		_uiManager = new UIManager ();
 		_enumStateGame = Enum_StateGame.Shoot;
+		StartShoot ();
 
 
 		_playerManager = ((GameObject)Instantiate(_playerPrefab, Vector2.zero,Quaternion.identity)).GetComponent<PlayerManager>();
 		_playerManager.transform.parent = this.transform;
+
+		_ennemiManager = ((GameObject)Instantiate(_ennemiPrefab, Vector2.zero,Quaternion.identity)).GetComponent<EnnemiManager>();
+		_ennemiManager.transform.parent = this.transform;
 	}
 	
 	// Update is called once per frame
@@ -42,14 +46,22 @@ public class GameMain : MonoBehaviour {
 		}
 	}
 
+	public void StartShoot(){
+		
+	}
+	
+	public void StartConstruction(){
+		
+	}
+
 	void UpdateConstruction () {
-		//_ennemiManager.UpdateConstruction ();
+		_ennemiManager.UpdateConstruction ();
 		_playerManager.UpdateConstruction ();
 		_uiManager.UpdateConstruction ();
 	}
 
 	void UpdateShoot () {
-		//_ennemiManager.UpdateShoot ();
+		_ennemiManager.UpdateShoot ();
 		_playerManager.UpdateShoot ();
 		_uiManager.UpdateShoot ();
 	}
