@@ -240,7 +240,9 @@ public class Turret : MonoBehaviour{
 	
 	public void ChangeTypeTurret(Enum_TurretType newType){
 		_enumCurrentTurretType = newType;
-		
+		_enumCurrentStateTurret = Enum_StateTurret.TurretLevel1;
+
+
 		switch(_enumCurrentTurretType){
 			case Enum_TurretType.Disintegrator:
 				_pvMax = ConstantesManager.DISINTEGRATOR_LVL1_PV_MAX;
