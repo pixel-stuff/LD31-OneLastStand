@@ -261,6 +261,8 @@ public class UIManager2 : MonoBehaviour {
 		}
 
 	void updateTowerButton(){
+
+
 		_StandardButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (levelTurret [_Stat - 1]);
 		_DisinButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (levelTurret [_Stat - 1]);
 		_EMPButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (levelTurret [_Stat - 1]);
@@ -271,6 +273,59 @@ public class UIManager2 : MonoBehaviour {
 
 		//repair label 
 		_repairLabel.GetComponent<UILabel> ().text = repairCost ().ToString ();//(degatTurret[_Stat - 1]*_costRepair).ToString();
+
+		if (tabTypeTurret [_Stat - 1] != Enum_TurretType.None) {
+			switch(tabTypeTurret [_Stat - 1]){
+			case Enum_TurretType.Standard:
+				if (levelTurret [_Stat - 1] < 3){
+					_StandardButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (levelTurret [_Stat - 1]+1);
+					_DisinButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (1);
+					_EMPButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (1);
+
+					_StandardButtonPrice.GetComponent<UILabel> ().text = (getPriceStandard (levelTurret [_Stat - 1])+1).ToString();
+					_DisinButtonPrice.GetComponent<UILabel> ().text = (getPriceDisi (1)).ToString();
+					_EMPButtonPrice.GetComponent<UILabel> ().text = (getPriceEMP (1)).ToString();
+
+				}else{
+					_StandardButtonPrice.GetComponent<UILabel> ().color=Color.red;
+				}
+				break;
+
+			case Enum_TurretType.EMP:
+				if (levelTurret [_Stat - 1] < 3){
+					_EMPButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (levelTurret [_Stat - 1]+1);
+					_DisinButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (1);
+					_StandardButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (1);
+					
+					_StandardButtonPrice.GetComponent<UILabel> ().text = (getPriceStandard (1).ToString());
+					_DisinButtonPrice.GetComponent<UILabel> ().text = (getPriceDisi (1)).ToString();
+					_EMPButtonPrice.GetComponent<UILabel> ().text = (getPriceEMP (levelTurret [_Stat - 1])+1).ToString();
+					
+				}else{
+					_StandardButtonPrice.GetComponent<UILabel> ().color=Color.red;
+				}
+				break;
+
+
+			case Enum_TurretType.Disintegrator:
+				if (levelTurret [_Stat - 1] < 3){
+					_StandardButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (1);
+					_DisinButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (levelTurret [_Stat - 1]+1);
+					_EMPButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (1);
+					
+					_StandardButtonPrice.GetComponent<UILabel> ().text = (getPriceStandard (1)).ToString();
+					_DisinButtonPrice.GetComponent<UILabel> ().text = (getPriceDisi (levelTurret [_Stat - 1]+1)).ToString();
+					_EMPButtonPrice.GetComponent<UILabel> ().text = (getPriceEMP (1)).ToString();
+					
+				}else{
+					_StandardButtonPrice.GetComponent<UILabel> ().color=Color.red;
+				}
+				break;
+			}
+			
+			
+		}
+
 		}
 
 	void updateTower(){
@@ -309,6 +364,7 @@ public class UIManager2 : MonoBehaviour {
 						break;
 
 				}
+		return ConstantesManager.PRICE_STANDARD_1;
 		}
 
 	int getPriceDisi(int level){
@@ -324,6 +380,7 @@ public class UIManager2 : MonoBehaviour {
 			break;
 			
 		}
+		return ConstantesManager.PRICE_DISIN_1;
 	}
 
 	int getPriceEMP(int level){
@@ -339,6 +396,7 @@ public class UIManager2 : MonoBehaviour {
 			break;
 			
 		}
+		return ConstantesManager.PRICE_EMP_3;
 	}
 
 	
