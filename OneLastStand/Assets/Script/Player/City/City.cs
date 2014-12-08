@@ -49,15 +49,17 @@ public class City : MonoBehaviour{
 			_listTurret.Add (turret.GetComponent<Turret>());
 		}
 
-		_listTurret [0].Initialize(Enum_IdTurret.Turret1);
-		_listTurret [1].Initialize(Enum_IdTurret.Turret2);
-		_listTurret [2].Initialize(Enum_IdTurret.Turret3);
-		_listTurret [3].Initialize(Enum_IdTurret.Turret4);
+
 
 		_listTurret [0].transform.localPosition = ConstantesManager.TURRET_1_LOCAL_POSITION;
 		_listTurret [1].transform.localPosition = ConstantesManager.TURRET_2_LOCAL_POSITION;
 		_listTurret [2].transform.localPosition = ConstantesManager.TURRET_3_LOCAL_POSITION;
 		_listTurret [3].transform.localPosition = ConstantesManager.TURRET_4_LOCAL_POSITION;
+
+		_listTurret [0].Initialize(Enum_IdTurret.Turret1);
+		_listTurret [1].Initialize(Enum_IdTurret.Turret2);
+		_listTurret [2].Initialize(Enum_IdTurret.Turret3);
+		_listTurret [3].Initialize(Enum_IdTurret.Turret4);
 
 		ConstantesManager.IS_TURRET_INITIALIZE = true;
 	}

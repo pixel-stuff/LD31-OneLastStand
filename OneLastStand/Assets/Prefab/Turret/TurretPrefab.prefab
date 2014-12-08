@@ -383,7 +383,7 @@ MonoBehaviour:
     width: 1
     height: 1
   mShader: {fileID: 10750, guid: 0000000000000000f000000000000000, type: 0}
-  mTexture: {fileID: 2800000, guid: 4ad946532123f5c4ba6dbfb4500cb88a, type: 3}
+  mTexture: {fileID: 2800000, guid: 2c2e5a526f21ae940ae1a1e376dcb064, type: 3}
   mMat: {fileID: 0}
 --- !u!114 &11400014
 MonoBehaviour:
@@ -406,7 +406,7 @@ MonoBehaviour:
     width: 1
     height: 1
   mShader: {fileID: 10750, guid: 0000000000000000f000000000000000, type: 0}
-  mTexture: {fileID: 2800000, guid: 222b12c60da28ce4ca00e4991969c6ee, type: 3}
+  mTexture: {fileID: 2800000, guid: 0a29267a495bdad489e6639a42b8ab1a, type: 3}
   mMat: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:

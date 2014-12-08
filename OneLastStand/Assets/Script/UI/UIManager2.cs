@@ -78,7 +78,7 @@ public class UIManager2 : MonoBehaviour {
 
 		_priceUpgradeTruck = ConstantesManager.PRICE_UPDATE_TRUCK;
 
-
+		_City.GetTurretById (Enum_IdTurret.Turret4).ChangeTypeTurret (Enum_TurretType.Standard);
 		}
 
 	public void setTurretState(int stat){

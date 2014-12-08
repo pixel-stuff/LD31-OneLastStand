@@ -30,11 +30,11 @@ public class Turret : MonoBehaviour{
 	
 	
 	void Start(){
-		_enumCurrentStateTurret = Enum_StateTurret.TurretLevel1;
-		_enumCurrentTurretType = Enum_TurretType.EMP;
+		_enumCurrentStateTurret = Enum_StateTurret.TurretNone;
+		_enumCurrentTurretType = Enum_TurretType.None;
 		_enumOldStateTurret = _enumCurrentStateTurret;
-		_pv = ConstantesManager.EMP_LVL1_PV_MAX;
-		_pvMax = ConstantesManager.EMP_LVL1_PV_MAX;
+		_pv = ConstantesManager.STANDARD_LVL1_PV_MAX;
+		_pvMax = ConstantesManager.STANDARD_LVL1_PV_MAX;
 		_enumTurretAim = Enum_TurretAim.None;
 		_ennemiManager = (GameObject.FindGameObjectWithTag (_tagEnnemiManager)).GetComponent<EnnemiManager>();
 		//Debug.Log ("PLOP " + _ennemiManager);
@@ -47,6 +47,11 @@ public class Turret : MonoBehaviour{
 	
 	public void Initialize(Enum_IdTurret enumid){
 		_enumIdTurret = enumid;
+		if (enumid == Enum_IdTurret.Turret4) {
+			Debug.Log ("qnfmvhqmohfbvùHFBLQDF3");
+			this.ChangeTypeTurret(Enum_TurretType.Standard);
+
+		}
 	}
 	
 	public void UpdateShoot (){

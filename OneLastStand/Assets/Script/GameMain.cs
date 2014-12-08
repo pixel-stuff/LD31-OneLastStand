@@ -11,6 +11,8 @@ public class GameMain : MonoBehaviour {
 	public GameObject _BottomLeftAnchorPrefab;
 	public GameObject _BottomAnchorPrefab;
 
+	public GameObject _prefabLabelEphemere;
+
 	Enum_StateGame _enumStateGame;
 
 	bool _StartShootCalled = false;

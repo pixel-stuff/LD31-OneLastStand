@@ -69,7 +69,9 @@ public class TurretTextureManager : MonoBehaviour{
 			
 			break;
 			default:
-			
+				_EMP.SetActive(false);
+				_Standard.SetActive(false);
+				_Disintegrator.SetActive(false);
 			break;
 
 		}
