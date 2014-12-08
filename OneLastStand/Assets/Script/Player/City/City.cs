@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class City : MonoBehaviour{
 
 	public int _pv;
-
+	public int _pvMax;
 	List<Turret> _listTurret;
 	
 	public GameObject _prefabTurret;
@@ -19,7 +19,7 @@ public class City : MonoBehaviour{
 	public GameObject _truckPrefab;
 	Truck _truck;
 	
-	int _quantiteFrag;
+	public int _quantiteFrag;
 
 	public float _timeMinInShootState=4f;
 	float _timeStartShootState;
@@ -31,6 +31,7 @@ public class City : MonoBehaviour{
 		_quantiteFrag = 50;
 		_timeMinInShootState = ConstantesManager.TIME_MIN_IN_SHOOT_STATE;
 		_pv = ConstantesManager.CITY_PV_MAX;
+		_pvMax = ConstantesManager.CITY_PV_MAX;
 		_enumStateCity = Enum_StateCity.Fighting;
 
 
@@ -87,7 +88,7 @@ public class City : MonoBehaviour{
 		_pv += lifeAdding;
 
 	}
-	
+		
 	public void UpdateShoot(){
 		switch (_enumStateCity) {
 		case Enum_StateCity.Fighting:

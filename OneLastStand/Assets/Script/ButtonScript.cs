@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ButtonScript : UIButton
+public class ButtonScript : MonoBehaviour
 {
 
 	// Use this for initialization
@@ -12,5 +12,11 @@ public class ButtonScript : UIButton
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	void OnClick(){
+
+		Debug.Log ("coucou");
+
 	}
 }

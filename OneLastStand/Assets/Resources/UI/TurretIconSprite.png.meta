@@ -1,0 +1,344 @@
+fileFormatVersion: 2
+guid: 3facbf4d80eda574184f95bbf62a0cd6
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: TurretIconSprite_0
+    21300002: TurretIconSprite_1
+    21300004: TurretIconSprite_2
+    21300006: TurretIconSprite_3
+    21300008: TurretIconSprite_4
+    21300010: TurretIconSprite_5
+    21300012: TurretIconSprite_6
+    21300014: TurretIconSprite_7
+    21300016: TurretIconSprite_8
+    21300018: TurretIconSprite_9
+    21300020: TurretIconSprite_10
+    21300022: TurretIconSprite_11
+    21300024: TurretIconSprite_12
+    21300026: TurretIconSprite_13
+    21300028: TurretIconSprite_14
+    21300030: TurretIconSprite_15
+    21300032: TurretIconSprite_16
+    21300034: TurretIconSprite_17
+    21300036: TurretIconSprite_18
+    21300038: TurretIconSprite_19
+    21300040: TurretIconSprite_20
+    21300042: TurretIconSprite_21
+    21300044: TurretIconSprite_22
+    21300046: TurretIconSprite_23
+    21300048: TurretIconSprite_24
+    21300050: TurretIconSprite_25
+    21300052: TurretIconSprite_26
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: TurretIconSprite_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 385
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TurretIconSprite_1
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 385
+        width: 40
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TurretIconSprite_2
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 384
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TurretIconSprite_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 339
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TurretIconSprite_4
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 338
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TurretIconSprite_5
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 338
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TurretIconSprite_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 293
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TurretIconSprite_7
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 293
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TurretIconSprite_8
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 292
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TurretIconSprite_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 240
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TurretIconSprite_10
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 241
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TurretIconSprite_11
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 240
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TurretIconSprite_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 194
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TurretIconSprite_13
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 195
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TurretIconSprite_14
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 194
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TurretIconSprite_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 148
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TurretIconSprite_16
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 149
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TurretIconSprite_17
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 148
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TurretIconSprite_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 93
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TurretIconSprite_19
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 93
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TurretIconSprite_20
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 92
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TurretIconSprite_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 47
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TurretIconSprite_22
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 47
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TurretIconSprite_23
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 46
+        width: 39
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TurretIconSprite_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TurretIconSprite_25
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 1
+        width: 40
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: TurretIconSprite_26
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 1
+        width: 39
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
