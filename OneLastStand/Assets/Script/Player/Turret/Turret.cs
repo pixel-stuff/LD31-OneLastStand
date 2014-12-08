@@ -10,8 +10,7 @@ public class Turret : MonoBehaviour{
 	public float _rateOfFire;
 	public int _shootDamage;
 	public float _bulletSpeed;
-	
-	public TurretTextureManager _turretTextureManager;
+
 	public Enum_StateTurret _enumOldStateTurret;
 	public Enum_StateTurret _enumCurrentStateTurret;
 	public Enum_TurretType _enumCurrentTurretType;
@@ -220,7 +219,6 @@ public class Turret : MonoBehaviour{
 		if (_pv <= 0) {
 			_pv =0;
 			_enumCurrentStateTurret = Enum_StateTurret.TurretDestroy;
-			_turretTextureManager.changeStateTurret(_enumCurrentStateTurret);
 		}
 	}
 	
@@ -242,7 +240,6 @@ public class Turret : MonoBehaviour{
 	
 	public void ChangeTypeTurret(Enum_TurretType newType){
 		_enumCurrentTurretType = newType;
-		_turretTextureManager.changeTypeTurret (_enumCurrentTurretType);
 		
 		switch(_enumCurrentTurretType){
 			case Enum_TurretType.Disintegrator:
@@ -268,7 +265,6 @@ public class Turret : MonoBehaviour{
 	public void ChangeStateTurret(Enum_StateTurret newState){
 		_enumOldStateTurret = _enumCurrentStateTurret;
 		_enumCurrentStateTurret = newState;
-		_turretTextureManager.changeStateTurret (_enumCurrentStateTurret);
 		
 		if (_enumCurrentStateTurret != Enum_StateTurret.TurretDestroy && _enumCurrentStateTurret != Enum_StateTurret.TurretNone) {
 			ChangeLevel();
