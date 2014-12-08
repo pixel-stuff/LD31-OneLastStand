@@ -11,6 +11,7 @@ public class GameMain : MonoBehaviour {
 	public GameObject _ennemiPrefab;
 	public GameObject _uiManagerPrefab;
 	public GameObject _BottomLeftAnchorPrefab;
+	public GameObject _BottomAnchorPrefab;
 
 	Enum_StateGame _enumStateGame;
 
@@ -29,8 +30,8 @@ public class GameMain : MonoBehaviour {
 		_ennemiManager.transform.parent = this.transform;
 
 		
-		_uiManager = ((GameObject)Instantiate(_uiManagerPrefab,this.transform.position,Quaternion.identity)).GetComponent<UIManager>();
-		_uiManager.transform.parent = this.transform;
+		_uiManager = ((GameObject)Instantiate(_uiManagerPrefab, _BottomAnchorPrefab.transform.position,Quaternion.identity)).GetComponent<UIManager>();
+		_uiManager.transform.parent = _BottomAnchorPrefab.transform;
 
 		
 		StartShoot ();

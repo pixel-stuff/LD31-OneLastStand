@@ -21,6 +21,8 @@ public class Turret : MonoBehaviour{
 	public Enum_TurretAim _enumTurretAim;
 	public string _tagEnnemiManager = "Ennemi";
 
+	public Enum_IdTurret _enumIdTurret = Enum_IdTurret.Turret1; //TODO utiliser cette enum/id pour choisir des cibles différentes
+
 
 
 	float _timeLastShoot = Time.time;
@@ -39,7 +41,10 @@ public class Turret : MonoBehaviour{
 		_rateOfFire = ConstantesManager.STANDARD_LVL1_RATE_OF_FIRE; //shooting/sec
 		_shootDamage = ConstantesManager.STANDARD_LVL1_PV_MAX;
 
+	}
 
+	public void Initialize(Enum_IdTurret enumid){
+		_enumIdTurret = enumid;
 	}
 	
 	public void UpdateShoot (){

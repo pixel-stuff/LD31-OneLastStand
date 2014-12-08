@@ -8,18 +8,18 @@ public class PlayerManager : MonoBehaviour{
 	City _city;
 	Decharge _decharge;
 	int _score;
-	int _quantiteFrag;
 
 	public GameObject _cityPrefab;
 	public GameObject _dechargePrefab;
+
 	public GameObject _labelEphemerePrefab;
 	public Enum_StatePlayer _enumStatePlayer;
 
 
 	void Start () {
-		_quantiteFrag = 50;
 		_city = ((GameObject)Instantiate (_cityPrefab, this.transform.position, Quaternion.identity)).GetComponent<City>();
 		_city.transform.parent = this.transform;
+
 		_city.transform.localPosition = ConstantesManager.CITY_LOCAL_POSITION;
 
 		_decharge = ((GameObject)Instantiate (_dechargePrefab, Vector2.zero, Quaternion.identity)).GetComponent<Decharge>();
@@ -94,22 +94,6 @@ public class PlayerManager : MonoBehaviour{
 		label.GetComponent<UILabel> ().text = "-" + score;
 	}
 
-	public void AddToFragmentPlayer(int frag){
-		_quantiteFrag += frag;
-		GameObject label = (GameObject)Instantiate (_labelEphemerePrefab, _city.transform.position , Quaternion.identity);
-		label.transform.parent = _city.transform;
-		label.transform.localPosition = new Vector2 (30, 100);
-		label.GetComponent<UILabel> ().color = ConstantesManager.FRAGMENT_LABEL_COLOR;
-		label.GetComponent<UILabel> ().text = "+" + frag;
-	}
 
-	public void SubToFragmentPlayer(int frag){
-		_quantiteFrag += frag;
-		GameObject label = (GameObject)Instantiate (_labelEphemerePrefab, _city.transform.position , Quaternion.identity);
-		label.transform.parent = _city.transform;
-		label.transform.localPosition = new Vector2 (30, 100);
-		label.GetComponent<UILabel> ().color = ConstantesManager.FRAGMENT_LABEL_COLOR;
-		label.GetComponent<UILabel> ().text = "-" + frag;
-	}
 
 }

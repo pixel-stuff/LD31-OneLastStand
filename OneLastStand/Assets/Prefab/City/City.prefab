@@ -8,8 +8,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400000}
-  - 114: {fileID: 11400000}
   - 114: {fileID: 11400002}
+  - 114: {fileID: 11400000}
   - 58: {fileID: 5800000}
   - 50: {fileID: 5000000}
   m_Layer: 0
@@ -96,6 +96,8 @@ MonoBehaviour:
   _labelEphemerePrefab: {fileID: 100000, guid: 6efadcf600eb83941bb2e7fdd2781d7e, type: 2}
   _nombreTurret: 4
   _enumStateCity: 0
+  _truckPrefab: {fileID: 100000, guid: 5cbc6dd0c6f946a468aed6e0148941c2, type: 2}
+  _timeMinInShootState: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

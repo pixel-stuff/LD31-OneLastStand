@@ -1,10 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class UIManager : MonoBehaviour{
 
-	public UIManager () {
-	
+
+	public GameObject _prefabButton;
+
+	public List<ButtonScript> _listTurretButton;
+	public List<ButtonScript> _listUpgradeButton;
+
+
+	void Start () {
+		_listTurretButton = new List<ButtonScript>();
 	}
 
 	public void StartShoot ()
@@ -14,6 +22,10 @@ public class UIManager : MonoBehaviour{
 
 	public void StartConstruction ()
 	{
+	}
+
+	void Update(){
+
 	}
 
 	public void UpdateConstruction () {

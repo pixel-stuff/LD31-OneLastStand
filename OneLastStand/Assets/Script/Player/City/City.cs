@@ -18,16 +18,23 @@ public class City : MonoBehaviour{
 
 	public GameObject _truckPrefab;
 	Truck _truck;
+	
+	int _quantiteFrag;
 
 	public float _timeMinInShootState;
 	float _timeStartShootState;
 
 
 	void Start(){
+		_quantiteFrag = 50;
 		_timeMinInShootState = ConstantesManager.TIME_MIN_IN_SHOOT_STATE;
 		_pv = ConstantesManager.CITY_PV_MAX;
 		_enumStateCity = Enum_StateCity.Fighting;
 
+
+		GameObject truck = (GameObject)Instantiate (_truckPrefab, this.transform.position, Quaternion.identity);
+		_truck = truck.GetComponent<Truck> ();
+		_truck.Initialize (this);
 		_listTurret = new List<Turret>();
 
 		for (int i=0; i<_nombreTurret; i++) {
@@ -36,6 +43,11 @@ public class City : MonoBehaviour{
 			turret.transform.parent = this.transform;
 			_listTurret.Add (turret.GetComponent<Turret>());
 		}
+
+		_listTurret [0].Initialize(Enum_IdTurret.Turret1);
+		_listTurret [1].Initialize(Enum_IdTurret.Turret2);
+		_listTurret [2].Initialize(Enum_IdTurret.Turret3);
+		_listTurret [3].Initialize(Enum_IdTurret.Turret4);
 
 		_listTurret [0].transform.localPosition = ConstantesManager.TURRET_1_LOCAL_POSITION;
 		_listTurret [1].transform.localPosition = ConstantesManager.TURRET_2_LOCAL_POSITION;
@@ -65,7 +77,7 @@ public class City : MonoBehaviour{
 			_enumStateCity = Enum_StateCity.Destroy;
 		}
 		//Debug.Log ("City take Damage -" + degat);
-		AddLifeLabel (degat);
+		SubLifeLabel (degat);
 	}
 
 	public void Repare(int lifeAdding){
@@ -129,6 +141,24 @@ public class City : MonoBehaviour{
 		label.GetComponent<UILabel> ().text = "-" + life;
 	}
 
+	public void AddToFragmentPlayer(int frag){
+		_quantiteFrag += frag;
+		GameObject label = (GameObject)Instantiate (_labelEphemerePrefab, this.transform.position , Quaternion.identity);
+		label.transform.parent = this.transform;
+		label.transform.localPosition = new Vector2 (30, 100);
+		label.GetComponent<UILabel> ().color = ConstantesManager.FRAGMENT_LABEL_COLOR;
+		label.GetComponent<UILabel> ().text = "+" + frag;
+	}
+	
+	public void SubToFragmentPlayer(int frag){
+		_quantiteFrag += frag;
+		GameObject label = (GameObject)Instantiate (_labelEphemerePrefab, this.transform.position , Quaternion.identity);
+		label.transform.parent = this.transform;
+		label.transform.localPosition = new Vector2 (30, 100);
+		label.GetComponent<UILabel> ().color = ConstantesManager.FRAGMENT_LABEL_COLOR;
+		label.GetComponent<UILabel> ().text = "-" + frag;
+	}
+
 	
 	public void CheckVictoryCondition (){
 		if (_enumStateCity == Enum_StateCity.Destroy)
@@ -146,6 +176,10 @@ public class City : MonoBehaviour{
 			_enumStateCity = Enum_StateCity.Winning;
 			//Debug.Log ("City REPERE WIN");
 		}
+	}
+
+	public Turret GetTurretById(Enum_IdTurret enumId){
+		return _listTurret [0];
 	}
 
 
