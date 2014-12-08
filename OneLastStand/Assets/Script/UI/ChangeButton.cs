@@ -3,15 +3,15 @@ using System.Collections;
 
 public class ChangeButton : MonoBehaviour
 {
-	GameObject _prefabLvl1Standard;
-	GameObject _prefabLvl2Standard;
-	GameObject _prefabLvl3Standard;
-	GameObject _prefabLvl1EMP;
-	GameObject _prefabLvl2EMP;
-	GameObject _prefabLvl3EMP;
-	GameObject _prefabLvl1Disintegrator;
-	GameObject _prefabLvl2Disintegrator;
-	GameObject _prefabLvl3Disintegrator;
+	public GameObject _prefabLvl1Standard;
+	public GameObject _prefabLvl2Standard;
+	public GameObject _prefabLvl3Standard;
+	public GameObject _prefabLvl1EMP;
+	public GameObject _prefabLvl2EMP;
+	public GameObject _prefabLvl3EMP;
+	public GameObject _prefabLvl1Disintegrator;
+	public GameObject _prefabLvl2Disintegrator;
+	public GameObject _prefabLvl3Disintegrator;
 
 
 	public void ChangeButtonFonction(int lvl, Enum_TurretType typeTur){
@@ -20,10 +20,11 @@ public class ChangeButton : MonoBehaviour
 				DisintegratorLvl(lvl);
 			break;
 		case Enum_TurretType.EMP:
-			StandardLvl(lvl);
+			EMPLvl(lvl);
+
 			break;
 		case Enum_TurretType.Standard:
-			EMPLvl( lvl);
+			StandardLvl( lvl);
 			break;
 		}
 	}

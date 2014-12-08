@@ -66,7 +66,7 @@ public class UIManager2 : MonoBehaviour {
 		tabTypeTurret[1] = Enum_TurretType.None;
 		tabTypeTurret[2] = Enum_TurretType.None;
 		tabTypeTurret[3] = Enum_TurretType.None;
-
+		_Stat = 1;
 
 		}
 
@@ -112,7 +112,7 @@ public class UIManager2 : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (!_wasInit) {
-			Debug.Log ("INIT ");
+		
 						init ();
 			if(_City._pv != null){
 						_wasInit = true;
@@ -126,7 +126,7 @@ public class UIManager2 : MonoBehaviour {
 
 	void updateLabel (){
 		_ScoreLabel.GetComponent<UILabel> ().text = _score.ToString();
-		Debug.Log ("Score Set BIATCH");
+
 		_CreditLabel.GetComponent<UILabel> ().text=_credit.ToString();
 		_WaveLabel.GetComponent<UILabel> ().text=_nbVague.ToString();
 		}
@@ -137,7 +137,7 @@ public class UIManager2 : MonoBehaviour {
 		_credit = _City._quantiteFrag;
 		_score = _Player._score;
 		_nbVague=_Player._nbVague;
-		Debug.Log ("COUCOU "+_score);
+
 		updateLabel ();
 
 
@@ -170,16 +170,25 @@ public class UIManager2 : MonoBehaviour {
 
 		}
 	void updateTower(){
-		switch (_Stat) {
-		case 1:
-			//_Tower1Button.GetComponent< //ChangeButton(tabTypeTurret[_Stat-1]
+		for (int i =1; i<4; i++) {
+						switch (i) {
+						case 1:
+
+								_Tower1Button.GetComponent<ChangeButton> ().ChangeButtonFonction (levelTurret [0], tabTypeTurret [0]);//ChangeButton(tabTypeTurret[_Stat-1]
 			/*_StandardButton;
 			 _DisinButton;
 			_EMPButton*/
-			break;
+								break;
+						case 2:
+								_Tower2Button.GetComponent<ChangeButton> ().ChangeButtonFonction (levelTurret [1], tabTypeTurret [1]);//ChangeButton(tabTypeTurret[_Stat-1]
+								break;
 
+			case 3:
+				_Tower3Button.GetComponent<ChangeButton> ().ChangeButtonFonction (levelTurret [2], tabTypeTurret [2]);//ChangeButton(tabTypeTurret[_Stat-1]
+				break;
+
+						}
 				}
-
 		}
 	
 	
