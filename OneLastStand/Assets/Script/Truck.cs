@@ -10,6 +10,9 @@ public class Truck : MonoBehaviour {
 	Decharge _decharge;
 	Vector3 _LastDirectionNormalize = new Vector3(0,0,0);
 	public Enum_TruckDirection _enumDirection;
+	public GameObject _textureFull;
+	public GameObject _textureEmpty;
+
 	
 	
 	void Start(){
@@ -54,7 +57,6 @@ public class Truck : MonoBehaviour {
 	}
 	
 	void Update (){
-		//TODO Déplacement truck et appeler Give/Take quand il faut
 		if(_city == null){
 			Debug.Log("_city null");
 			return;
@@ -83,10 +85,15 @@ public class Truck : MonoBehaviour {
 		case Enum_TruckDirection.city:
 			GiveFragment();
 			_enumDirection = Enum_TruckDirection.decharge;
+			_textureFull.SetActive(false);
+			_textureEmpty.SetActive(true);
 			break;
 		case Enum_TruckDirection.decharge:
 			TakeFragment();
 			_enumDirection = Enum_TruckDirection.city;
+			_textureFull.SetActive(true);
+			_textureEmpty.SetActive(false);
+
 			break;
 		default:
 			Debug.Log("Wrong _enumDirection du truck");
