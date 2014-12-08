@@ -53,9 +53,9 @@ public class ConstantesManager {
 	public static float HUNTER_FRAG_DISINTEGRATOR_PERCENT = 16f/100f;
 	public static float HUNTER_FRAG_EMP_PERCENT = 180f/100f;
 
-	public static int HUNTER_PV = 100;
+	public static int HUNTER_PV = 600;
 	public static int HUNTER_SCORE = 100;
-	public static int HUNTER_SHOOT_DMG = 10;
+	public static int HUNTER_SHOOT_DMG = 5;
 	public static int HUNTER_SHOT_SPEED=400;
 	public static int HUNTER_KAMIKAZE_DMG = 100;
 	public static float HUNTER_NORME_SPEED = 50;
@@ -68,9 +68,9 @@ public class ConstantesManager {
 	public static float FRIGATE_FRAG_DISINTEGRATOR_PERCENT = 25f/100f;
 	public static float FRIGATE_FRAG_EMP_PERCENT = 200f/100f;
 	
-	public static int FRIGATE_PV = 100;
+	public static int FRIGATE_PV = 1600;
 	public static int FRIGATE_SCORE = 100;
-	public static int FRIGATE_SHOOT_DMG = 10;
+	public static int FRIGATE_SHOOT_DMG = 35;
 	public static int FRIGATE_SHOT_SPEED=200;
 	public static int FRIGATE_KAMIKAZE_DMG = 100;
 	public static float FRIGATE_NORME_SPEED = 10;
@@ -82,9 +82,9 @@ public class ConstantesManager {
 	public static float CRUISER_FRAG_DISINTEGRATOR_PERCENT = 33f/100f;
 	public static float CRUISER_FRAG_EMP_PERCENT = 250f/100f;
 
-	public static int CRUISER_PV = 100;
+	public static int CRUISER_PV = 5000;
 	public static int CRUISER_SCORE = 100;
-	public static int CRUISER_SHOOT_DMG = 10;
+	public static int CRUISER_SHOOT_DMG = 70;
 	public static int CRUISER_SHOT_SPEED=150;
 	public static int CRUISER_KAMIKAZE_DMG = 100;
 	public static float CRUISER_NORME_SPEED = 10;
@@ -133,7 +133,7 @@ public class ConstantesManager {
 
 	//Disintegrator lvl 2 var
 	public static int DISINTEGRATOR_LVL2_PV_MAX = 400; //shooting/sec
-	public static float DISINTEGRATOR_LVL2_RATE_OF_FIRE = 2; //shooting/sec
+	public static float DISINTEGRATOR_LVL2_RATE_OF_FIRE = 2f; //shooting/sec
 	public static int DISINTEGRATOR_LVL2_SHOOT_DAMAGE = 70;
 
 	//Disintegrator lvl 3 var
@@ -143,13 +143,13 @@ public class ConstantesManager {
 
 	//Standard lvl 1 var
 	public static int STANDARD_LVL1_PV_MAX = 200; //shooting/sec
-	public static float STANDARD_LVL1_RATE_OF_FIRE = 6f; //shooting/sec
-	public static int STANDARD_LVL1_SHOOT_DAMAGE = 1;
+	public static float STANDARD_LVL1_RATE_OF_FIRE = 2f; //shooting/sec
+	public static int STANDARD_LVL1_SHOOT_DAMAGE = 20;
 	
 	//Standard lvl 2 var
 	public static int STANDARD_LVL2_PV_MAX = 400; //shooting/sec
 	public static float STANDARD_LVL2_RATE_OF_FIRE = 2f; //shooting/sec
-	public static int STANDARD_LVL2_SHOOT_DAMAGE = 25;
+	public static int STANDARD_LVL2_SHOOT_DAMAGE = 30;
 	
 	//Standard lvl 3 var
 	public static int STANDARD_LVL3_PV_MAX = 600; //shooting/sec

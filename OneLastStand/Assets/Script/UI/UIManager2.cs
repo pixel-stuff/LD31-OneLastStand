@@ -302,7 +302,7 @@ public class UIManager2 : MonoBehaviour {
 					_EMPButtonPrice.GetComponent<UILabel> ().text = (getPriceEMP (levelTurret [_Stat - 1])+1).ToString();
 					
 				}else{
-					_StandardButtonPrice.GetComponent<UILabel> ().color=Color.red;
+					_EMPButtonPrice.GetComponent<UILabel> ().color=Color.red;
 				}
 				break;
 
@@ -318,7 +318,7 @@ public class UIManager2 : MonoBehaviour {
 					_EMPButtonPrice.GetComponent<UILabel> ().text = (getPriceEMP (1)).ToString();
 					
 				}else{
-					_StandardButtonPrice.GetComponent<UILabel> ().color=Color.red;
+					_DisinButtonPrice.GetComponent<UILabel> ().color=Color.red;
 				}
 				break;
 			}
