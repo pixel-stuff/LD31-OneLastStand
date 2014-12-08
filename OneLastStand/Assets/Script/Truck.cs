@@ -26,7 +26,6 @@ public class Truck : MonoBehaviour {
 	
 	
 	private void TakeFragment(){
-		
 		_decharge.subFragment ((int)_quantiteTransportableMax);
 		_currentQuantiteFragment += (int)_quantiteTransportableMax;
 		

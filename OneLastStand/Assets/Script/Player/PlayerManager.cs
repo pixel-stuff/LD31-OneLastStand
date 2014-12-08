@@ -10,7 +10,6 @@ public class PlayerManager : MonoBehaviour{
 	int _score;
 
 	public GameObject _cityPrefab;
-	public GameObject _dechargePrefab;
 
 	public GameObject _labelEphemerePrefab;
 	public Enum_StatePlayer _enumStatePlayer;
@@ -23,8 +22,9 @@ public class PlayerManager : MonoBehaviour{
 
 		_city.transform.localPosition = ConstantesManager.CITY_LOCAL_POSITION;
 
-		_decharge = ((GameObject)Instantiate (_dechargePrefab, Vector2.zero, Quaternion.identity)).GetComponent<Decharge>();
-		_decharge.transform.parent = this.transform;
+		GameObject dech = GameObject.FindGameObjectWithTag ("Decharge");
+		_decharge = dech.GetComponent<Decharge>();
+
 
 		_enumStatePlayer = Enum_StatePlayer.Playing;
 

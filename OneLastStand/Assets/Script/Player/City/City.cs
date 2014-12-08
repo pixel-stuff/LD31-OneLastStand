@@ -36,7 +36,9 @@ public class City : MonoBehaviour{
 
 
 		GameObject truck = (GameObject)Instantiate (_truckPrefab, this.transform.position, Quaternion.identity);
+
 		_truck = truck.GetComponent<Truck> ();
+		_truck.transform.parent = this.transform;
 		_truck.Initialize (this);
 		_listTurret = new List<Turret>();
 
