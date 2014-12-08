@@ -57,6 +57,7 @@ public class City : MonoBehaviour{
 		_listTurret [2].transform.localPosition = ConstantesManager.TURRET_3_LOCAL_POSITION;
 		_listTurret [3].transform.localPosition = ConstantesManager.TURRET_4_LOCAL_POSITION;
 
+		ConstantesManager.IS_TURRET_INITIALIZE = true;
 	}
 
 	public void StartShoot(){
@@ -133,6 +134,9 @@ public class City : MonoBehaviour{
 		}
 		_resourcesManager.UpdateConstruction ();*/
 	}
+
+
+
 
 	public void AddLifeLabel(int life){
 		GameObject label = (GameObject)Instantiate (_labelEphemerePrefab, this.transform.position , Quaternion.identity);

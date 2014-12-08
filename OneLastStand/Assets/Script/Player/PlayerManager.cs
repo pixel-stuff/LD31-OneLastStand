@@ -16,6 +16,7 @@ public class PlayerManager : MonoBehaviour{
 	public Enum_StatePlayer _enumStatePlayer;
 
 
+
 	void Start () {
 		_city = ((GameObject)Instantiate (_cityPrefab, this.transform.position, Quaternion.identity)).GetComponent<City>();
 		_city.transform.parent = this.transform;
@@ -26,9 +27,12 @@ public class PlayerManager : MonoBehaviour{
 		_decharge.transform.parent = this.transform;
 
 		_enumStatePlayer = Enum_StatePlayer.Playing;
+
+
 	}
 
 	public void StartShoot(){
+
 		_enumStatePlayer = Enum_StatePlayer.Playing;
 		_city.StartShoot ();
 		_decharge.StartShoot ();

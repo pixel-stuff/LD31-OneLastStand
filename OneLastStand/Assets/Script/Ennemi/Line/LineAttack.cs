@@ -76,7 +76,7 @@ public class LineAttack : MonoBehaviour{
 		float margeX = Random.Range (-_errorMargePop, _errorMargePop);
 		float margeY = Random.Range (-_errorMargePop, _errorMargePop);
 		int pointPop = Random.Range (0, 3);
-		Debug.Log (pointPop);
+		//Debug.Log (pointPop);
 		Vector2 vecBase;
 		if (pointPop == 0) {
 			vecBase=_zonePop1;

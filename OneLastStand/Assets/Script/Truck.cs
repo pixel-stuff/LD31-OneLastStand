@@ -42,7 +42,13 @@ public class Truck : MonoBehaviour {
 		
 	}
 	
-	
+	public void UpgradeQuantiteTransportable(){
+		_quantiteTransportableMax = _quantiteTransportableMax + _quantiteTransportableMax / 10;
+	}
+
+	public void UpgradeSpeed(){
+		_speed = _speed + _speed / 10;
+	}
 	
 	public void StartShoot (){
 		

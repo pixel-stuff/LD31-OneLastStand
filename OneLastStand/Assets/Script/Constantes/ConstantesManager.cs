@@ -97,6 +97,9 @@ public class ConstantesManager {
 	public static int POINT_SURVIVE_VAGUE = 1000;
 	public static float TIME_MIN_IN_SHOOT_STATE = 4f;//sec
 
+	//Turret var
+	public static bool IS_TURRET_INITIALIZE = false;
+
 	//City var
 	public static int CITY_PV_MAX = 10000;
 	public static Vector3 CITY_LOCAL_POSITION = new Vector3(100,230,0);

@@ -21,6 +21,7 @@ public class Turret : MonoBehaviour{
 	
 	public Enum_TurretAim _enumTurretAim;
 	public string _tagEnnemiManager = "Ennemi";
+
 	
 	public Enum_IdTurret _enumIdTurret = Enum_IdTurret.Turret1; //TODO utiliser cette enum/id pour choisir des cibles différentes
 	
@@ -159,6 +160,21 @@ public class Turret : MonoBehaviour{
 	
 	public void StartShoot(){
 		_enumTurretAim = Enum_TurretAim.None;
+
+	}
+
+	public int getLevel(){
+		switch (_enumCurrentStateTurret) {
+			case Enum_StateTurret.TurretLevel1:
+				return 1;
+			case Enum_StateTurret.TurretLevel2:
+				return 2;
+			case Enum_StateTurret.TurretLevel3:
+				return 3;
+			default:
+				Debug.Log("Type is not a level");
+				return 0;
+		}
 	}
 	
 	private bool isAllowedToShoot(){
@@ -253,9 +269,20 @@ public class Turret : MonoBehaviour{
 	}
 
 	public void Upgrade(){
-
-
-
+		switch (_enumCurrentStateTurret) {
+		case Enum_StateTurret.TurretLevel1:
+			ChangeStateTurret(Enum_StateTurret.TurretLevel2);
+			break;
+		case Enum_StateTurret.TurretLevel2:
+			ChangeStateTurret(Enum_StateTurret.TurretLevel2);
+			break;
+		case Enum_StateTurret.TurretLevel3:
+			Debug.Log("Impossible to go Further");
+			break;
+		default:
+			Debug.Log("Type is not a level");
+			break;
+		}
 	}
 	
 	private void ChangeLevel(){

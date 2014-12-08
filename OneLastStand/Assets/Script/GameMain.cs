@@ -15,6 +15,9 @@ public class GameMain : MonoBehaviour {
 
 	Enum_StateGame _enumStateGame;
 
+	bool _StartShootCalled = false;
+
+
 	// Use this for initialization
 	void Start () {
 		_ennemiManager = new EnnemiManager ();
@@ -33,8 +36,7 @@ public class GameMain : MonoBehaviour {
 		_uiManager = ((GameObject)Instantiate(_uiManagerPrefab, _BottomAnchorPrefab.transform.position,Quaternion.identity)).GetComponent<UIManager>();
 		_uiManager.transform.parent = _BottomAnchorPrefab.transform;
 
-		
-		StartShoot ();
+		//StartShoot ();
 	}
 	
 	// Update is called once per frame
@@ -81,6 +83,17 @@ public class GameMain : MonoBehaviour {
 	}
 
 	void UpdateShoot () {
+		if (!_StartShootCalled) {
+			StartShoot();
+			_StartShootCalled = true;
+			return;
+		}
+
+		if (!ConstantesManager.IS_TURRET_INITIALIZE) {
+			return;
+		}
+		
+
 		if (IsPlayerWin ()) {
 			StartConstruction();
 		}
