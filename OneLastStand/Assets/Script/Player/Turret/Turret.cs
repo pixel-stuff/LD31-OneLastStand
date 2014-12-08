@@ -51,6 +51,8 @@ public class Turret : MonoBehaviour{
 	}
 	
 	public void UpdateShoot (){
+		if (_enumOldStateTurret == Enum_StateTurret.TurretDestroy)
+						return;
 		
 		if (_enumCurrentTurretType == Enum_TurretType.None)
 			return;
@@ -200,7 +202,15 @@ public class Turret : MonoBehaviour{
 	
 	
 	public void Repare(int lifeAdding){
-		_pv += lifeAdding;
+		if (_pv <= 0) {
+			_pv += lifeAdding;
+			Enum_StateTurret temp = _enumOldStateTurret;
+			_enumOldStateTurret = _enumCurrentStateTurret;
+			_enumCurrentStateTurret = temp;
+			ChangeLevel();
+		} else {
+			_pv += lifeAdding;
+		}
 		
 		/*Enum_StateTurret tempState = _enumOldStateTurret;
 		_enumOldStateTurret = _enumCurrentStateTurret;
@@ -287,32 +297,32 @@ public class Turret : MonoBehaviour{
 	
 	private void ChangeLevel(){
 		switch (_enumCurrentTurretType) {
-		case Enum_TurretType.Disintegrator:
-			switch(_enumCurrentStateTurret){
-			case Enum_StateTurret.TurretLevel1:
-				SetDisintegratorlv1();
+			case Enum_TurretType.Disintegrator:
+				switch(_enumCurrentStateTurret){
+					case Enum_StateTurret.TurretLevel1:
+						SetDisintegratorlv1();
+						break;
+					case Enum_StateTurret.TurretLevel2:
+						SetDisintegratorlv2();
+						break;
+					case Enum_StateTurret.TurretLevel3:
+						SetDisintegratorlv3();
+						break;
+					}
 				break;
-			case Enum_StateTurret.TurretLevel2:
-				SetDisintegratorlv2();
+			case Enum_TurretType.EMP:
+				switch(_enumCurrentStateTurret){
+				case Enum_StateTurret.TurretLevel1:
+					SetEMPlv1();
+					break;
+				case Enum_StateTurret.TurretLevel2:
+					SetEMPlv2();
+					break;
+				case Enum_StateTurret.TurretLevel3:
+					SetEMPlv3();
+					break;
+				}
 				break;
-			case Enum_StateTurret.TurretLevel3:
-				SetDisintegratorlv3();
-				break;
-			}
-			break;
-		case Enum_TurretType.EMP:
-			switch(_enumCurrentStateTurret){
-			case Enum_StateTurret.TurretLevel1:
-				SetEMPlv1();
-				break;
-			case Enum_StateTurret.TurretLevel2:
-				SetEMPlv2();
-				break;
-			case Enum_StateTurret.TurretLevel3:
-				SetEMPlv3();
-				break;
-			}
-			break;
 		case Enum_TurretType.Standard:
 			switch(_enumCurrentStateTurret){
 			case Enum_StateTurret.TurretLevel1:
