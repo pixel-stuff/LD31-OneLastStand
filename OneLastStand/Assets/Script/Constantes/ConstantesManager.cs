@@ -10,6 +10,7 @@ public class ConstantesManager {
 
 	public static int PRICE_REPAIR =5;
 	public static int PRICE_UPDATE_TRUCK =500;
+	public static float VARIATION_PRICE_TRUCK_PERCENT = 20f / 100f;
 	public static int PRICE_STANDARD_1 =500;
 	public static int PRICE_STANDARD_2 =500;
 	public static int PRICE_STANDARD_3 =500;

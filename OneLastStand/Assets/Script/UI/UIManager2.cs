@@ -24,6 +24,8 @@ public class UIManager2 : MonoBehaviour {
 
 	public GameObject _repairLabel;
 
+	public GameObject _priceTruck;
+
 	public int _cityLifePercent;
 	public int _credit;
 	public int _score;
@@ -44,6 +46,8 @@ public class UIManager2 : MonoBehaviour {
 	public float[] percentLifeTurret ;
 	public int[] levelTurret ;
 	public int[] degatTurret;
+
+	public int _priceUpgradeTruck;
 
 	// Use this for initialization
 	void Start () {
@@ -67,6 +71,9 @@ public class UIManager2 : MonoBehaviour {
 		tabTypeTurret[2] = Enum_TurretType.None;
 		tabTypeTurret[3] = Enum_TurretType.None;
 		_Stat = 1;
+
+		_priceUpgradeTruck = ConstantesManager.PRICE_UPDATE_TRUCK;
+
 
 		}
 
@@ -97,9 +104,11 @@ public class UIManager2 : MonoBehaviour {
 			BuildTurretEMP(getEnumIDTurret());
 			break;
 
-		case -1 :
-			Debug.Log("EMP");
-			BuildTurretEMP(getEnumIDTurret());
+		case 4 :
+			Debug.Log("UP");
+			if (_credit >=_priceUpgradeTruck){
+			upGradeTruck();
+			}
 			break;
 				}
 
@@ -107,7 +116,13 @@ public class UIManager2 : MonoBehaviour {
 	int repairCost(){
 		return degatTurret[_Stat - 1]*_costRepair;
 	}
+	void upGradeTruck(){
+		//_City._truck.UpgradeSpeed ();
+		_City._truck.UpgradeQuantiteTransportable ();
+		_City.SubToFragmentPlayer (_priceUpgradeTruck);
+		_priceUpgradeTruck = (int)(_priceUpgradeTruck *(1+ ConstantesManager.VARIATION_PRICE_TRUCK_PERCENT));
 
+		}
 
 	Enum_IdTurret getEnumIDTurret(){
 		switch (_Stat) {
@@ -198,6 +213,7 @@ public class UIManager2 : MonoBehaviour {
 
 		_CreditLabel.GetComponent<UILabel> ().text=_credit.ToString();
 		_WaveLabel.GetComponent<UILabel> ().text=_nbVague.ToString();
+		_priceTruck.GetComponent<UILabel> ().text=_priceUpgradeTruck.ToString();
 		}
 
 	void refreshRessource(){

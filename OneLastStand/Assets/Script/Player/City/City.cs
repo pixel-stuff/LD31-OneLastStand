@@ -17,7 +17,7 @@ public class City : MonoBehaviour{
 	public Enum_StateCity _enumStateCity;
 
 	public GameObject _truckPrefab;
-	Truck _truck;
+	public Truck _truck;
 	
 	public int _quantiteFrag;
 
