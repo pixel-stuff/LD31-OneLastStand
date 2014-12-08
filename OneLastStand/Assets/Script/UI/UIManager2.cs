@@ -104,9 +104,9 @@ public class UIManager2 : MonoBehaviour {
 	}
 
 	void updateLabel (){
-		_ScoreLabel.GetComponent<UILabel> ().text = _score;
-		_CreditLabel.GetComponent<UILabel> ().text=_credit;
-		_WaveLabel.GetComponent<UILabel> ().text=_nbVague;
+		_ScoreLabel.GetComponent<UILabel> ().text = _score.ToString();
+		_CreditLabel.GetComponent<UILabel> ().text=_credit.ToString();
+		_WaveLabel.GetComponent<UILabel> ().text=_nbVague.ToString();
 		}
 
 	void refreshRessource(){
