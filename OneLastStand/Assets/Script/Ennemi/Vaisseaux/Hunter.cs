@@ -19,12 +19,13 @@ public class Hunter : Ship {
 		_normalSpeed=ConstantesManager.HUNTER_NORME_SPEED;
 		_timeBetweenAttack = ConstantesManager.HUNTER_TIME_BETWEEN_ATTACK;
 		_variationTimeBetweenAttackPercent = ConstantesManager.VARIATION_TIME_BETWEEN_ATTACK_PERCENT;
-		_bulletSpeed=ConstantesManager.BULLET_TURRET_SPEED;
+		_bulletSpeed=ConstantesManager.HUNTER_SHOT_SPEED;
 		
 		_percentFragByStandard = ConstantesManager.HUNTER_FRAG_STANDARD_PERCENT;
 		_percentFragByDisa = ConstantesManager.HUNTER_FRAG_DISINTEGRATOR_PERCENT;
 		_percentFragByEMP = ConstantesManager.HUNTER_FRAG_EMP_PERCENT;
 		_shootCooldown=Random.Range(0,2);
+		_killYFragment=ConstantesManager.FRAGMENT_KILL_Y;
 		_city=GameObject.FindGameObjectWithTag("City");
 
 		UpdateDirection ();

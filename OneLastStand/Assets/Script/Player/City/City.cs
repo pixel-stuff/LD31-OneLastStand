@@ -21,8 +21,10 @@ public class City : MonoBehaviour{
 	
 	int _quantiteFrag;
 
-	public float _timeMinInShootState;
+	public float _timeMinInShootState=4f;
 	float _timeStartShootState;
+
+	bool _lock=false;
 
 
 	void Start(){
@@ -57,7 +59,8 @@ public class City : MonoBehaviour{
 	}
 
 	public void StartShoot(){
-		_timeStartShootState = Time.time;
+		_enumStateCity = Enum_StateCity.Fighting;
+		_lock=false;
 		for (int i=0;i<_listTurret.Count;i++) {
 			_listTurret[i].StartShoot();
 		}
@@ -103,8 +106,13 @@ public class City : MonoBehaviour{
 
 		if (_enumStateCity != Enum_StateCity.Fighting) 
 					return;
-
-		if (Time.time - _timeStartShootState >= _timeMinInShootState) {
+		if (!_lock) {
+						_timeStartShootState = Time.time;
+			_lock=true;
+				}
+		float var = Time.time - _timeStartShootState;
+	
+		if (var >= _timeMinInShootState && _lock) {
 			CheckVictoryCondition ();
 		}
 	

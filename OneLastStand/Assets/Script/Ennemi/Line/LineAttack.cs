@@ -75,7 +75,8 @@ public class LineAttack : MonoBehaviour{
 		//TODO rendre ça plus modulable
 		float margeX = Random.Range (-_errorMargePop, _errorMargePop);
 		float margeY = Random.Range (-_errorMargePop, _errorMargePop);
-		int pointPop = Random.Range (0, 2);
+		int pointPop = Random.Range (0, 3);
+		Debug.Log (pointPop);
 		Vector2 vecBase;
 		if (pointPop == 0) {
 			vecBase=_zonePop1;
@@ -85,7 +86,7 @@ public class LineAttack : MonoBehaviour{
 			vecBase=_zonePop3;
 		}
 
-		return new Vector3 (vecBase.x + margeX, vecBase.y + margeY, 0);
+		return new Vector3 (this.transform.position.x+vecBase.x + margeX,this.transform.position.y+ vecBase.y + margeY, 0);
 
 
 		}

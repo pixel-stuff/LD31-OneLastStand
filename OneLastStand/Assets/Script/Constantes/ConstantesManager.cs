@@ -3,6 +3,8 @@ using System.Collections;
 
 //Contient toutes les constantes liées au GameDesign
 public class ConstantesManager {
+	//Fragment
+	public static float FRAGMENT_KILL_Y = -105f;
 
 
 	// -------------------------------------------------ENNEMY VAR--------------------------------------------------------
@@ -12,10 +14,10 @@ public class ConstantesManager {
 	public static float FREQUENCE_POP=1.5f;
 	public static float VARIANCE_FREQUENCE_POP_PERCENT=20f/100f;
 
-	public static Vector2 POP_POINT_1 = new Vector2(45,5);
-	public static Vector2 POP_POINT_2 = new Vector2(5,45);
-	public static Vector2 POP_POINT_3 = new Vector2(25,25);
-	public static float ERROR_MARGE_POP = 10f;
+	public static Vector2 POP_POINT_1 = new Vector2(-5,-150);
+	public static Vector2 POP_POINT_2 = new Vector2(-5,-5);
+	public static Vector2 POP_POINT_3 = new Vector2(-150,-5);
+	public static float ERROR_MARGE_POP = 20f;
 
 
 	//Vague Var
@@ -38,9 +40,10 @@ public class ConstantesManager {
 	public static float HUNTER_FRAG_DISINTEGRATOR_PERCENT = 16f/100f;
 	public static float HUNTER_FRAG_EMP_PERCENT = 180f/100f;
 
-	public static int HUNTER_PV = 1000;
+	public static int HUNTER_PV = 100;
 	public static int HUNTER_SCORE = 100;
 	public static int HUNTER_SHOOT_DMG = 10;
+	public static int HUNTER_SHOT_SPEED=400;
 	public static int HUNTER_KAMIKAZE_DMG = 100;
 	public static float HUNTER_NORME_SPEED = 50;
 	public static float HUNTER_TIME_BETWEEN_ATTACK = 2f; // time in s
@@ -55,6 +58,7 @@ public class ConstantesManager {
 	public static int FRIGATE_PV = 100;
 	public static int FRIGATE_SCORE = 100;
 	public static int FRIGATE_SHOOT_DMG = 10;
+	public static int FRIGATE_SHOT_SPEED=200;
 	public static int FRIGATE_KAMIKAZE_DMG = 100;
 	public static float FRIGATE_NORME_SPEED = 10;
 	public static float FRIGATE_TIME_BETWEEN_ATTACK = 2f; // time in s
@@ -68,6 +72,7 @@ public class ConstantesManager {
 	public static int CRUISER_PV = 100;
 	public static int CRUISER_SCORE = 100;
 	public static int CRUISER_SHOOT_DMG = 10;
+	public static int CRUISER_SHOT_SPEED=150;
 	public static int CRUISER_KAMIKAZE_DMG = 100;
 	public static float CRUISER_NORME_SPEED = 10;
 	public static float CRUISER_TIME_BETWEEN_ATTACK = 2f; // time in s
@@ -78,7 +83,7 @@ public class ConstantesManager {
 	//Player var
 	public static float TIME_IN_CONSTRUCTION_STATE = 30f;//sec
 	public static int POINT_SURVIVE_VAGUE = 1000;
-	public static float TIME_MIN_IN_SHOOT_STATE = 4;//sec
+	public static float TIME_MIN_IN_SHOOT_STATE = 4f;//sec
 
 	//City var
 	public static int CITY_PV_MAX = 10000;
@@ -103,7 +108,7 @@ public class ConstantesManager {
 	public static Vector3 TURRET_2_LOCAL_POSITION = new Vector3(35,65,0);
 	public static Vector3 TURRET_3_LOCAL_POSITION = new Vector3(85,5,0);
 	public static Vector3 TURRET_4_LOCAL_POSITION = new Vector3(135,8,0);
-	public static float DISTANCE_OF_VUE_SHOOT = 1000;//pixel
+	public static float DISTANCE_OF_VUE_SHOOT = 600;//pixel
 
 	//Disintegrator lvl 1 var
 	public static int DISINTEGRATOR_LVL1_PV_MAX = 200; //shooting/sec
