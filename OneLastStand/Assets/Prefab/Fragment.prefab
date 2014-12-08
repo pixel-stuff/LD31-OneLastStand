@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 25, y: 25, z: 1}
+  m_LocalScale: {x: 25, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -79,7 +79,7 @@ MonoBehaviour:
     width: 1
     height: 1
   mShader: {fileID: 10750, guid: 0000000000000000f000000000000000, type: 0}
-  mTexture: {fileID: 2800000, guid: 3253a2991f891f94fbf2b176cf47da1c, type: 3}
+  mTexture: {fileID: 2800000, guid: dc463f2e67ef16142804410409a65146, type: 3}
   mMat: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:

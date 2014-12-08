@@ -15,6 +15,10 @@ public class Decharge : MonoBehaviour{
 	public string _pathDerchargeTextureFew = "Decharge/Decharge3";
 	public string _pathDerchargeTextureNone = "";
 
+	public GameObject _textureFew;
+	public GameObject _textureMoy;
+	public GameObject _textureFull;
+
 	void Start(){
 		_quantiteFragment = 0;
 	}
@@ -36,14 +40,41 @@ public class Decharge : MonoBehaviour{
 	}
 
 	public void Update (){
-		
+		if (_quantiteFragment <= 5000) {
+			_enumDechargeQuantity = Enum_DechargeQuantity.Few;
+		}else if (_quantiteFragment <= 10000) {
+			_enumDechargeQuantity = Enum_DechargeQuantity.Moyen;
+		}else if (_quantiteFragment <= 15000) {
+			_enumDechargeQuantity = Enum_DechargeQuantity.Full;
+		}
+
+		UpdateTexture();
 	}
 
-	public void ChangeTexture(){
-		//TODO Lié dynamiquement les texture au _enumDeachargeQuantity;
 
 
-		//_textureDecharge.mainTexture = Resources.Load<Texture2D> (pathTextureBase); (Return Textur2D
+	public void UpdateTexture(){
+		switch (_enumDechargeQuantity) {
+			case Enum_DechargeQuantity.Few:
+				_textureFew.SetActive(true);
+				_textureMoy.SetActive(false);
+				_textureFull.SetActive(false);
+				break;
+			case Enum_DechargeQuantity.Moyen:
+				_textureFew.SetActive(false);
+				_textureMoy.SetActive(true);
+				_textureFull.SetActive(false);
+
+				break;
+
+			case Enum_DechargeQuantity.Full:
+				_textureFew.SetActive(false);
+				_textureMoy.SetActive(false);
+				_textureFull.SetActive(true);
+				break;
+
+
+			}
 	}
 
 	public void addFragment(int frag){
