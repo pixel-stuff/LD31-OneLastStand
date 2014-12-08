@@ -49,7 +49,7 @@ public class Decharge : MonoBehaviour{
 	}
 
 	public void subFragment(int frag){
-		Debug.Log ("Sub Fragmen");
+		//Debug.Log ("Sub Fragmen");
 		_quantiteFragment -= frag;
 		GameObject label = (GameObject)Instantiate (_labelPrefab,this.transform.position, Quaternion.identity);
 		label.transform.parent = this.transform;

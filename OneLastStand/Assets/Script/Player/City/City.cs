@@ -83,10 +83,17 @@ public class City : MonoBehaviour{
 		for (int i=0;i<_listTurret.Count;i++) {
 			if(_listTurret[i]._pv > 0){
 				_listTurret[i].getHit(degat/_nombreTurret);
-				degatRest -= degat/_nombreTurret;
+				float sub = degat/_nombreTurret;
+				if(sub%10 >= 0.5){
+					sub = sub+1;
+				}
+				degatRest -= (int)sub;
+				Debug.Log ("Rest : " + degatRest);
 			}
 		}
-
+		if (degatRest < degat / _nombreTurret) {
+			degatRest = 0;
+		}
 
 		_pv -= degatRest;
 		if (_pv <= 0) {
