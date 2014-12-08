@@ -3,9 +3,9 @@ using System.Collections;
 
 public class ChangeLevelTexture : MonoBehaviour
 {
-	GameObject _prefabLvl1;
-	GameObject _prefabLvl2;
-	GameObject _prefabLvl3;
+	public GameObject _prefabLvl1;
+	public GameObject _prefabLvl2;
+	public GameObject _prefabLvl3;
 
 	public void ChangeLevel(int lvl){
 		switch (lvl) {

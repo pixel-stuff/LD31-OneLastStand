@@ -72,9 +72,27 @@ public class UIManager2 : MonoBehaviour {
 
 	public void setTurretState(int stat){
 		_Stat = stat;
+		updateTowerButton ();
 
 		}
+	public void SelectorInput(int position){
 
+		switch (position) {
+		case 0 :
+			Debug.Log("Repair");
+			break;
+				case 1 :
+			Debug.Log("Stabdar");
+			break;
+					case 2 :
+			Debug.Log("Disin");
+			break;
+						case 3 :
+			Debug.Log("EMP");
+			break;
+				}
+
+		}
 
 
 
@@ -101,7 +119,7 @@ public class UIManager2 : MonoBehaviour {
 		_City.SubToFragmentPlayer (val * _costRepair);
 
 
-		//TODO disabled button repair on turret tur
+
 	}
 	public int getValuePvRepair(Enum_IdTurret tur){
 		Turret cible =_City.GetTurretById(tur);
@@ -166,18 +184,27 @@ public class UIManager2 : MonoBehaviour {
 		degatTurret[3]=turret._pvMax - turret._pv;
 
 		updateTower ();
+		updateTowerButton ();
 
 
 		}
+
+	void updateTowerButton(){
+		_StandardButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (levelTurret [_Stat - 1]);
+		_DisinButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (levelTurret [_Stat - 1]);
+		_EMPButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (levelTurret [_Stat - 1]);
+
+		//repair label 
+		_repairLabel.GetComponent<UILabel> ().text=(degatTurret[_Stat - 1]*_costRepair).ToString();
+		}
+
 	void updateTower(){
-		for (int i =1; i<4; i++) {
+		for (int i =1; i<5; i++) {
 						switch (i) {
 						case 1:
 
 								_Tower1Button.GetComponent<ChangeButton> ().ChangeButtonFonction (levelTurret [0], tabTypeTurret [0]);//ChangeButton(tabTypeTurret[_Stat-1]
-			/*_StandardButton;
-			 _DisinButton;
-			_EMPButton*/
+	
 								break;
 						case 2:
 								_Tower2Button.GetComponent<ChangeButton> ().ChangeButtonFonction (levelTurret [1], tabTypeTurret [1]);//ChangeButton(tabTypeTurret[_Stat-1]
@@ -185,6 +212,9 @@ public class UIManager2 : MonoBehaviour {
 
 			case 3:
 				_Tower3Button.GetComponent<ChangeButton> ().ChangeButtonFonction (levelTurret [2], tabTypeTurret [2]);//ChangeButton(tabTypeTurret[_Stat-1]
+				break;
+			case 4:
+				_Tower4Button.GetComponent<ChangeButton> ().ChangeButtonFonction (levelTurret [3], tabTypeTurret [3]);//ChangeButton(tabTypeTurret[_Stat-1]
 				break;
 
 						}
