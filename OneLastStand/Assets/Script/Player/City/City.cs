@@ -78,13 +78,23 @@ public class City : MonoBehaviour{
 
 
 	public void getHit(int degat){
-		_pv -= degat;
+		int degatRest = degat;
+
+		for (int i=0;i<_listTurret.Count;i++) {
+			if(_listTurret[i]._pv > 0){
+				_listTurret[i].getHit(degat/_nombreTurret);
+				degatRest -= degat/_nombreTurret;
+			}
+		}
+
+
+		_pv -= degatRest;
 		if (_pv <= 0) {
 			_pv =0;
 			_enumStateCity = Enum_StateCity.Destroy;
 		}
 		//Debug.Log ("City take Damage -" + degat);
-		SubLifeLabel (degat);
+		SubLifeLabel (degatRest);
 	}
 
 	public void Repare(int lifeAdding){
@@ -149,6 +159,10 @@ public class City : MonoBehaviour{
 	}
 
 	public void SubLifeLabel(int life){
+		if (life <= 0) {
+			return;
+		}
+
 		GameObject label = (GameObject)Instantiate (_labelEphemerePrefab, this.transform.position , Quaternion.identity);
 		label.transform.parent = this.transform;
 		label.transform.localPosition = new Vector2 (30, 100);
