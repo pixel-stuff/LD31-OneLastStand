@@ -262,14 +262,14 @@ public class UIManager2 : MonoBehaviour {
 
 	void updateTowerButton(){
 
-
+		/*
 		_StandardButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (levelTurret [_Stat - 1]);
 		_DisinButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (levelTurret [_Stat - 1]);
 		_EMPButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (levelTurret [_Stat - 1]);
-
-		_StandardButtonPrice.GetComponent<UILabel> ().text = (getPriceStandard (levelTurret [_Stat - 1])).ToString();
-		_DisinButtonPrice.GetComponent<UILabel> ().text = (getPriceDisi (levelTurret [_Stat - 1])).ToString();
-		_EMPButtonPrice.GetComponent<UILabel> ().text = (getPriceEMP (levelTurret [_Stat - 1])).ToString();
+*/
+		_StandardButtonPrice.GetComponent<UILabel> ().color=Color.white;
+		_DisinButtonPrice.GetComponent<UILabel> ().color=Color.white;
+		_EMPButtonPrice.GetComponent<UILabel> ().color=Color.white;
 
 		//repair label 
 		_repairLabel.GetComponent<UILabel> ().text = repairCost ().ToString ();//(degatTurret[_Stat - 1]*_costRepair).ToString();
