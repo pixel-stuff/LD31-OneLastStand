@@ -19,8 +19,12 @@ public class UIManager2 : MonoBehaviour {
 
 
 	public GameObject _StandardButton;
+	public GameObject _StandardButtonPrice;
 	public GameObject _DisinButton;
+	public GameObject _DisinButtonPrice;
 	public GameObject _EMPButton;
+	public GameObject _EMPButtonPrice;
+
 
 	public GameObject _repairLabel;
 
@@ -261,6 +265,10 @@ public class UIManager2 : MonoBehaviour {
 		_DisinButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (levelTurret [_Stat - 1]);
 		_EMPButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (levelTurret [_Stat - 1]);
 
+		_StandardButtonPrice.GetComponent<UILabel> ().text = (getPriceStandard (levelTurret [_Stat - 1])).ToString();
+		_DisinButtonPrice.GetComponent<UILabel> ().text = (getPriceDisi (levelTurret [_Stat - 1])).ToString();
+		_EMPButtonPrice.GetComponent<UILabel> ().text = (getPriceEMP (levelTurret [_Stat - 1])).ToString();
+
 		//repair label 
 		_repairLabel.GetComponent<UILabel> ().text = repairCost ().ToString ();//(degatTurret[_Stat - 1]*_costRepair).ToString();
 		}
@@ -287,6 +295,52 @@ public class UIManager2 : MonoBehaviour {
 						}
 				}
 		}
+
+	int getPriceStandard(int level){
+				switch (level) {
+				case 1:
+						return ConstantesManager.PRICE_STANDARD_1;
+						break;
+				case 2:
+						return ConstantesManager.PRICE_STANDARD_2;
+						break;
+				case 3:
+						return ConstantesManager.PRICE_STANDARD_3;
+						break;
+
+				}
+		}
+
+	int getPriceDisi(int level){
+		switch (level) {
+		case 1:
+			return ConstantesManager.PRICE_DISIN_1;
+			break;
+		case 2:
+			return ConstantesManager.PRICE_DISIN_2;
+			break;
+		case 3:
+			return ConstantesManager.PRICE_DISIN_3;
+			break;
+			
+		}
+	}
+
+	int getPriceEMP(int level){
+		switch (level) {
+		case 1:
+			return ConstantesManager.PRICE_EMP_1;
+			break;
+		case 2:
+			return ConstantesManager.PRICE_EMP_2;
+			break;
+		case 3:
+			return ConstantesManager.PRICE_EMP_3;
+			break;
+			
+		}
+	}
+
 	
 	
 	
