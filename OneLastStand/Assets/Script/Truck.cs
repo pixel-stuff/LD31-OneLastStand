@@ -72,7 +72,7 @@ public class Truck : MonoBehaviour {
 		
 		Vector3 vectorMove = (Time.deltaTime * _speed)*_LastDirectionNormalize;
 		transform.position =  origin + vectorMove;
-		
+
 		if(Vector3.Distance(origin, target) <= 3f){
 			ActionArrive();
 		}

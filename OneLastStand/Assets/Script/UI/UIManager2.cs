@@ -8,9 +8,9 @@ public class UIManager2 : MonoBehaviour {
 	City _City;
 	PlayerManager _Player;
 
-	GameObject _ScoreLabel;
-	GameObject _WaveLabel;
-	GameObject _CreditLabel;
+	public GameObject _ScoreLabel;
+	public GameObject _WaveLabel;
+	public GameObject _CreditLabel;
 
 	public int _cityLife;
 	public int _credit;
