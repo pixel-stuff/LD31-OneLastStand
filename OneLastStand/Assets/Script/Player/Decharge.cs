@@ -81,6 +81,7 @@ public class Decharge : MonoBehaviour{
 		_quantiteFragment += frag;
 		GameObject label = (GameObject)Instantiate (_labelPrefab,this.transform.position, Quaternion.identity);
 		label.transform.parent = this.transform;
+		label.transform.localPosition = new Vector3 (0, 100, 0);
 		label.GetComponent<UILabel> ().color = ConstantesManager.FRAGMENT_LABEL_COLOR;
 		label.GetComponent<UILabel> ().text = "+" + frag;
 	}
@@ -90,6 +91,7 @@ public class Decharge : MonoBehaviour{
 		_quantiteFragment -= frag;
 		GameObject label = (GameObject)Instantiate (_labelPrefab,this.transform.position, Quaternion.identity);
 		label.transform.parent = this.transform;
+		label.transform.localPosition = new Vector3 (0, 100, 0);
 		label.GetComponent<UILabel> ().color = ConstantesManager.FRAGMENT_LABEL_COLOR;
 		label.GetComponent<UILabel> ().text = "-" + frag;
 	}

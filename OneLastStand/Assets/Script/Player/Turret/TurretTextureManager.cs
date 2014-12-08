@@ -3,54 +3,48 @@ using System.Collections;
 
 public class TurretTextureManager : MonoBehaviour{
 
-	public string _pathFolderRoot = "Turret";
-	
-	public Enum_StateTurret _enumStateTurret;
-	public Enum_TurretType _enumTurretType;
 
-	public UITexture _currentTurretTexture;
-	public UITexture _currentBaseTexture;
+	public GameObject _EMP;
+	public GameObject _Standard;
+	public GameObject _Disintegrator;
 
-	//public GameObject _TurretTexturePrefab;
-	//public GameObject _TurretBasePrefab;
-	//public GameObject _TurretSoclePrefab;
+	public GameObject _TurretPrefab;
+	Turret _turretParent;
 
-	// Use this for initialization
-	void Start (){
-		//_currentTurretTexture = ((GameObject)Instantiate(_TurretTexturePrefab, Vector2.zero,Quaternion.identity)).GetComponent<UITexture>();
+	City _city;
 
-		//_currentBaseTexture = ((GameObject)Instantiate(_TurretBasePrefab, Vector2.zero,Quaternion.identity)).GetComponent<UITexture>();
-
-		//Instantiate (_TurretSoclePrefab, Vector2.zero, Quaternion.identity);
-
-		_enumTurretType = Enum_TurretType.Standard;
-		_enumStateTurret = Enum_StateTurret.TurretNone;
-	}
-	// Update is called once per frame
-	void Update (){
-		string pathTextureTurret = "";
-		string pathTextureBase = "";
-
-
-		if (_enumStateTurret == Enum_StateTurret.TurretDestroy) {
-			pathTextureBase = _pathFolderRoot + "/" + _enumTurretType.ToString() + "/" + "TurrentDestroy";
-			pathTextureTurret = "";
-		} else {
-			pathTextureBase = _pathFolderRoot + "/" + _enumTurretType.ToString() + "/" + "TurrentBase";
-			pathTextureTurret = _pathFolderRoot + "/" + _enumTurretType.ToString () + "/" + _enumStateTurret.ToString ();
-		}
-
-		_currentTurretTexture.mainTexture = Resources.Load<Texture2D> (pathTextureTurret);
-		_currentBaseTexture.mainTexture = Resources.Load<Texture2D> (pathTextureBase);
-	}
-	
-
-	public void changeStateTurret(Enum_StateTurret state){
-		_enumStateTurret = state;
+	void Start(){
+		_turretParent = _TurretPrefab.GetComponent<Turret> ();
 	}
 
-	public void changeTypeTurret(Enum_TurretType type){
-		_enumTurretType = type;
+	void Update(){
+		switch (_turretParent._enumCurrentTurretType) {
+			case Enum_TurretType.Disintegrator:
+				_EMP.SetActive(false);
+				_Standard.SetActive(false);
+				_Disintegrator.SetActive(true);
+
+				break;
+			case Enum_TurretType.EMP:
+				_EMP.SetActive(true);
+				_Standard.SetActive(false);
+				_Disintegrator.SetActive(false);
+
+				break;
+			case Enum_TurretType.Standard:
+				_EMP.SetActive(false);
+				_Standard.SetActive(true);
+				_Disintegrator.SetActive(false);
+				
+				break;
+			default: 
+				_EMP.SetActive(false);
+				_Standard.SetActive(false);
+				_Disintegrator.SetActive(false);
+			
+			break;
+				}
 	}
+
 }
 

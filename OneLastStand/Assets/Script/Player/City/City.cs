@@ -187,7 +187,7 @@ public class City : MonoBehaviour{
 	}
 	
 	public void SubToFragmentPlayer(int frag){
-		_quantiteFrag += frag;
+		_quantiteFrag -= frag;
 		GameObject label = (GameObject)Instantiate (_labelEphemerePrefab, this.transform.position , Quaternion.identity);
 		label.transform.parent = this.transform;
 		label.transform.localPosition = new Vector2 (30, 100);
