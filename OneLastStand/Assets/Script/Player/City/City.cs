@@ -187,7 +187,12 @@ public class City : MonoBehaviour{
 	}
 
 	public Turret GetTurretById(Enum_IdTurret enumId){
-		return _listTurret [0];
+		foreach (Turret tur in _listTurret) {
+			if(tur._enumIdTurret == enumId){
+				return tur;
+			}
+		}
+		return null;
 	}
 
 
