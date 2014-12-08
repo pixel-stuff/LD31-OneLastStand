@@ -12,14 +12,14 @@ public class ConstantesManager {
 	public static int PRICE_UPDATE_TRUCK =500;
 	public static float VARIATION_PRICE_TRUCK_PERCENT = 20f / 100f;
 	public static int PRICE_STANDARD_1 =500;
-	public static int PRICE_STANDARD_2 =500;
-	public static int PRICE_STANDARD_3 =500;
+	public static int PRICE_STANDARD_2 =600;
+	public static int PRICE_STANDARD_3 =700;
 	public static int PRICE_DISIN_1 =700;
-	public static int PRICE_DISIN_2 =700;
-	public static int PRICE_DISIN_3 =700;
+	public static int PRICE_DISIN_2 =800;
+	public static int PRICE_DISIN_3 =900;
 	public static int PRICE_EMP_1 =700;
-	public static int PRICE_EMP_2 =700;
-	public static int PRICE_EMP_3 =700;
+	public static int PRICE_EMP_2 =800;
+	public static int PRICE_EMP_3 =900;
 	// -------------------------------------------------ENNEMY VAR--------------------------------------------------------
 
 	public static float VARIATION_TIME_BETWEEN_ATTACK_PERCENT = 10 / 100;
