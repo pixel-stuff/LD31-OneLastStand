@@ -11,6 +11,11 @@ public class TurretTextureManager : MonoBehaviour{
 	public GameObject _TurretPrefab;
 	Turret _turretParent;
 
+	float _scale1 = 1.0f;
+	float _scale2 = 1.5f;
+	float _scale3 = 1.8f;
+	Vector3 _scaleOrigin = new Vector3 (50, 50, 1);
+
 	City _city;
 
 	void Start(){
@@ -43,7 +48,31 @@ public class TurretTextureManager : MonoBehaviour{
 				_Disintegrator.SetActive(false);
 			
 			break;
-				}
+		}
+
+		switch(_turretParent._enumCurrentStateTurret){
+			case Enum_StateTurret.TurretLevel1:
+				_EMP.transform.localScale = _scaleOrigin*_scale1;
+				_Standard.transform.localScale = _scaleOrigin*_scale1;
+				_Disintegrator.transform.localScale = _scaleOrigin*_scale1;
+			break;
+			case Enum_StateTurret.TurretLevel2:
+				_EMP.transform.localScale = _scaleOrigin*_scale2;
+				_Standard.transform.localScale = _scaleOrigin*_scale2;
+				_Disintegrator.transform.localScale = _scaleOrigin*_scale2;
+			
+			break;
+			case Enum_StateTurret.TurretLevel3:
+				_EMP.transform.localScale = _scaleOrigin*_scale3;
+				_Standard.transform.localScale = _scaleOrigin*_scale3;
+				_Disintegrator.transform.localScale = _scaleOrigin*_scale3;
+			
+			break;
+			default:
+			
+			break;
+
+		}
 	}
 
 }

@@ -277,7 +277,7 @@ public class Turret : MonoBehaviour{
 			ChangeStateTurret(Enum_StateTurret.TurretLevel2);
 			break;
 		case Enum_StateTurret.TurretLevel2:
-			ChangeStateTurret(Enum_StateTurret.TurretLevel2);
+			ChangeStateTurret(Enum_StateTurret.TurretLevel3);
 			break;
 		case Enum_StateTurret.TurretLevel3:
 			Debug.Log("Impossible to go Further");
