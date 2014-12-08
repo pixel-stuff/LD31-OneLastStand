@@ -50,7 +50,7 @@ public class TurretTextureManager : MonoBehaviour{
 			break;
 		}
 
-		switch(_turretParent._enumCurrentStateTurret){
+		/*switch(_turretParent._enumCurrentStateTurret){
 			case Enum_StateTurret.TurretLevel1:
 				_EMP.transform.localScale = _scaleOrigin*_scale1;
 				_Standard.transform.localScale = _scaleOrigin*_scale1;
@@ -74,7 +74,7 @@ public class TurretTextureManager : MonoBehaviour{
 				_Disintegrator.SetActive(false);
 			break;
 
-		}
+		}*/
 	}
 
 }
