@@ -7,7 +7,8 @@ public class PlayerManager : MonoBehaviour{
 
 	City _city;
 	Decharge _decharge;
-	int _score;
+	public int _score;
+	public int _nbVague =1;
 
 	public GameObject _cityPrefab;
 
@@ -82,6 +83,10 @@ public class PlayerManager : MonoBehaviour{
 	}
 
 	public void AddToScore(int score){
+		//TODO enlever ça 
+		if (score == ConstantesManager.POINT_SURVIVE_VAGUE) {
+			_nbVague++;
+				}
 		_score += score;
 		GameObject label = (GameObject)Instantiate (_labelEphemerePrefab, _city.transform.position , Quaternion.identity);
 		label.transform.parent = _city.transform;

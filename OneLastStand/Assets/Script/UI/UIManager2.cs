@@ -8,13 +8,25 @@ public class UIManager2 : MonoBehaviour {
 	City _City;
 	PlayerManager _Player;
 
+	GameObject _ScoreLabel;
+	GameObject _WaveLabel;
+	GameObject _CreditLabel;
+
 	public int _cityLife;
 	public int _credit;
+	public int _score;
 
+	public int _nbVague;
 
 	public bool _wasInit=false;
 
 	public Enum_IdTurret _Stat;
+
+	public float _percentCity;
+	public float _percentTower1;
+	public float _percentTower2;
+	public float _percentTower3;
+	public float _percentTower4;
 
 	// Use this for initialization
 	void Start () {
@@ -91,10 +103,21 @@ public class UIManager2 : MonoBehaviour {
 				}
 	}
 
+	void updateLabel (){
+		_ScoreLabel.GetComponent<UILabel> ().text = _score;
+		_CreditLabel.GetComponent<UILabel> ().text=_credit;
+		_WaveLabel.GetComponent<UILabel> ().text=_nbVague;
+		}
+
 	void refreshRessource(){
 		_cityLife = _City._pv;
 		_credit = _City._quantiteFrag;
-		//TODO get tur life
+		_score = _Player._score;
+		_nbVague=_Player._nbVague;
+		updateLabel ();
+		Turret turret = _City.GetTurretById (Enum_IdTurret.Turret1);
+		
+
 
 
 		}
