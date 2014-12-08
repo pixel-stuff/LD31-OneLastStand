@@ -80,6 +80,9 @@ public class UIManager2 : MonoBehaviour {
 		switch (position) {
 		case 0 :
 			Debug.Log("Repair");
+			if (_credit >=repairCost()){
+				RepareTurret(getEnumIDTurret());
+			}
 			break;
 				case 1 :
 			Debug.Log("Stabdar");
@@ -87,13 +90,23 @@ public class UIManager2 : MonoBehaviour {
 			break;
 					case 2 :
 			Debug.Log("Disin");
+			BuildTurretDisi(getEnumIDTurret());
 			break;
 						case 3 :
 			Debug.Log("EMP");
+			BuildTurretEMP(getEnumIDTurret());
+			break;
+
+		case -1 :
+			Debug.Log("EMP");
+			BuildTurretEMP(getEnumIDTurret());
 			break;
 				}
 
 		}
+	int repairCost(){
+		return degatTurret[_Stat - 1]*_costRepair;
+	}
 
 
 	Enum_IdTurret getEnumIDTurret(){
@@ -118,8 +131,24 @@ public class UIManager2 : MonoBehaviour {
 
 
 
-
-
+	public void BuildTurretDisi(Enum_IdTurret tur){
+		Turret turret = _City.GetTurretById (tur);
+		if (turret._enumCurrentTurretType == Enum_TurretType.Disintegrator) {
+			turret.Upgrade ();
+		} else {
+			turret.ChangeTypeTurret(Enum_TurretType.Disintegrator);
+		}
+		
+	}
+	public void BuildTurretEMP(Enum_IdTurret tur){
+		Turret turret = _City.GetTurretById (tur);
+		if (turret._enumCurrentTurretType == Enum_TurretType.EMP) {
+			turret.Upgrade ();
+		} else {
+			turret.ChangeTypeTurret(Enum_TurretType.EMP);
+		}
+		
+	}
 
 
 
@@ -217,7 +246,7 @@ public class UIManager2 : MonoBehaviour {
 		_EMPButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (levelTurret [_Stat - 1]);
 
 		//repair label 
-		_repairLabel.GetComponent<UILabel> ().text=(degatTurret[_Stat - 1]*_costRepair).ToString();
+		_repairLabel.GetComponent<UILabel> ().text = repairCost ().ToString ();//(degatTurret[_Stat - 1]*_costRepair).ToString();
 		}
 
 	void updateTower(){

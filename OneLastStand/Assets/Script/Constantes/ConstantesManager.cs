@@ -8,7 +8,7 @@ public class ConstantesManager {
 
 	//-----------------------------------------------COST
 
-	public static int PRICE_REPAIR =50;
+	public static int PRICE_REPAIR =5;
 	public static int PRICE_UPDATE_TRUCK =500;
 	public static int PRICE_STANDARD_1 =500;
 	public static int PRICE_STANDARD_2 =500;
