@@ -14,16 +14,13 @@ public class UIManager2 : MonoBehaviour {
 
 	public bool _wasInit=false;
 
+	public Enum_IdTurret _Stat;
+
 	// Use this for initialization
 	void Start () {
-		toto ();
+	
 	}
-
-	public void toto(){
-		Debug.Log ("TTTTTTTTTTTTTTTTOOOOOOOOOOOOOOOOOOOTTTTTTTTTTTTTTTTTTT");
-		}
-
-
+	
 	void init(){
 		GameObject tempo = GameObject.FindGameObjectWithTag ("City");
 		_City = tempo.gameObject.GetComponent<City>(); 
@@ -33,6 +30,37 @@ public class UIManager2 : MonoBehaviour {
 		_wasInit = true;
 
 		}
+
+	public void setTurretState(int stat){
+		switch (stat) {
+				case 1:
+						_Stat = Enum_IdTurret.Turret1;
+						break;
+				case 2:
+						_Stat = Enum_IdTurret.Turret2;
+						break;
+				case 3:
+						_Stat = Enum_IdTurret.Turret3;
+						break;
+				case 4:
+						_Stat = Enum_IdTurret.Turret4;
+						break;
+				}
+		Debug.Log ("SELECT turret "+_Stat);
+
+		}
+
+
+
+
+
+
+
+
+
+
+
+
 	public void BuildTurretStandard(Enum_IdTurret tur){
 		Turret turret = _City.GetTurretById (tur);
 		if (turret._enumCurrentTurretType == Enum_TurretType.Standard) {
