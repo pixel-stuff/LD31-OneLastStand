@@ -5,11 +5,9 @@ public class GameMain : MonoBehaviour {
 
 	EnnemiManager _ennemiManager;
 	PlayerManager _playerManager;
-	UIManager _uiManager;
 
 	public GameObject _playerPrefab;
 	public GameObject _ennemiPrefab;
-	public GameObject _uiManagerPrefab;
 	public GameObject _BottomLeftAnchorPrefab;
 	public GameObject _BottomAnchorPrefab;
 
@@ -22,7 +20,6 @@ public class GameMain : MonoBehaviour {
 	void Start () {
 		_ennemiManager = new EnnemiManager ();
 		_playerManager = new PlayerManager ();
-		_uiManager = new UIManager ();
 		_enumStateGame = Enum_StateGame.Shoot;
 
 
@@ -31,10 +28,6 @@ public class GameMain : MonoBehaviour {
 
 		_ennemiManager = ((GameObject)Instantiate(_ennemiPrefab, this.transform.position,Quaternion.identity)).GetComponent<EnnemiManager>();
 		_ennemiManager.transform.parent = this.transform;
-
-		
-		_uiManager = ((GameObject)Instantiate(_uiManagerPrefab, _BottomAnchorPrefab.transform.position,Quaternion.identity)).GetComponent<UIManager>();
-		_uiManager.transform.parent = _BottomAnchorPrefab.transform;
 
 		//StartShoot ();
 	}
@@ -62,7 +55,6 @@ public class GameMain : MonoBehaviour {
 		_enumStateGame = Enum_StateGame.Shoot;
 		_ennemiManager.StartShoot ();
 		_playerManager.StartShoot ();
-		_uiManager.StartShoot ();
 	}
 	
 	public void StartConstruction(){
@@ -70,7 +62,6 @@ public class GameMain : MonoBehaviour {
 		_enumStateGame = Enum_StateGame.Construction;
 		_ennemiManager.StartConstruction ();
 		_playerManager.StartConstruction ();
-		_uiManager.StartConstruction ();
 		
 	}
 
@@ -100,7 +91,6 @@ public class GameMain : MonoBehaviour {
 
 		_ennemiManager.UpdateShoot ();
 		_playerManager.UpdateShoot ();
-		_uiManager.UpdateShoot ();
 	}
 
 	bool IsPlayerWin (){
