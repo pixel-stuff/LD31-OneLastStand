@@ -88,7 +88,7 @@ public class City : MonoBehaviour{
 					sub = sub+1;
 				}
 				degatRest -= (int)sub;
-				Debug.Log ("Rest : " + degatRest);
+				//Debug.Log ("Rest : " + degatRest);
 			}
 		}
 		if (degatRest < degat / _nombreTurret) {

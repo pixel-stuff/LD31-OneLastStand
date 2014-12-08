@@ -42,7 +42,7 @@ public class EnnemiManager : MonoBehaviour {
 
 
 	public void StartShoot(){
-		Debug.Log ("EnnemiManager STARTSHOOT");
+		//Debug.Log ("EnnemiManager STARTSHOOT");
 		_alreadyInit = false;
 	}
 	
@@ -52,7 +52,7 @@ public class EnnemiManager : MonoBehaviour {
 
 	public void UpdateShoot(){
 	
-		Debug.Log ("EnnemiManager UpdateShoot");
+		//Debug.Log ("EnnemiManager UpdateShoot");
 
 		if (!_alreadyInit) {
 			if(_vagueManager ==null){
@@ -83,7 +83,7 @@ public class EnnemiManager : MonoBehaviour {
 				int f3 = 0;
 				int c3 = 0;
 
-		Debug.Log (vague._hunterNumber);
+		//Debug.Log (vague._hunterNumber);
 				int modH = vague._hunterNumber % 4;
 				h1 = vague._hunterNumber / 4;
 				h3 = vague._hunterNumber / 4;

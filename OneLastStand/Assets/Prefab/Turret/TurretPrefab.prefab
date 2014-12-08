@@ -196,10 +196,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pv: 0
+  _pvMax: 0
   _rateOfFire: 0
   _shootDamage: 0
   _bulletSpeed: 0
-  _turretTextureManager: {fileID: 0}
+  _turretTextureManager: {fileID: 11400000}
   _enumOldStateTurret: 0
   _enumCurrentStateTurret: 0
   _enumCurrentTurretType: 0
@@ -207,6 +208,7 @@ MonoBehaviour:
   _prefabBulletTurret: {fileID: 100000, guid: a32b1907c381f464394cb1c8cb361703, type: 2}
   _enumTurretAim: 0
   _tagEnnemiManager: Ennemi
+  _enumIdTurret: 0
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1

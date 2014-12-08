@@ -51,14 +51,14 @@ public class GameMain : MonoBehaviour {
 	}
 
 	public void StartShoot(){
-		Debug.Log ("STARTSHOOT GAMEMAIN");
+		//Debug.Log ("STARTSHOOT GAMEMAIN");
 		_enumStateGame = Enum_StateGame.Shoot;
 		_ennemiManager.StartShoot ();
 		_playerManager.StartShoot ();
 	}
 	
 	public void StartConstruction(){
-		Debug.Log ("STARTCONSTRUCTION GAMEMAIN");
+		//Debug.Log ("STARTCONSTRUCTION GAMEMAIN");
 		_enumStateGame = Enum_StateGame.Construction;
 		_ennemiManager.StartConstruction ();
 		_playerManager.StartConstruction ();

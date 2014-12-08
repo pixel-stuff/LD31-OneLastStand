@@ -51,8 +51,10 @@ public class Turret : MonoBehaviour{
 	}
 	
 	public void UpdateShoot (){
-		if (_enumOldStateTurret == Enum_StateTurret.TurretDestroy)
-						return;
+		if (_enumCurrentStateTurret == Enum_StateTurret.TurretDestroy) {
+			Debug.Log (this.gameObject.name + " is Destroy");
+			return;
+		}
 		
 		if (_enumCurrentTurretType == Enum_TurretType.None)
 			return;
@@ -211,11 +213,6 @@ public class Turret : MonoBehaviour{
 		} else {
 			_pv += lifeAdding;
 		}
-		
-		/*Enum_StateTurret tempState = _enumOldStateTurret;
-		_enumOldStateTurret = _enumCurrentStateTurret;
-		_enumCurrentStateTurret = tempState;
-		_turretTextureManager.changeStateTurret (_enumCurrentStateTurret);*/
 	}
 	
 	public void getHit(int degat){

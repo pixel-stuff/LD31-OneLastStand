@@ -73,7 +73,7 @@ public class PlayerManager : MonoBehaviour{
 
 		case Enum_StateCity.Winning:
 			_enumStatePlayer = Enum_StatePlayer.Winning;
-			Debug.Log ("PlayerManager REPERE WIN");
+			//Debug.Log ("PlayerManager REPERE WIN");
 			break;
 
 		case Enum_StateCity.Destroy:
