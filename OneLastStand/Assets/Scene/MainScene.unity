@@ -12190,9 +12190,9 @@ MonoBehaviour:
   _Tower2Button: {fileID: 89898446}
   _Tower3Button: {fileID: 1772645894}
   _Tower4Button: {fileID: 438310870}
-  _StandardButton: {fileID: 0}
-  _DisinButton: {fileID: 0}
-  _EMPButton: {fileID: 0}
+  _StandardButton: {fileID: 798699945}
+  _DisinButton: {fileID: 488375885}
+  _EMPButton: {fileID: 1679534258}
   _repairLabel: {fileID: 1434611535}
   _cityLifePercent: 0
   _credit: 0
@@ -16024,11 +16024,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: ee98f88c6c3b81c4995a6dcfc0a11f7f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ee98f88c6c3b81c4995a6dcfc0a11f7f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 302
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ee98f88c6c3b81c4995a6dcfc0a11f7f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -16056,7 +16056,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: ee98f88c6c3b81c4995a6dcfc0a11f7f, type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: ee98f88c6c3b81c4995a6dcfc0a11f7f, type: 2}
       propertyPath: mShader
@@ -16065,6 +16065,14 @@ Prefab:
     - target: {fileID: 100000, guid: ee98f88c6c3b81c4995a6dcfc0a11f7f, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: ee98f88c6c3b81c4995a6dcfc0a11f7f, type: 2}
+      propertyPath: mTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: f914e4d1f297fa54f93541bad81db0e9, type: 3}
+    - target: {fileID: 400000, guid: ee98f88c6c3b81c4995a6dcfc0a11f7f, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ee98f88c6c3b81c4995a6dcfc0a11f7f, type: 2}
@@ -17060,7 +17068,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1741179682}
   m_GameObject: {fileID: 1811099720}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5c5ca47aa5c01740810b7c66662099f, type: 3}
   m_Name: 
@@ -17075,7 +17083,7 @@ MonoBehaviour:
     width: 1
     height: 1
   mShader: {fileID: 10750, guid: 0000000000000000f000000000000000, type: 0}
-  mTexture: {fileID: 2800000, guid: 8332a2bf0cbbc06418f38c92137b4057, type: 3}
+  mTexture: {fileID: 2800000, guid: f914e4d1f297fa54f93541bad81db0e9, type: 3}
   mMat: {fileID: 0}
 --- !u!4 &1811099722
 Transform:
@@ -17084,8 +17092,8 @@ Transform:
   m_PrefabInternal: {fileID: 1741179682}
   m_GameObject: {fileID: 1811099720}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 5, z: 15}
-  m_LocalScale: {x: 800, y: 600, z: 1}
+  m_LocalPosition: {x: 3, y: 302, z: 15}
+  m_LocalScale: {x: 800, y: 1200, z: 1}
   m_Children: []
   m_Father: {fileID: 2110408898}
   m_RootOrder: 1

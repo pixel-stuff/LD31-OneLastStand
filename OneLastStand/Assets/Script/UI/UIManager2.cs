@@ -83,6 +83,7 @@ public class UIManager2 : MonoBehaviour {
 			break;
 				case 1 :
 			Debug.Log("Stabdar");
+			BuildTurretStandard(getEnumIDTurret());
 			break;
 					case 2 :
 			Debug.Log("Disin");
@@ -95,7 +96,25 @@ public class UIManager2 : MonoBehaviour {
 		}
 
 
+	Enum_IdTurret getEnumIDTurret(){
+		switch (_Stat) {
+		case 1:
+			return Enum_IdTurret.Turret1;
+			break;
+		case 2:
+			return Enum_IdTurret.Turret2;
+			break;
+		case 3:
+			return Enum_IdTurret.Turret3;
+			break;
+		case 4:
+			return Enum_IdTurret.Turret4;
+			break;
+				}
 
+		return Enum_IdTurret.Turret1;
+
+		}
 
 
 
@@ -107,8 +126,11 @@ public class UIManager2 : MonoBehaviour {
 	public void BuildTurretStandard(Enum_IdTurret tur){
 		Turret turret = _City.GetTurretById (tur);
 		if (turret._enumCurrentTurretType == Enum_TurretType.Standard) {
-			//WTF turret.ChangeStateTurret
+						turret.Upgrade ();
+				} else {
+			turret.ChangeTypeTurret(Enum_TurretType.Standard);
 				}
+				
 		}
 
 	public void RepareTurret(Enum_IdTurret tur){

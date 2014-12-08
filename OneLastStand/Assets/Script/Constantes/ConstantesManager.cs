@@ -142,8 +142,8 @@ public class ConstantesManager {
 
 	//Standard lvl 1 var
 	public static int STANDARD_LVL1_PV_MAX = 200; //shooting/sec
-	public static float STANDARD_LVL1_RATE_OF_FIRE = 1f; //shooting/sec
-	public static int STANDARD_LVL1_SHOOT_DAMAGE = 15;
+	public static float STANDARD_LVL1_RATE_OF_FIRE = 6f; //shooting/sec
+	public static int STANDARD_LVL1_SHOOT_DAMAGE = 1;
 	
 	//Standard lvl 2 var
 	public static int STANDARD_LVL2_PV_MAX = 400; //shooting/sec

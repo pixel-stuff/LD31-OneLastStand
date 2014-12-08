@@ -41,7 +41,7 @@ public class Turret : MonoBehaviour{
 		//Debug.Log ("PLOP " + _ennemiManager);
 		_bulletSpeed = ConstantesManager.BULLET_TURRET_SPEED;
 		_pv = ConstantesManager.STANDARD_LVL1_PV_MAX;
-		_rateOfFire = ConstantesManager.STANDARD_LVL1_RATE_OF_FIRE + RandOn10Percent(ConstantesManager.STANDARD_LVL1_RATE_OF_FIRE/10); //shooting/sec
+		_rateOfFire = ConstantesManager.EMP_LVL1_RATE_OF_FIRE + RandOn10Percent(ConstantesManager.STANDARD_LVL1_RATE_OF_FIRE/10); //shooting/sec
 		_shootDamage = ConstantesManager.STANDARD_LVL1_PV_MAX;
 		
 	}
