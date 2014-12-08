@@ -10,7 +10,7 @@ public class Fragment : MonoBehaviour
 		_quantite = quantite;
 		this.transform.position = posInitial;
 		_killY = killY;
-		this.GetComponent<Rigidbody2D> ().gravityScale = Random.Range (2.5f, 5);
+		this.GetComponent<Rigidbody2D> ().gravityScale = Random.Range (3.5f, 5);
 		}
 
 		// Use this for initialization

@@ -36,10 +36,10 @@ public class UIManager2 : MonoBehaviour {
 	void init(){
 		GameObject tempo = GameObject.FindGameObjectWithTag ("City");
 		_City = tempo.gameObject.GetComponent<City>(); 
-			tempo = GameObject.FindGameObjectWithTag ("PlayerManager");
+			tempo = GameObject.FindGameObjectWithTag ("Player");
 		_Player = tempo.gameObject.GetComponent<PlayerManager> ();
 			_costRepair=ConstantesManager.PRICE_REPAIR;
-		_wasInit = true;
+
 
 		}
 
@@ -98,22 +98,33 @@ public class UIManager2 : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		if (_wasInit) {
+		if (!_wasInit) {
+			Debug.Log ("INIT ");
+						init ();
+			if(_City._pv != null){
+						_wasInit = true;
+			}
+				} else {
+
+	
 						refreshRessource ();
 				}
 	}
 
 	void updateLabel (){
 		_ScoreLabel.GetComponent<UILabel> ().text = _score.ToString();
+		Debug.Log ("Score Set BIATCH");
 		_CreditLabel.GetComponent<UILabel> ().text=_credit.ToString();
 		_WaveLabel.GetComponent<UILabel> ().text=_nbVague.ToString();
 		}
 
 	void refreshRessource(){
+
 		_cityLife = _City._pv;
 		_credit = _City._quantiteFrag;
 		_score = _Player._score;
 		_nbVague=_Player._nbVague;
+		Debug.Log ("COUCOU "+_score);
 		updateLabel ();
 		Turret turret = _City.GetTurretById (Enum_IdTurret.Turret1);
 		

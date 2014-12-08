@@ -11,7 +11,7 @@ GameObject:
   - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: PlayerPrefab
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,9 +39,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17dd3ef9bfa7903468c233b4aa9fdf9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _score: 0
+  _nbVague: 1
   _cityPrefab: {fileID: 100000, guid: 33b35f3708ac03e459bc30e0af73ef4b, type: 2}
-  _dechargePrefab: {fileID: 100000, guid: 888d1f9febcdfa8479090f898752ef38, type: 2}
   _labelEphemerePrefab: {fileID: 100000, guid: 6efadcf600eb83941bb2e7fdd2781d7e, type: 2}
+  _enumStatePlayer: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
