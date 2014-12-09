@@ -78,6 +78,9 @@ public class GameMain : MonoBehaviour {
 		_uiManager.UpdateConstruction ();*/
 	}
 
+	void UpdateDead(){
+		}
+
 	void UpdateShoot () {
 		if (!_StartShootCalled) {
 			StartShoot();
@@ -90,7 +93,9 @@ public class GameMain : MonoBehaviour {
 		}
 
 		if (IsPlayerDead ()) {
-
+			_enumStateGame = Enum_StateGame.Dead;
+			DisplayDead();
+			return;
 		}
 
 		if (IsPlayerWin ()) {
@@ -102,8 +107,14 @@ public class GameMain : MonoBehaviour {
 		_playerManager.UpdateShoot ();
 	}
 
-	void UpdateDead(){
-
+	void DisplayDead(){
+		//Debug.Log ("GAMEOVER");
+		GameObject obj = (GameObject)Instantiate (_prefabLabelEphemere, Vector3.zero, Quaternion.identity);
+		obj.GetComponent<LabelEphemere> ().enabled = false;
+		obj.GetComponent<UILabel> ().text = "GAMEOVER";
+		obj.GetComponent<UILabel> ().color = Color.white;
+		obj.transform.localScale = new Vector3 (100, 100, 1);
+		obj.transform.parent = this.transform;
 	}
 
 	bool IsPlayerDead(){
