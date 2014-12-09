@@ -13,6 +13,7 @@ public class GameMain : MonoBehaviour {
 
 	public GameObject _GameOverLabel;
 	public GameObject _ConstructionPhaseLabel;
+	public GameObject _TutoLabel;
 
 	Enum_StateGame _enumStateGame;
 
@@ -24,11 +25,15 @@ public class GameMain : MonoBehaviour {
 	private float _timeConstructionStart;
 	public float _timeInConstruction = 2;//sec
 
+	private float _timeTutoStart;
+	public float _timeInTuto = 8;//sec
+
 	// Use this for initialization
 	void Start () {
 		_ennemiManager = new EnnemiManager ();
 		_playerManager = new PlayerManager ();
-		_enumStateGame = Enum_StateGame.Shoot;
+		_enumStateGame = Enum_StateGame.Tuto;
+		StartTuto ();
 
 
 		_playerManager = ((GameObject)Instantiate(_playerPrefab, _BottomLeftAnchorPrefab.transform.position,Quaternion.identity)).GetComponent<PlayerManager>();
@@ -53,6 +58,9 @@ public class GameMain : MonoBehaviour {
 		switch (_enumStateGame) {
 			case Enum_StateGame.Construction:
 				UpdateConstruction();
+			break;
+		case Enum_StateGame.Tuto:
+				UpdateTuto();
 				break;
 			case Enum_StateGame.Shoot:
 				UpdateShoot();
@@ -69,10 +77,25 @@ public class GameMain : MonoBehaviour {
 		}
 	}
 
+	void StartTuto(){
+		_timeTutoStart = Time.time;
+		_GameOverLabel.SetActive(false);
+		_ConstructionPhaseLabel.SetActive(false);
+		_TutoLabel.SetActive (true);
+	}
+
+	void UpdateTuto ()
+	{
+		if (Time.time - _timeInTuto >= _timeInTuto) {
+			_enumStateGame = Enum_StateGame.Shoot;
+		}
+	}
+
 	public void StartShoot(){
 		//Debug.Log ("STARTSHOOT GAMEMAIN");
 		_GameOverLabel.SetActive(false);
 		_ConstructionPhaseLabel.SetActive(false);
+		_TutoLabel.SetActive (false);
 		
 		_enumStateGame = Enum_StateGame.Shoot;
 		_ennemiManager.StartShoot ();
@@ -84,6 +107,8 @@ public class GameMain : MonoBehaviour {
 		//Debug.Log ("STARTCONSTRUCTION GAMEMAIN");
 		_GameOverLabel.SetActive(false);
 		_ConstructionPhaseLabel.SetActive(true);
+		_ConstructionPhaseLabel.GetComponent<UILabel> ().text = "Wave " +  _playerManager._nbVague + " Clear";
+		_TutoLabel.SetActive (false);
 		
 		_enumStateGame = Enum_StateGame.Construction;
 		_ennemiManager.StartConstruction ();
@@ -140,6 +165,7 @@ public class GameMain : MonoBehaviour {
 		
 		_GameOverLabel.SetActive(false);
 		_ConstructionPhaseLabel.SetActive(true);
+		_TutoLabel.SetActive (false);
 		
 		_timeConstructionStart = Time.time;
 	}
@@ -149,6 +175,7 @@ public class GameMain : MonoBehaviour {
 		
 		_GameOverLabel.SetActive(true);
 		_ConstructionPhaseLabel.SetActive(false);
+		_TutoLabel.SetActive (false);
 		_timeGameOverStart = Time.time;
 	}
 
