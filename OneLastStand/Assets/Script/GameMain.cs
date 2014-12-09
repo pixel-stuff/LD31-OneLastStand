@@ -46,6 +46,9 @@ public class GameMain : MonoBehaviour {
 			case Enum_StateGame.Stop:
 				Debug.Log("Pause");
 				break;
+			case Enum_StateGame.Dead:
+				UpdateDead();
+				break;
 			default:
 				Debug.Log("Wrong StateGame in GameMain");
 				break;
@@ -85,19 +88,34 @@ public class GameMain : MonoBehaviour {
 		if (!ConstantesManager.IS_TURRET_INITIALIZE) {
 			return;
 		}
-		
+
+		if (IsPlayerDead ()) {
+
+		}
 
 		if (IsPlayerWin ()) {
 			StartConstruction();
 		}
 
+
 		_ennemiManager.UpdateShoot ();
 		_playerManager.UpdateShoot ();
 	}
 
+	bool IsPlayerDead(){
+		if (_playerManager._enumStatePlayer == Enum_StatePlayer.Dead) {
+			//Debug.Log ("GAMEMAIN REPERE DEAD");
+			return true;
+			
+		} else {
+			return false;
+		}
+	}
+
+
 	bool IsPlayerWin (){
 		if (_playerManager._enumStatePlayer == Enum_StatePlayer.Winning) {
-			//Debug.Log ("GAMEMAI REPERE WIN");
+			//Debug.Log ("GAMEMAIN REPERE WIN");
 			return true;
 
 		} else {

@@ -20199,7 +20199,7 @@ MonoBehaviour:
   _ennemiPrefab: {fileID: 100000, guid: 121d193ae3e66424cb87102e6a5f04e8, type: 2}
   _BottomLeftAnchorPrefab: {fileID: 1481614840}
   _BottomAnchorPrefab: {fileID: 1149796514}
-  _prefabLabelEphemere: {fileID: 0}
+  _prefabLabelEphemere: {fileID: 100000, guid: 6efadcf600eb83941bb2e7fdd2781d7e, type: 2}
 --- !u!1 &2118702239
 GameObject:
   m_ObjectHideFlags: 0

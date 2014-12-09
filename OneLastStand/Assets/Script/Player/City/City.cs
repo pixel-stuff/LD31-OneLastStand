@@ -128,19 +128,31 @@ public class City : MonoBehaviour{
 		}
 
 		if (_enumStateCity != Enum_StateCity.Fighting) 
-					return;
+			return;
+
 		if (!_lock) {
-						_timeStartShootState = Time.time;
+			_timeStartShootState = Time.time;
 			_lock=true;
-				}
+		}
+
 		float var = Time.time - _timeStartShootState;
 	
 		if (var >= _timeMinInShootState && _lock) {
+
 			CheckVictoryCondition ();
+
 		}
 	
 		for (int i=0;i<_listTurret.Count;i++) {
 			_listTurret[i].UpdateShoot();
+		}
+
+
+	}
+
+	private void CheckDefeateCondition (){
+		if (_pv <= 0) {
+			_enumStateCity = Enum_StateCity.Destroy;
 		}
 
 
