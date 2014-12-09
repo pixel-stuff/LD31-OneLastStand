@@ -97,14 +97,22 @@ public class UIManager2 : MonoBehaviour {
 			break;
 				case 1 :
 			Debug.Log("Stabdar");
+			if (_credit >=getPriceStandard(levelTurret[_Stat -1])){
+				_City.SubToFragmentPlayer (getPriceStandard(levelTurret[_Stat -1]));
 			BuildTurretStandard(getEnumIDTurret());
+			}
 			break;
 					case 2 :
 			Debug.Log("Disin");
+			if (_credit >=getPriceDisi(levelTurret[_Stat -1])){
+				_City.SubToFragmentPlayer (getPriceDisi(levelTurret[_Stat -1]));
 			BuildTurretDisi(getEnumIDTurret());
+			}
 			break;
 						case 3 :
 			Debug.Log("EMP");
+			if (_credit >= getPriceEMP(levelTurret[_Stat -1])){
+				_City.SubToFragmentPlayer (getPriceEMP(levelTurret[_Stat -1]));
 			BuildTurretEMP(getEnumIDTurret());
 			break;
 
