@@ -102,6 +102,10 @@ public class GameMain : MonoBehaviour {
 		_playerManager.UpdateShoot ();
 	}
 
+	void UpdateDead(){
+
+	}
+
 	bool IsPlayerDead(){
 		if (_playerManager._enumStatePlayer == Enum_StatePlayer.Dead) {
 			//Debug.Log ("GAMEMAIN REPERE DEAD");
