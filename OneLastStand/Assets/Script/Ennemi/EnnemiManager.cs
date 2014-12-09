@@ -33,7 +33,17 @@ public class EnnemiManager : MonoBehaviour {
 
 
 
-		}
+	}
+
+	public void Initialize ()
+	{
+		_vagueManager.Initialize();
+		
+		_ligneAttackManager.Initialize();
+		_lineAttack1.Initialize();
+		_lineAttack2.Initialize();
+		_lineAttack3.Initialize();
+	}
 	
 		// Update is called once per frame
 		void Update () {

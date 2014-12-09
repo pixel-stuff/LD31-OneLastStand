@@ -22,7 +22,7 @@ public class Turret : MonoBehaviour{
 	public string _tagEnnemiManager = "Ennemi";
 
 	
-	public Enum_IdTurret _enumIdTurret = Enum_IdTurret.Turret1; //TODO utiliser cette enum/id pour choisir des cibles différentes
+	public Enum_IdTurret _enumIdTurret = Enum_IdTurret.Turret1; 
 	
 	
 	
@@ -45,13 +45,20 @@ public class Turret : MonoBehaviour{
 		
 	}
 	
-	public void Initialize(Enum_IdTurret enumid){
-		_enumIdTurret = enumid;
-		if (enumid == Enum_IdTurret.Turret4) {
-			Debug.Log ("qnfmvhqmohfbvùHFBLQDF3");
-			this.ChangeTypeTurret(Enum_TurretType.Standard);
-
-		}
+	public void Initialize(){
+		
+		
+		_enumCurrentStateTurret = Enum_StateTurret.TurretLevel1;
+		_enumCurrentTurretType = Enum_TurretType.Standard;
+		_enumOldStateTurret = _enumCurrentStateTurret;
+		_pv = ConstantesManager.STANDARD_LVL1_PV_MAX;
+		_pvMax = ConstantesManager.STANDARD_LVL1_PV_MAX;
+		_enumTurretAim = Enum_TurretAim.None;
+		
+		_bulletSpeed = ConstantesManager.BULLET_TURRET_SPEED;
+		_pv = ConstantesManager.STANDARD_LVL1_PV_MAX;
+		_rateOfFire = ConstantesManager.EMP_LVL1_RATE_OF_FIRE + RandOn10Percent(ConstantesManager.STANDARD_LVL1_RATE_OF_FIRE/10); //shooting/sec
+		_shootDamage = ConstantesManager.STANDARD_LVL1_PV_MAX;
 	}
 	
 	public void UpdateShoot (){
@@ -95,7 +102,7 @@ public class Turret : MonoBehaviour{
 		}
 	}
 	
-	private GameObject getTarget(){
+	public GameObject getTarget(){
 		
 		GameObject ship = getFirstChoice();
 		//Debug.Log ("SHIP " + ship);

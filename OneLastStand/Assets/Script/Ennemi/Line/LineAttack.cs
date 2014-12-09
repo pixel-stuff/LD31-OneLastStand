@@ -104,6 +104,41 @@ public class LineAttack : MonoBehaviour{
 
 
 	}
+
+	public void Initialize ()
+	{
+		_zonePop1 = ConstantesManager.POP_POINT_1;
+		_zonePop2 = ConstantesManager.POP_POINT_2;
+		_zonePop3 = ConstantesManager.POP_POINT_3;
+		_errorMargePop = ConstantesManager.ERROR_MARGE_POP;
+		
+		_frequencePop = ConstantesManager.FREQUENCE_POP;
+		
+		_errorFrequencePop = ConstantesManager.VARIANCE_FREQUENCE_POP_PERCENT;
+		
+		foreach(GameObject obj in _listHunter){
+			if(obj != null){
+				obj.GetComponent<Hunter>()._onDestroy = true;
+			}
+		}
+		
+		foreach(GameObject obj in _listFrigate){
+			if(obj != null){
+				obj.GetComponent<Frigate>()._onDestroy = true;
+			}
+		}
+		
+		foreach(GameObject obj in _listCruiser){
+			if(obj != null){
+				obj.GetComponent<Cruiser>()._onDestroy = true;
+			}
+		}
+		
+		_listHunter.Clear();
+		_listFrigate.Clear();
+		_listCruiser.Clear();
+		
+	}
 	
 	// Update is called once per frame
 	void Update () {

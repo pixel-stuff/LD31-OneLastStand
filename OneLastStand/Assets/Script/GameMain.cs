@@ -11,12 +11,18 @@ public class GameMain : MonoBehaviour {
 	public GameObject _BottomLeftAnchorPrefab;
 	public GameObject _BottomAnchorPrefab;
 
-	public GameObject _prefabLabelEphemere;
+	public GameObject _GameOverLabel;
+	public GameObject _ConstructionPhaseLabel;
 
 	Enum_StateGame _enumStateGame;
 
 	bool _StartShootCalled = false;
 
+	private float _timeGameOverStart;
+	public float _timeInGameOver = 5;//sec
+	
+	private float _timeConstructionStart;
+	public float _timeInConstruction = 2;//sec
 
 	// Use this for initialization
 	void Start () {
@@ -32,6 +38,14 @@ public class GameMain : MonoBehaviour {
 		_ennemiManager.transform.parent = this.transform;
 
 		//StartShoot ();
+	}
+	
+	void RestartGame(){
+		_enumStateGame = Enum_StateGame.Shoot;
+		_StartShootCalled = false;
+		_playerManager.Initialize();
+		_ennemiManager.Initialize();
+		
 	}
 	
 	// Update is called once per frame
@@ -57,34 +71,47 @@ public class GameMain : MonoBehaviour {
 
 	public void StartShoot(){
 		//Debug.Log ("STARTSHOOT GAMEMAIN");
+		_GameOverLabel.SetActive(false);
+		_ConstructionPhaseLabel.SetActive(false);
+		
 		_enumStateGame = Enum_StateGame.Shoot;
 		_ennemiManager.StartShoot ();
 		_playerManager.StartShoot ();
+		_StartShootCalled = true;
 	}
 	
 	public void StartConstruction(){
 		//Debug.Log ("STARTCONSTRUCTION GAMEMAIN");
+		_GameOverLabel.SetActive(false);
+		_ConstructionPhaseLabel.SetActive(true);
+		
 		_enumStateGame = Enum_StateGame.Construction;
 		_ennemiManager.StartConstruction ();
 		_playerManager.StartConstruction ();
 		
+		_StartShootCalled = false;
+		
 	}
 
 	void UpdateConstruction () {
-
-		StartShoot ();
-		/*_ennemiManager.UpdateConstruction ();
+		if(Time.time - _timeConstructionStart >= _timeInConstruction){
+			StartShoot();
+		}
+		
+		_ennemiManager.UpdateConstruction ();
 		_playerManager.UpdateConstruction ();
-		_uiManager.UpdateConstruction ();*/
+		
 	}
 
 	void UpdateDead(){
+		if(Time.time - _timeGameOverStart >= _timeInGameOver){
+			RestartGame();
 		}
+	}
 
 	void UpdateShoot () {
 		if (!_StartShootCalled) {
 			StartShoot();
-			_StartShootCalled = true;
 			return;
 		}
 
@@ -99,6 +126,7 @@ public class GameMain : MonoBehaviour {
 		}
 
 		if (IsPlayerWin ()) {
+			DisplayConstruction();
 			StartConstruction();
 		}
 
@@ -106,15 +134,22 @@ public class GameMain : MonoBehaviour {
 		_ennemiManager.UpdateShoot ();
 		_playerManager.UpdateShoot ();
 	}
+	
+	void DisplayConstruction(){
+		//Debug.Log ("GAMEOVER");
+		
+		_GameOverLabel.SetActive(false);
+		_ConstructionPhaseLabel.SetActive(true);
+		
+		_timeConstructionStart = Time.time;
+	}
 
 	void DisplayDead(){
 		//Debug.Log ("GAMEOVER");
-		GameObject obj = (GameObject)Instantiate (_prefabLabelEphemere, Vector3.zero, Quaternion.identity);
-		obj.GetComponent<LabelEphemere> ().enabled = false;
-		obj.GetComponent<UILabel> ().text = "GAMEOVER";
-		obj.GetComponent<UILabel> ().color = Color.white;
-		obj.transform.localScale = new Vector3 (100, 100, 1);
-		obj.transform.parent = this.transform;
+		
+		_GameOverLabel.SetActive(true);
+		_ConstructionPhaseLabel.SetActive(false);
+		_timeGameOverStart = Time.time;
 	}
 
 	bool IsPlayerDead(){

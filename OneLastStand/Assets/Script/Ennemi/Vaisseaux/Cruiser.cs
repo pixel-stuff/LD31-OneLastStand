@@ -33,6 +33,9 @@ public class Cruiser : Ship {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (_onDestroy) {
+			Destroy(this.gameObject);
+			return;
+		}
 	}
 }

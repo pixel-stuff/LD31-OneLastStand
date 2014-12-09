@@ -49,7 +49,7 @@ public abstract class Ship : MonoBehaviour  {
 				case Enum_TurretType.EMP:
 			fragment = (int)(dmg * _percentFragByEMP);
 						break;
-				}
+		}
 
 
 
@@ -79,12 +79,13 @@ public abstract class Ship : MonoBehaviour  {
 		_direction = Vector3.Normalize(target - origin);
 
 	}
-
+	
+	
 	public void UpdateShoot(){
 		 if (_onDestroy) {
 			Destroy(this.gameObject);
 			return;
-				}
+		}
 		//Debug.Log (this.gameObject.name + " Update");
 
 		if (!alreadyInit) {
@@ -126,7 +127,7 @@ public abstract class Ship : MonoBehaviour  {
 		if (bulletElement != null) {
 			GetHit((int) bulletElement._pvDamage, bulletElement._enumBulletType);
 			Destroy(bulletElement.gameObject);
-				}
-
 		}
+
+	}
 }

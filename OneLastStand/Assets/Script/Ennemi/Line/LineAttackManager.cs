@@ -13,6 +13,10 @@ public class LineAttackManager : MonoBehaviour {
 	
 	}
 
+	public void Initialize ()
+	{
+	}
+
 	public LineAttack getLineAttack(int valueLigne){
 		return this.gameObject.GetComponentsInChildren<LineAttack> ()[valueLigne];
 	}

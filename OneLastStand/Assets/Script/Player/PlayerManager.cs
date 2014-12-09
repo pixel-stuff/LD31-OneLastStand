@@ -18,6 +18,10 @@ public class PlayerManager : MonoBehaviour{
 
 
 	void Start () {
+		_score = 0;
+		_nbVague =1;
+		_enumStatePlayer = Enum_StatePlayer.Playing;
+		
 		_city = ((GameObject)Instantiate (_cityPrefab, this.transform.position, Quaternion.identity)).GetComponent<City>();
 		_city.transform.parent = this.transform;
 
@@ -27,9 +31,17 @@ public class PlayerManager : MonoBehaviour{
 		_decharge = dech.GetComponent<Decharge>();
 
 
+		
+
+		
+	}
+
+	public void Initialize ()
+	{
+		_score = 0;
+		_nbVague =1;
+		_city.Initialize();
 		_enumStatePlayer = Enum_StatePlayer.Playing;
-
-
 	}
 
 	public void StartShoot(){

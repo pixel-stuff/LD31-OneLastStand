@@ -25,6 +25,10 @@ public class VagueManager {
 
 		}
 
+	public void Initialize ()
+	{
+		Instanciate();
+	}
 
 	public void Instanciate(){
 		_numVague = 1;
@@ -45,7 +49,7 @@ public class VagueManager {
 		}*/
 
 		_instanciate = true;
-		}
+	}
 
 	public void createNextVague(){
 	

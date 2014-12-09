@@ -15,6 +15,15 @@ public class SelectorButtonClick : MonoBehaviour {
 	void Update () {
 	
 	}
+	
+	void OnHover(bool isoVER) {
+		if(isoVER){
+		
+			Debug.Log ("prout");
+		}else{
+			Debug.Log ("plop");
+		}
+	}
 
 	void OnClick(){
 		UIManager.gameObject.GetComponent<UIManager2> ().SelectorInput(position);

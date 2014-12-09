@@ -30,16 +30,12 @@ public class City : MonoBehaviour{
 	void Start(){
 		_quantiteFrag = 50;
 		_timeMinInShootState = ConstantesManager.TIME_MIN_IN_SHOOT_STATE;
-		_pv = ConstantesManager.CITY_PV_MAX;
-		_pvMax = ConstantesManager.CITY_PV_MAX;
-		_enumStateCity = Enum_StateCity.Fighting;
-
+		
 
 		GameObject truck = (GameObject)Instantiate (_truckPrefab, this.transform.position, Quaternion.identity);
 
 		_truck = truck.GetComponent<Truck> ();
 		_truck.transform.parent = this.transform;
-		_truck.Initialize (this);
 		_listTurret = new List<Turret>();
 
 		for (int i=0; i<_nombreTurret; i++) {
@@ -50,18 +46,49 @@ public class City : MonoBehaviour{
 		}
 
 
-
+		_quantiteFrag = 50;
+		_pv = ConstantesManager.CITY_PV_MAX;
+		_pvMax = ConstantesManager.CITY_PV_MAX;
+		_enumStateCity = Enum_StateCity.Fighting;
+		
 		_listTurret [0].transform.localPosition = ConstantesManager.TURRET_1_LOCAL_POSITION;
 		_listTurret [1].transform.localPosition = ConstantesManager.TURRET_2_LOCAL_POSITION;
 		_listTurret [2].transform.localPosition = ConstantesManager.TURRET_3_LOCAL_POSITION;
 		_listTurret [3].transform.localPosition = ConstantesManager.TURRET_4_LOCAL_POSITION;
-
-		_listTurret [0].Initialize(Enum_IdTurret.Turret1);
-		_listTurret [1].Initialize(Enum_IdTurret.Turret2);
-		_listTurret [2].Initialize(Enum_IdTurret.Turret3);
-		_listTurret [3].Initialize(Enum_IdTurret.Turret4);
-
+		
+		_listTurret [0]._enumIdTurret = Enum_IdTurret.Turret1;
+		_listTurret [1]._enumIdTurret = Enum_IdTurret.Turret2;
+		_listTurret [2]._enumIdTurret = Enum_IdTurret.Turret3;
+		_listTurret [3]._enumIdTurret = Enum_IdTurret.Turret4;
+		
 		ConstantesManager.IS_TURRET_INITIALIZE = true;
+		
+	}
+
+	public void Initialize ()
+	{
+		Debug.Log ("INITIALIZE CITY");
+		_quantiteFrag = 50;
+		_pv = ConstantesManager.CITY_PV_MAX;
+		_pvMax = ConstantesManager.CITY_PV_MAX;
+		_enumStateCity = Enum_StateCity.Fighting;
+		
+		_listTurret [0].transform.localPosition = ConstantesManager.TURRET_1_LOCAL_POSITION;
+		_listTurret [1].transform.localPosition = ConstantesManager.TURRET_2_LOCAL_POSITION;
+		_listTurret [2].transform.localPosition = ConstantesManager.TURRET_3_LOCAL_POSITION;
+		_listTurret [3].transform.localPosition = ConstantesManager.TURRET_4_LOCAL_POSITION;
+		
+		_listTurret [0]._enumIdTurret = Enum_IdTurret.Turret1;
+		_listTurret [1]._enumIdTurret = Enum_IdTurret.Turret2;
+		_listTurret [2]._enumIdTurret = Enum_IdTurret.Turret3;
+		_listTurret [3]._enumIdTurret = Enum_IdTurret.Turret4;
+		
+		ConstantesManager.IS_TURRET_INITIALIZE = true;
+		
+		_truck.Initialize ();
+		for (int i=0; i<_nombreTurret; i++) {
+			_listTurret[i].Initialize();
+		}
 	}
 
 	public void StartShoot(){
@@ -217,15 +244,29 @@ public class City : MonoBehaviour{
 		int numberTurretWithNoTarget = 0;
 
 		foreach (Turret tur in _listTurret) {
-			if( tur._enumTurretAim == Enum_TurretAim.NoEnnemiFound){
+			if( tur.getTarget() == null){//_enumTurretAim == Enum_TurretAim.NoEnnemiFound){
 				numberTurretWithNoTarget++;
 			}
 		}
+		
 
 		if (numberTurretWithNoTarget >= _nombreTurret) {
 			_enumStateCity = Enum_StateCity.Winning;
 			//Debug.Log ("City REPERE WIN");
-		}
+		}/*else{
+			int _nombreNull = 0;
+			foreach (Turret tur in _listTurret) {
+				if( tur.getTarget() == null){
+					_nombreNull++;
+				}
+			}
+			
+			if(_nombreNull >= _nombreTurret){
+				_enumStateCity = Enum_StateCity.Winning;
+			}
+			
+		}*/
+		
 	}
 
 	public Turret GetTurretById(Enum_IdTurret enumId){

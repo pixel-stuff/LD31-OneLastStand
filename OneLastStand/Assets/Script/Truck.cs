@@ -20,11 +20,15 @@ public class Truck : MonoBehaviour {
 		_speed = 100;
 		_quantiteTransportableMax = ConstantesManager.TRUCK_QUANTITE_TRANSPADABLE_BASE;
 		_enumDirection = Enum_TruckDirection.decharge;
+		_city = GameObject.FindGameObjectWithTag ("City").GetComponent<City> ();
+		_decharge = GameObject.FindGameObjectWithTag ("Decharge").GetComponent<Decharge> ();
 	}
 	
-	public void Initialize(City city){
-		_city = city;
-		_decharge = GameObject.FindGameObjectWithTag ("Decharge").GetComponent<Decharge> ();
+	public void Initialize(){
+		_currentQuantiteFragment = 0;
+		_speed = 100;
+		_quantiteTransportableMax = ConstantesManager.TRUCK_QUANTITE_TRANSPADABLE_BASE;
+		_enumDirection = Enum_TruckDirection.decharge;
 	}
 	
 	
