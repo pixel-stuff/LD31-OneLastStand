@@ -30,8 +30,8 @@ public class Turret : MonoBehaviour{
 	
 	
 	void Start(){
-		_enumCurrentStateTurret = Enum_StateTurret.TurretNone;
-		_enumCurrentTurretType = Enum_TurretType.None;
+		_enumCurrentStateTurret = Enum_StateTurret.TurretLevel1;
+		_enumCurrentTurretType = Enum_TurretType.Standard;
 		_enumOldStateTurret = _enumCurrentStateTurret;
 		_pv = ConstantesManager.STANDARD_LVL1_PV_MAX;
 		_pvMax = ConstantesManager.STANDARD_LVL1_PV_MAX;

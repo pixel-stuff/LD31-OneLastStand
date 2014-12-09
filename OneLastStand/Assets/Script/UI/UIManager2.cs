@@ -100,7 +100,7 @@ public class UIManager2 : MonoBehaviour {
 			if (_credit >=getPriceStandard(levelTurret[_Stat -1])){
 				_City.SubToFragmentPlayer (getPriceStandard(levelTurret[_Stat -1]));
 			BuildTurretStandard(getEnumIDTurret());
-				RepareTurret(getEnumIDTurret());
+				//RepareTurret(getEnumIDTurret());
 			}
 			break;
 					case 2 :
@@ -108,7 +108,7 @@ public class UIManager2 : MonoBehaviour {
 			if (_credit >=getPriceDisi(levelTurret[_Stat -1])){
 				_City.SubToFragmentPlayer (getPriceDisi(levelTurret[_Stat -1]));
 			BuildTurretDisi(getEnumIDTurret());
-				RepareTurret(getEnumIDTurret());
+				//RepareTurret(getEnumIDTurret());
 			}
 			break;
 						case 3 :
@@ -116,7 +116,7 @@ public class UIManager2 : MonoBehaviour {
 			if (_credit >= getPriceEMP(levelTurret[_Stat -1])){
 				_City.SubToFragmentPlayer (getPriceEMP(levelTurret[_Stat -1]));
 			BuildTurretEMP(getEnumIDTurret());
-				RepareTurret(getEnumIDTurret());
+				//RepareTurret(getEnumIDTurret());
 			}
 			break;
 
