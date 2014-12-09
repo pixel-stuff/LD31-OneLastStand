@@ -53,7 +53,7 @@ public class ConstantesManager {
 	public static float HUNTER_FRAG_DISINTEGRATOR_PERCENT = 16f/100f;
 	public static float HUNTER_FRAG_EMP_PERCENT = 180f/100f;
 
-	public static int HUNTER_PV = 600;
+	public static int HUNTER_PV = 200;
 	public static int HUNTER_SCORE = 100;
 	public static int HUNTER_SHOOT_DMG = 5;
 	public static int HUNTER_SHOT_SPEED=400;
@@ -68,7 +68,7 @@ public class ConstantesManager {
 	public static float FRIGATE_FRAG_DISINTEGRATOR_PERCENT = 25f/100f;
 	public static float FRIGATE_FRAG_EMP_PERCENT = 200f/100f;
 	
-	public static int FRIGATE_PV = 1600;
+	public static int FRIGATE_PV = 700;
 	public static int FRIGATE_SCORE = 100;
 	public static int FRIGATE_SHOOT_DMG = 35;
 	public static int FRIGATE_SHOT_SPEED=200;
@@ -82,7 +82,7 @@ public class ConstantesManager {
 	public static float CRUISER_FRAG_DISINTEGRATOR_PERCENT = 33f/100f;
 	public static float CRUISER_FRAG_EMP_PERCENT = 250f/100f;
 
-	public static int CRUISER_PV = 5000;
+	public static int CRUISER_PV = 2000;
 	public static int CRUISER_SCORE = 100;
 	public static int CRUISER_SHOOT_DMG = 70;
 	public static int CRUISER_SHOT_SPEED=150;
