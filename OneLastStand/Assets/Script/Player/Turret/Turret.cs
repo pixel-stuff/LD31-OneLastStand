@@ -10,7 +10,7 @@ public class Turret : MonoBehaviour{
 	public float _rateOfFire;
 	public int _shootDamage;
 	public float _bulletSpeed;
-
+	
 	public Enum_StateTurret _enumOldStateTurret;
 	public Enum_StateTurret _enumCurrentStateTurret;
 	public Enum_TurretType _enumCurrentTurretType;
@@ -20,7 +20,7 @@ public class Turret : MonoBehaviour{
 	
 	public Enum_TurretAim _enumTurretAim;
 	public string _tagEnnemiManager = "Ennemi";
-
+	
 	
 	public Enum_IdTurret _enumIdTurret = Enum_IdTurret.Turret1; 
 	
@@ -31,7 +31,7 @@ public class Turret : MonoBehaviour{
 	
 	void Start(){
 		_enumCurrentStateTurret = Enum_StateTurret.TurretLevel1;
-		_enumCurrentTurretType = Enum_TurretType.Standard;
+		_enumCurrentTurretType = Enum_TurretType.None;
 		_enumOldStateTurret = _enumCurrentStateTurret;
 		_pv = ConstantesManager.STANDARD_LVL1_PV_MAX;
 		_pvMax = ConstantesManager.STANDARD_LVL1_PV_MAX;
@@ -46,8 +46,6 @@ public class Turret : MonoBehaviour{
 	}
 	
 	public void Initialize(){
-		
-		
 		_enumCurrentStateTurret = Enum_StateTurret.TurretLevel1;
 		_enumCurrentTurretType = Enum_TurretType.Standard;
 		_enumOldStateTurret = _enumCurrentStateTurret;
@@ -175,20 +173,20 @@ public class Turret : MonoBehaviour{
 	
 	public void StartShoot(){
 		_enumTurretAim = Enum_TurretAim.None;
-
+		
 	}
-
+	
 	public int getLevel(){
 		switch (_enumCurrentStateTurret) {
-			case Enum_StateTurret.TurretLevel1:
-				return 1;
-			case Enum_StateTurret.TurretLevel2:
-				return 2;
-			case Enum_StateTurret.TurretLevel3:
-				return 3;
-			default:
-				Debug.Log("Type is not a level");
-				return 0;
+		case Enum_StateTurret.TurretLevel1:
+			return 1;
+		case Enum_StateTurret.TurretLevel2:
+			return 2;
+		case Enum_StateTurret.TurretLevel3:
+			return 3;
+		default:
+			Debug.Log("Type is not a level");
+			return 0;
 		}
 	}
 	
@@ -206,7 +204,9 @@ public class Turret : MonoBehaviour{
 	
 	public void ShootAt(GameObject ship){
 		//Debug.Log ("ShootAt");
-		GameObject bull = (GameObject)Instantiate (_prefabBulletTurret, this.transform.position, Quaternion.identity);
+		Vector3 temp = new Vector3(25,50,0)*getLevel()/1.5f;
+		Vector3 vec = this.transform.position + temp;
+		GameObject bull = (GameObject)Instantiate (_prefabBulletTurret, vec, Quaternion.identity);
 		bull.GetComponent<BulletTurret> ().Initialize(ship.GetComponent<Ship>(), _enumCurrentTurretType, _shootDamage,_bulletSpeed);
 		bull.transform.parent = this.transform;
 		_timeLastShoot = Time.time;
@@ -253,30 +253,24 @@ public class Turret : MonoBehaviour{
 	public void ChangeTypeTurret(Enum_TurretType newType){
 		_enumCurrentTurretType = newType;
 		_enumCurrentStateTurret = Enum_StateTurret.TurretLevel1;
-
-
+		
+		
 		switch(_enumCurrentTurretType){
-			case Enum_TurretType.Disintegrator:
-				_pvMax = ConstantesManager.DISINTEGRATOR_LVL1_PV_MAX;
-				_rateOfFire = ConstantesManager.DISINTEGRATOR_LVL1_RATE_OF_FIRE + RandOn10Percent(ConstantesManager.DISINTEGRATOR_LVL1_RATE_OF_FIRE/10); //shooting/sec
-				_shootDamage = ConstantesManager.DISINTEGRATOR_LVL1_SHOOT_DAMAGE;
-				break;
-			case Enum_TurretType.EMP:
-			_pvMax = ConstantesManager.EMP_LVL1_PV_MAX;
-				_rateOfFire = ConstantesManager.EMP_LVL1_RATE_OF_FIRE+ RandOn10Percent(ConstantesManager.EMP_LVL1_RATE_OF_FIRE/10); //shooting/sec
-				_shootDamage = ConstantesManager.EMP_LVL1_SHOOT_DAMAGE;
-				break;
-			case Enum_TurretType.None:
-			case Enum_TurretType.Standard:
-			default:
-			_pvMax = ConstantesManager.STANDARD_LVL1_PV_MAX;
-				_rateOfFire = ConstantesManager.STANDARD_LVL1_RATE_OF_FIRE+ RandOn10Percent(ConstantesManager.STANDARD_LVL1_RATE_OF_FIRE/10); //shooting/sec
-				_shootDamage = ConstantesManager.STANDARD_LVL1_SHOOT_DAMAGE;
+		case Enum_TurretType.Disintegrator:
+			SetDisintegratorlv1();
+			break;
+		case Enum_TurretType.EMP:
+			SetEMPlv1();
+			break;
+		case Enum_TurretType.None:
+		case Enum_TurretType.Standard:
+		default:
+			SetStandardlv1();
 			break;
 		}
 	}
 	
-	public void ChangeStateTurret(Enum_StateTurret newState){
+	private void ChangeStateTurret(Enum_StateTurret newState){
 		_enumOldStateTurret = _enumCurrentStateTurret;
 		_enumCurrentStateTurret = newState;
 		
@@ -284,9 +278,13 @@ public class Turret : MonoBehaviour{
 			ChangeLevel();
 		}
 	}
-
+	
 	public void Upgrade(){
 		switch (_enumCurrentStateTurret) {
+		case Enum_StateTurret.TurretNone:
+		case Enum_StateTurret.TurretDestroy:
+			ChangeStateTurret(Enum_StateTurret.TurretLevel1);
+			break;
 		case Enum_StateTurret.TurretLevel1:
 			ChangeStateTurret(Enum_StateTurret.TurretLevel2);
 			break;
@@ -304,32 +302,33 @@ public class Turret : MonoBehaviour{
 	
 	private void ChangeLevel(){
 		switch (_enumCurrentTurretType) {
-			case Enum_TurretType.Disintegrator:
-				switch(_enumCurrentStateTurret){
-					case Enum_StateTurret.TurretLevel1:
-						SetDisintegratorlv1();
-						break;
-					case Enum_StateTurret.TurretLevel2:
-						SetDisintegratorlv2();
-						break;
-					case Enum_StateTurret.TurretLevel3:
-						SetDisintegratorlv3();
-						break;
-					}
+		case Enum_TurretType.Disintegrator:
+			switch(_enumCurrentStateTurret){
+			case Enum_StateTurret.TurretLevel1:
+				SetDisintegratorlv1();
 				break;
-			case Enum_TurretType.EMP:
-				switch(_enumCurrentStateTurret){
-				case Enum_StateTurret.TurretLevel1:
-					SetEMPlv1();
-					break;
-				case Enum_StateTurret.TurretLevel2:
-					SetEMPlv2();
-					break;
-				case Enum_StateTurret.TurretLevel3:
-					SetEMPlv3();
-					break;
-				}
+			case Enum_StateTurret.TurretLevel2:
+				SetDisintegratorlv2();
 				break;
+			case Enum_StateTurret.TurretLevel3:
+				SetDisintegratorlv3();
+				break;
+			}
+			break;
+		case Enum_TurretType.EMP:
+			switch(_enumCurrentStateTurret){
+			case Enum_StateTurret.TurretLevel1:
+				SetEMPlv1();
+				break;
+			case Enum_StateTurret.TurretLevel2:
+				SetEMPlv2();
+				break;
+			case Enum_StateTurret.TurretLevel3:
+				SetEMPlv3();
+				break;
+			}
+			break;
+		default:
 		case Enum_TurretType.Standard:
 			switch(_enumCurrentStateTurret){
 			case Enum_StateTurret.TurretLevel1:
@@ -342,9 +341,7 @@ public class Turret : MonoBehaviour{
 				SetStandardlv3();
 				break;
 			}
-			break;
-		default:
-			break;
+			break;	
 		}
 	}
 	
@@ -353,55 +350,91 @@ public class Turret : MonoBehaviour{
 	}
 	
 	private void  SetDisintegratorlv1(){
+		_pv = _pv + ( Mathf.Max (ConstantesManager.DISINTEGRATOR_LVL1_PV_MAX,_pvMax) - Mathf.Min(ConstantesManager.DISINTEGRATOR_LVL1_PV_MAX,_pvMax));
 		_pvMax = ConstantesManager.DISINTEGRATOR_LVL1_PV_MAX;
+		if(_pv > _pvMax){
+			_pv = _pvMax;
+		}
 		_rateOfFire = ConstantesManager.DISINTEGRATOR_LVL1_RATE_OF_FIRE +RandOn10Percent(ConstantesManager.DISINTEGRATOR_LVL1_RATE_OF_FIRE/10); //shooting/sec
 		_shootDamage = ConstantesManager.DISINTEGRATOR_LVL1_SHOOT_DAMAGE;
 	}
 	
 	private void  SetDisintegratorlv2(){
+		_pv = _pv + ( Mathf.Max (ConstantesManager.DISINTEGRATOR_LVL2_PV_MAX,_pvMax) - Mathf.Min(ConstantesManager.DISINTEGRATOR_LVL2_PV_MAX,_pvMax));
 		_pvMax = ConstantesManager.DISINTEGRATOR_LVL2_PV_MAX;
+		if(_pv > _pvMax){
+			_pv = _pvMax;
+		}
 		_rateOfFire = ConstantesManager.DISINTEGRATOR_LVL2_RATE_OF_FIRE+RandOn10Percent(ConstantesManager.DISINTEGRATOR_LVL2_RATE_OF_FIRE/10); //shooting/sec
 		_shootDamage = ConstantesManager.DISINTEGRATOR_LVL2_SHOOT_DAMAGE;
 	}
 	
 	private void  SetDisintegratorlv3(){
+		_pv = _pv + ( Mathf.Max (ConstantesManager.DISINTEGRATOR_LVL3_PV_MAX,_pvMax) - Mathf.Min(ConstantesManager.DISINTEGRATOR_LVL3_PV_MAX,_pvMax));
 		_pvMax = ConstantesManager.DISINTEGRATOR_LVL3_PV_MAX;
+		if(_pv > _pvMax){
+			_pv = _pvMax;
+		}
 		_rateOfFire = ConstantesManager.DISINTEGRATOR_LVL3_RATE_OF_FIRE + RandOn10Percent(ConstantesManager.DISINTEGRATOR_LVL3_RATE_OF_FIRE/10); //shooting/sec
 		_shootDamage = ConstantesManager.DISINTEGRATOR_LVL3_SHOOT_DAMAGE;
 	}
 	
 	private void  SetEMPlv1(){
+		_pv = _pv + ( Mathf.Max (ConstantesManager.EMP_LVL1_PV_MAX,_pvMax) - Mathf.Min(ConstantesManager.EMP_LVL1_PV_MAX,_pvMax));
 		_pvMax = ConstantesManager.EMP_LVL1_PV_MAX;
+		if(_pv > _pvMax){
+			_pv = _pvMax;
+		}
 		_rateOfFire = ConstantesManager.EMP_LVL1_RATE_OF_FIRE + RandOn10Percent(ConstantesManager.EMP_LVL1_RATE_OF_FIRE/10); //shooting/sec
 		_shootDamage = ConstantesManager.EMP_LVL1_SHOOT_DAMAGE;
 	}
 	
 	private void  SetEMPlv2(){
+		_pv = _pv + ( Mathf.Max (ConstantesManager.EMP_LVL2_PV_MAX,_pvMax) - Mathf.Min(ConstantesManager.EMP_LVL2_PV_MAX,_pvMax));
 		_pvMax = ConstantesManager.EMP_LVL2_PV_MAX;
+		if(_pv > _pvMax){
+			_pv = _pvMax;
+		}
 		_rateOfFire = ConstantesManager.EMP_LVL2_RATE_OF_FIRE + RandOn10Percent(ConstantesManager.EMP_LVL2_RATE_OF_FIRE/10); //shooting/sec
 		_shootDamage = ConstantesManager.EMP_LVL2_SHOOT_DAMAGE;
 	}
 	
 	private void  SetEMPlv3(){
+		_pv = _pv + ( Mathf.Max (ConstantesManager.EMP_LVL3_PV_MAX,_pvMax) - Mathf.Min(ConstantesManager.EMP_LVL3_PV_MAX,_pvMax));
 		_pvMax = ConstantesManager.EMP_LVL3_PV_MAX;
+		if(_pv > _pvMax){
+			_pv = _pvMax;
+		}
 		_rateOfFire = ConstantesManager.EMP_LVL3_RATE_OF_FIRE + RandOn10Percent(ConstantesManager.EMP_LVL3_RATE_OF_FIRE/10); //shooting/sec
 		_shootDamage = ConstantesManager.EMP_LVL3_SHOOT_DAMAGE;
 	}
 	
 	private void  SetStandardlv1(){
+		_pv = _pv + ( Mathf.Max (ConstantesManager.STANDARD_LVL1_PV_MAX,_pvMax) - Mathf.Min(ConstantesManager.STANDARD_LVL1_PV_MAX,_pvMax));
 		_pvMax = ConstantesManager.STANDARD_LVL1_PV_MAX;
+		if(_pv > _pvMax){
+			_pv = _pvMax;
+		}
 		_rateOfFire = ConstantesManager.STANDARD_LVL1_RATE_OF_FIRE + RandOn10Percent(ConstantesManager.STANDARD_LVL1_RATE_OF_FIRE/10); //shooting/sec
 		_shootDamage = ConstantesManager.STANDARD_LVL1_SHOOT_DAMAGE;
 	}
 	
 	private void  SetStandardlv2(){
+		_pv = _pv + ( Mathf.Max (ConstantesManager.STANDARD_LVL2_PV_MAX,_pvMax) - Mathf.Min(ConstantesManager.STANDARD_LVL2_PV_MAX,_pvMax));
 		_pvMax = ConstantesManager.STANDARD_LVL2_PV_MAX;
+		if(_pv > _pvMax){
+			_pv = _pvMax;
+		}
 		_rateOfFire = ConstantesManager.STANDARD_LVL2_RATE_OF_FIRE + RandOn10Percent(ConstantesManager.STANDARD_LVL2_RATE_OF_FIRE/10); //shooting/sec
 		_shootDamage = ConstantesManager.STANDARD_LVL2_SHOOT_DAMAGE;
 	}
 	
 	private void  SetStandardlv3(){
+		_pv = _pv + ( Mathf.Max (ConstantesManager.STANDARD_LVL3_PV_MAX,_pvMax) - Mathf.Min(ConstantesManager.STANDARD_LVL3_PV_MAX,_pvMax));
 		_pvMax = ConstantesManager.STANDARD_LVL3_PV_MAX;
+		if(_pv > _pvMax){
+			_pv = _pvMax;
+		}
 		_rateOfFire = ConstantesManager.STANDARD_LVL3_RATE_OF_FIRE + RandOn10Percent(ConstantesManager.STANDARD_LVL3_RATE_OF_FIRE/10); //shooting/sec
 		_shootDamage = ConstantesManager.STANDARD_LVL3_SHOOT_DAMAGE;
 	}

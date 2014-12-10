@@ -342,21 +342,25 @@ public class UIManager2 : MonoBehaviour {
 
 	void updateTower(){
 		for (int i =1; i<5; i++) {
+			bool isSelect=false;
+			if (i == _Stat){
+				isSelect=true;
+			}
 						switch (i) {
 						case 1:
 
-								_Tower1Button.GetComponent<ChangeButton> ().ChangeButtonFonction (levelTurret [0], tabTypeTurret [0]);//ChangeButton(tabTypeTurret[_Stat-1]
+				_Tower1Button.GetComponent<ChangeButton> ().ChangeButtonFonction (levelTurret [0], tabTypeTurret [0],isSelect);//ChangeButton(tabTypeTurret[_Stat-1]
 	
 								break;
 						case 2:
-								_Tower2Button.GetComponent<ChangeButton> ().ChangeButtonFonction (levelTurret [1], tabTypeTurret [1]);//ChangeButton(tabTypeTurret[_Stat-1]
+				_Tower2Button.GetComponent<ChangeButton> ().ChangeButtonFonction (levelTurret [1], tabTypeTurret [1],isSelect);//ChangeButton(tabTypeTurret[_Stat-1]
 								break;
 
 			case 3:
-				_Tower3Button.GetComponent<ChangeButton> ().ChangeButtonFonction (levelTurret [2], tabTypeTurret [2]);//ChangeButton(tabTypeTurret[_Stat-1]
+				_Tower3Button.GetComponent<ChangeButton> ().ChangeButtonFonction (levelTurret [2], tabTypeTurret [2],isSelect);//ChangeButton(tabTypeTurret[_Stat-1]
 				break;
 			case 4:
-				_Tower4Button.GetComponent<ChangeButton> ().ChangeButtonFonction (levelTurret [3], tabTypeTurret [3]);//ChangeButton(tabTypeTurret[_Stat-1]
+				_Tower4Button.GetComponent<ChangeButton> ().ChangeButtonFonction (levelTurret [3], tabTypeTurret [3],isSelect);//ChangeButton(tabTypeTurret[_Stat-1]
 				break;
 
 						}

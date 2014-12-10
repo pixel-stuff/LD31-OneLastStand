@@ -120,10 +120,10 @@ public class ConstantesManager {
 	public static float BULLET_TURRET_LIFE_TIME = 5; //sec
 
 	//Turret var
-	public static Vector3 TURRET_1_LOCAL_POSITION = new Vector3(-35,85,0);
-	public static Vector3 TURRET_2_LOCAL_POSITION = new Vector3(35,65,0);
-	public static Vector3 TURRET_3_LOCAL_POSITION = new Vector3(85,5,0);
-	public static Vector3 TURRET_4_LOCAL_POSITION = new Vector3(135,8,0);
+	public static Vector3 TURRET_1_LOCAL_POSITION = new Vector3(-55,153,0);
+	public static Vector3 TURRET_2_LOCAL_POSITION = new Vector3(4,55,0);
+	public static Vector3 TURRET_3_LOCAL_POSITION = new Vector3(65,-20,0);
+	public static Vector3 TURRET_4_LOCAL_POSITION = new Vector3(120,-20,0);
 	public static float DISTANCE_OF_VUE_SHOOT = 600;//pixel
 
 	//Disintegrator lvl 1 var

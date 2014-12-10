@@ -10,6 +10,7 @@ public class TurretTextureManager : MonoBehaviour{
 
 	public GameObject _TurretPrefab;
 	Turret _turretParent;
+	public Enum_StateTurret _lvl;
 
 	float _scale1 = 1.0f;
 	float _scale2 = 1.5f;
@@ -23,6 +24,7 @@ public class TurretTextureManager : MonoBehaviour{
 	}
 
 	void Update(){
+		_lvl = _turretParent._enumCurrentStateTurret;
 		switch (_turretParent._enumCurrentTurretType) {
 			case Enum_TurretType.Disintegrator:
 				_EMP.SetActive(false);
