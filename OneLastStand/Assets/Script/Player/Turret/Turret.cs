@@ -207,7 +207,7 @@ public class Turret : MonoBehaviour{
 		Vector3 temp = new Vector3(25,50,0)*getLevel()/1.5f;
 		Vector3 vec = this.transform.position + temp;
 		GameObject bull = (GameObject)Instantiate (_prefabBulletTurret, vec, Quaternion.identity);
-		bull.GetComponent<BulletTurret> ().Initialize(ship.GetComponent<Ship>(), _enumCurrentTurretType, _shootDamage,_bulletSpeed);
+		bull.GetComponent<BulletTurret> ().Initialize(ship.GetComponent<Ship>(), _enumCurrentTurretType, _shootDamage,_bulletSpeed, _enumCurrentStateTurret);
 		bull.transform.parent = this.transform;
 		_timeLastShoot = Time.time;
 		

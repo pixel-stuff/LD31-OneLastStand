@@ -8,7 +8,10 @@ public class BulletTurret : MonoBehaviour
 	public float _pvDamage;
 	public Enum_TurretType _enumBulletType;
 	public Vector2 _LastDirection;
-
+	
+	private float _scaleLvl1 = 1f;
+	private float _scaleLvl2 = 1.2f;
+	private float _scaleLvl3 = 1.45f;
 
 	public float _lifeTime;
 	private float _timeCreation;
@@ -44,17 +47,46 @@ public class BulletTurret : MonoBehaviour
 
 	}
 
-	public void Initialize(Ship ship, Enum_TurretType type, int damage, float speed){
+	public void Initialize(Ship ship, Enum_TurretType type, int damage, float speed,Enum_StateTurret enumState){
 		_shipTarget = ship;
 		_enumBulletType = type;
 		_pvDamage = damage;
 		_speed = speed;
+		SetLvlTexture (enumState);
 		Vector3 target = _shipTarget.transform.position;
 		Vector3 origin = this.transform.position;
 		_LastDirection = Vector3.Normalize(target - origin);
 		float orientation = 90-  (360f/(2*3.141592654f))*(float)(Math.Atan(_LastDirection.x/ _LastDirection.y));
 		this.transform.Rotate(new Vector3(0, 0, orientation));
 		
+	}
+
+	public void SetLvlTexture(Enum_StateTurret enumState){
+
+
+		Vector3 vec;
+		switch (enumState) {
+
+			case Enum_StateTurret.TurretLevel1:
+				vec = this.transform.localScale;
+				vec *= _scaleLvl1;
+				this.transform.localScale = vec;
+				break;
+			case Enum_StateTurret.TurretLevel2:
+				vec = this.transform.localScale;
+				vec *= _scaleLvl2;
+				this.transform.localScale = vec;
+				
+				break;
+			case Enum_StateTurret.TurretLevel3:
+				vec = this.transform.localScale;
+				vec *= _scaleLvl3;
+				this.transform.localScale = vec;
+				
+				break;
+
+
+				}
 	}
 
 	void OnTriggerEnter2D(Collider2D coll){
