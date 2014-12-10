@@ -22,19 +22,38 @@ public class ChangeButton : MonoBehaviour
 	public GameObject _prefabLvl1DisintegratorSelect;
 	public GameObject _prefabLvl2DisintegratorSelect;
 	public GameObject _prefabLvl3DisintegratorSelect;
-	
+
+	public GameObject _noneButton;
+	public GameObject _noneButtonSelect;
+
+
 	
 	public void ChangeButtonFonction(int lvl, Enum_TurretType typeTur,bool isSelect){
 		switch (typeTur) {
 		case Enum_TurretType.Disintegrator:
 			DisintegratorLvl(lvl,isSelect);
+			_noneButtonSelect.SetActive (false);
+			_noneButton.SetActive (false);
 			break;
 		case Enum_TurretType.EMP:
 			EMPLvl(lvl,isSelect);
+			_noneButtonSelect.SetActive (false);
+			_noneButton.SetActive (false);
 			
 			break;
 		case Enum_TurretType.Standard:
 			StandardLvl( lvl,isSelect);
+			_noneButtonSelect.SetActive (false);
+			_noneButton.SetActive (false);
+			break;
+		case Enum_TurretType.None:
+			if (!isSelect) {
+				_noneButton.SetActive (true);
+				_noneButtonSelect.SetActive (false);
+			} else {
+				_noneButtonSelect.SetActive (true);
+				_noneButton.SetActive (false);
+			}
 			break;
 		}
 	}
@@ -239,10 +258,10 @@ public class ChangeButton : MonoBehaviour
 		}else {
 			switch (lvl) {
 			case 1:
-				_prefabLvl1StandardSelect.SetActive (true);
+				_prefabLvl1StandardSelect.SetActive (false);
 				_prefabLvl2StandardSelect.SetActive (false);
 				_prefabLvl3StandardSelect.SetActive (false);
-				_prefabLvl1DisintegratorSelect.SetActive (false);
+				_prefabLvl1DisintegratorSelect.SetActive (true);
 				_prefabLvl2DisintegratorSelect.SetActive (false);
 				_prefabLvl3DisintegratorSelect.SetActive (false);
 				_prefabLvl1EMPSelect.SetActive (false);
@@ -260,10 +279,10 @@ public class ChangeButton : MonoBehaviour
 				break;
 			case 2:
 				_prefabLvl1StandardSelect.SetActive (false);
-				_prefabLvl2StandardSelect.SetActive (true);
+				_prefabLvl2StandardSelect.SetActive (false);
 				_prefabLvl3StandardSelect.SetActive (false);
 				_prefabLvl1DisintegratorSelect.SetActive (false);
-				_prefabLvl2DisintegratorSelect.SetActive (false);
+				_prefabLvl2DisintegratorSelect.SetActive (true);
 				_prefabLvl3DisintegratorSelect.SetActive (false);
 				_prefabLvl1EMPSelect.SetActive (false);
 				_prefabLvl2EMPSelect.SetActive (false);
@@ -281,10 +300,10 @@ public class ChangeButton : MonoBehaviour
 			case 3:
 				_prefabLvl1StandardSelect.SetActive (false);
 				_prefabLvl2StandardSelect.SetActive (false);
-				_prefabLvl3StandardSelect.SetActive (true);
+				_prefabLvl3StandardSelect.SetActive (false);
 				_prefabLvl1DisintegratorSelect.SetActive (false);
 				_prefabLvl2DisintegratorSelect.SetActive (false);
-				_prefabLvl3DisintegratorSelect.SetActive (false);
+				_prefabLvl3DisintegratorSelect.SetActive (true);
 				_prefabLvl1EMPSelect.SetActive (false);
 				_prefabLvl2EMPSelect.SetActive (false);
 				_prefabLvl3EMPSelect.SetActive (false);

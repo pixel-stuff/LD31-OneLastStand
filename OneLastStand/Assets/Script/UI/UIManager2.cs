@@ -25,12 +25,18 @@ public class UIManager2 : MonoBehaviour {
 	public GameObject _EMPButton;
 	public GameObject _EMPButtonPrice;
 
+	public GameObject _Tower1Life;
+	public GameObject _Tower2Life;
+	public GameObject _Tower3Life;
+	public GameObject _Tower4Life;
+
+	public GameObject _CityLife;
 
 	public GameObject _repairLabel;
 
 	public GameObject _priceTruck;
 
-	public int _cityLifePercent;
+
 	public int _credit;
 	public int _score;
 
@@ -41,10 +47,7 @@ public class UIManager2 : MonoBehaviour {
 	public int _Stat;
 
 	public float _percentCity;
-	public float _percentTower1;
-	public float _percentTower2;
-	public float _percentTower3;
-	public float _percentTower4;
+
 
 	public Enum_TurretType[] tabTypeTurret ;
 	public float[] percentLifeTurret ;
@@ -74,7 +77,7 @@ public class UIManager2 : MonoBehaviour {
 		tabTypeTurret[1] = Enum_TurretType.None;
 		tabTypeTurret[2] = Enum_TurretType.None;
 		tabTypeTurret[3] = Enum_TurretType.None;
-		_Stat = 1;
+		_Stat = 4;
 
 		_priceUpgradeTruck = ConstantesManager.PRICE_UPDATE_TRUCK;
 
@@ -234,7 +237,7 @@ public class UIManager2 : MonoBehaviour {
 
 	void refreshRessource(){
 
-		_cityLifePercent = _City._pv/_City._pvMax;
+		_percentCity = (float)(_City._pv)/(float)(_City._pvMax);
 		_credit = _City._quantiteFrag;
 		_score = _Player._score;
 		_nbVague=_Player._nbVague;
@@ -244,31 +247,46 @@ public class UIManager2 : MonoBehaviour {
 
 		Turret turret = _City.GetTurretById (Enum_IdTurret.Turret1);
 		tabTypeTurret [0] = turret._enumCurrentTurretType;
-		percentLifeTurret [0] = turret._pv / turret._pvMax;
+		percentLifeTurret [0] = (float)(turret._pv) / (float)(turret._pvMax);
 		levelTurret[0]= turret.getLevel();
 		degatTurret[0]=turret._pvMax - turret._pv;
 
 		turret = _City.GetTurretById (Enum_IdTurret.Turret2);
 		tabTypeTurret [1] = turret._enumCurrentTurretType;
-		percentLifeTurret [1] = turret._pv / turret._pvMax;
+		percentLifeTurret [1] = (float)(turret._pv) / (float)(turret._pvMax);
 		levelTurret[1]= turret.getLevel();
 		degatTurret[1]=turret._pvMax - turret._pv;
 
 		turret = _City.GetTurretById (Enum_IdTurret.Turret3);
 		tabTypeTurret [2] = turret._enumCurrentTurretType;
-		percentLifeTurret [2] = turret._pv / turret._pvMax;
+		percentLifeTurret [2] = (float)(turret._pv) / (float)(turret._pvMax);
 		levelTurret[2]= turret.getLevel();
 		degatTurret[2]=turret._pvMax - turret._pv;
 
 		turret = _City.GetTurretById (Enum_IdTurret.Turret4);
 		tabTypeTurret [3] = turret._enumCurrentTurretType;
-		percentLifeTurret [3] = turret._pv / turret._pvMax;
+		//Debug.Log(turret._pv +" / " +turret._pvMax);
+		percentLifeTurret [3] = (float)(turret._pv) / (float)(turret._pvMax);
 		levelTurret[3]= turret.getLevel();
 		degatTurret[3]=turret._pvMax - turret._pv;
 
 		updateTower ();
 		updateTowerButton ();
+		updateLife ();
 
+	}
+
+		void updateLife (){
+		Debug.Log("MAJ life CITY "+_percentCity);
+		_CityLife.GetComponent<UILifeScript> ().SetUILife( _percentCity);
+		Debug.Log("MAJ life turret1 "+percentLifeTurret[0]);
+		_Tower1Life.GetComponent<UILifeScript> ().SetUILife( percentLifeTurret[0]);
+		Debug.Log("MAJ life turret2 "+percentLifeTurret[1]);
+		_Tower2Life.GetComponent<UILifeScript> ().SetUILife( percentLifeTurret[1]);
+		Debug.Log("MAJ life turret3 "+percentLifeTurret[2]);
+		_Tower3Life.GetComponent<UILifeScript> ().SetUILife( percentLifeTurret[2]);
+		Debug.Log("MAJ life turret4 "+percentLifeTurret[3]);
+		_Tower4Life.GetComponent<UILifeScript> ().SetUILife( percentLifeTurret[3]);
 
 		}
 
@@ -287,56 +305,66 @@ public class UIManager2 : MonoBehaviour {
 		_repairLabel.GetComponent<UILabel> ().text = repairCost ().ToString ();//(degatTurret[_Stat - 1]*_costRepair).ToString();
 
 		if (tabTypeTurret [_Stat - 1] != Enum_TurretType.None) {
-			switch(tabTypeTurret [_Stat - 1]){
-			case Enum_TurretType.Standard:
-				if (levelTurret [_Stat - 1] < 3){
-					_StandardButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (levelTurret [_Stat - 1]+1);
-					_DisinButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (1);
-					_EMPButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (1);
+						switch (tabTypeTurret [_Stat - 1]) {
+						case Enum_TurretType.Standard:
+								if (levelTurret [_Stat - 1] < 3) {
+										_StandardButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (levelTurret [_Stat - 1] + 1);
+										_DisinButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (1);
+										_EMPButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (1);
 
-					_StandardButtonPrice.GetComponent<UILabel> ().text = (getPriceStandard (levelTurret [_Stat - 1])+1).ToString();
-					_DisinButtonPrice.GetComponent<UILabel> ().text = (getPriceDisi (1)).ToString();
-					_EMPButtonPrice.GetComponent<UILabel> ().text = (getPriceEMP (1)).ToString();
+										_StandardButtonPrice.GetComponent<UILabel> ().text = (getPriceStandard (levelTurret [_Stat - 1]) + 1).ToString ();
+										_DisinButtonPrice.GetComponent<UILabel> ().text = (getPriceDisi (1)).ToString ();
+										_EMPButtonPrice.GetComponent<UILabel> ().text = (getPriceEMP (1)).ToString ();
 
-				}else{
-					_StandardButtonPrice.GetComponent<UILabel> ().color=Color.red;
-				}
-				break;
+								} else {
+										_StandardButtonPrice.GetComponent<UILabel> ().color = Color.red;
+								}
+								break;
 
-			case Enum_TurretType.EMP:
-				if (levelTurret [_Stat - 1] < 3){
-					_EMPButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (levelTurret [_Stat - 1]+1);
-					_DisinButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (1);
-					_StandardButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (1);
+						case Enum_TurretType.EMP:
+								if (levelTurret [_Stat - 1] < 3) {
+										_EMPButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (levelTurret [_Stat - 1] + 1);
+										_DisinButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (1);
+										_StandardButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (1);
 					
-					_StandardButtonPrice.GetComponent<UILabel> ().text = (getPriceStandard (1).ToString());
-					_DisinButtonPrice.GetComponent<UILabel> ().text = (getPriceDisi (1)).ToString();
-					_EMPButtonPrice.GetComponent<UILabel> ().text = (getPriceEMP (levelTurret [_Stat - 1])+1).ToString();
+										_StandardButtonPrice.GetComponent<UILabel> ().text = (getPriceStandard (1).ToString ());
+										_DisinButtonPrice.GetComponent<UILabel> ().text = (getPriceDisi (1)).ToString ();
+										_EMPButtonPrice.GetComponent<UILabel> ().text = (getPriceEMP (levelTurret [_Stat - 1]) + 1).ToString ();
 					
-				}else{
-					_EMPButtonPrice.GetComponent<UILabel> ().color=Color.red;
-				}
-				break;
+								} else {
+										_EMPButtonPrice.GetComponent<UILabel> ().color = Color.red;
+								}
+								break;
 
 
-			case Enum_TurretType.Disintegrator:
-				if (levelTurret [_Stat - 1] < 3){
-					_StandardButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (1);
-					_DisinButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (levelTurret [_Stat - 1]+1);
-					_EMPButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (1);
+						case Enum_TurretType.Disintegrator:
+								if (levelTurret [_Stat - 1] < 3) {
+										_StandardButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (1);
+										_DisinButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (levelTurret [_Stat - 1] + 1);
+										_EMPButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (1);
 					
-					_StandardButtonPrice.GetComponent<UILabel> ().text = (getPriceStandard (1)).ToString();
-					_DisinButtonPrice.GetComponent<UILabel> ().text = (getPriceDisi (levelTurret [_Stat - 1]+1)).ToString();
-					_EMPButtonPrice.GetComponent<UILabel> ().text = (getPriceEMP (1)).ToString();
+										_StandardButtonPrice.GetComponent<UILabel> ().text = (getPriceStandard (1)).ToString ();
+										_DisinButtonPrice.GetComponent<UILabel> ().text = (getPriceDisi (levelTurret [_Stat - 1] + 1)).ToString ();
+										_EMPButtonPrice.GetComponent<UILabel> ().text = (getPriceEMP (1)).ToString ();
 					
-				}else{
-					_DisinButtonPrice.GetComponent<UILabel> ().color=Color.red;
-				}
-				break;
-			}
+								} else {
+										_DisinButtonPrice.GetComponent<UILabel> ().color = Color.red;
+								}
+								break;
+						}
 			
 			
-		}
+				} else {
+
+			_StandardButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (1);
+			_DisinButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (1);
+			_EMPButton.GetComponent<ChangeLevelTexture> ().ChangeLevel (1);
+			
+			_StandardButtonPrice.GetComponent<UILabel> ().text = (getPriceStandard (1)).ToString ();
+			_DisinButtonPrice.GetComponent<UILabel> ().text = (getPriceDisi (1)).ToString ();
+			_EMPButtonPrice.GetComponent<UILabel> ().text = (getPriceEMP (1)).ToString ();
+
+				}
 
 		}
 
