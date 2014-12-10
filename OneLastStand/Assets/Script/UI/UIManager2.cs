@@ -265,7 +265,7 @@ public class UIManager2 : MonoBehaviour {
 
 		turret = _City.GetTurretById (Enum_IdTurret.Turret4);
 		tabTypeTurret [3] = turret._enumCurrentTurretType;
-		//Debug.Log(turret._pv +" / " +turret._pvMax);
+		
 		percentLifeTurret [3] = (float)(turret._pv) / (float)(turret._pvMax);
 		levelTurret[3]= turret.getLevel();
 		degatTurret[3]=turret._pvMax - turret._pv;
@@ -277,15 +277,15 @@ public class UIManager2 : MonoBehaviour {
 	}
 
 		void updateLife (){
-		Debug.Log("MAJ life CITY "+_percentCity);
+		
 		_CityLife.GetComponent<UILifeScript> ().SetUILife( _percentCity);
-		Debug.Log("MAJ life turret1 "+percentLifeTurret[0]);
+		
 		_Tower1Life.GetComponent<UILifeScript> ().SetUILife( percentLifeTurret[0]);
-		Debug.Log("MAJ life turret2 "+percentLifeTurret[1]);
+		
 		_Tower2Life.GetComponent<UILifeScript> ().SetUILife( percentLifeTurret[1]);
-		Debug.Log("MAJ life turret3 "+percentLifeTurret[2]);
+		
 		_Tower3Life.GetComponent<UILifeScript> ().SetUILife( percentLifeTurret[2]);
-		Debug.Log("MAJ life turret4 "+percentLifeTurret[3]);
+		
 		_Tower4Life.GetComponent<UILifeScript> ().SetUILife( percentLifeTurret[3]);
 
 		}
