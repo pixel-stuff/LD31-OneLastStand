@@ -19,9 +19,9 @@ public class SelectorButtonClick : MonoBehaviour {
 	void OnHover(bool isoVER) {
 		if(isoVER){
 		
-			Debug.Log ("prout");
+			UIManager.gameObject.GetComponent<UIManager2> ().SelectorOver(position,true,0);
 		}else{
-			Debug.Log ("plop");
+			UIManager.gameObject.GetComponent<UIManager2> ().SelectorOver(position,false,0);
 		}
 	}
 

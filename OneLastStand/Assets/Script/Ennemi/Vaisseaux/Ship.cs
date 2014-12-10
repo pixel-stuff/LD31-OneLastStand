@@ -62,6 +62,7 @@ public abstract class Ship : MonoBehaviour  {
 
 		if (_pv <= 0) {
 			_onDestroy=true;
+			GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>().AddToScore( _score);
 			//this.gameObject.SetActive(false);
 		}
 

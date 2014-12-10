@@ -37,6 +37,19 @@ public class UIManager2 : MonoBehaviour {
 	public GameObject _priceTruck;
 
 
+	public GameObject _ExplainStandard1;
+	public GameObject _ExplainStandard2;
+	public GameObject _ExplainStandard3;
+
+	public GameObject _ExplainDisin1;
+	public GameObject _ExplainDisin2;
+	public GameObject _ExplainDisin3;
+
+	public GameObject _ExplainEMP1;
+	public GameObject _ExplainEMP2;
+	public GameObject _ExplainEMP3;
+
+
 	public int _credit;
 	public int _score;
 
@@ -89,6 +102,166 @@ public class UIManager2 : MonoBehaviour {
 		updateTowerButton ();
 
 		}
+	public void cleanExplication(){
+		_ExplainStandard1.SetActive(false);
+		_ExplainStandard2.SetActive(false);
+		_ExplainStandard3.SetActive(false);
+
+		_ExplainDisin1.SetActive(false);
+		_ExplainDisin2.SetActive(false);
+		_ExplainDisin3.SetActive(false);
+
+		_ExplainEMP1.SetActive(false);
+		_ExplainEMP2.SetActive(false);
+		_ExplainEMP3.SetActive(false);
+		}
+
+	public void SelectorOver(int position,bool isOver,int level){
+		switch (position) {
+		case 0 :
+			Debug.Log("Over Repair");
+			if(isOver){
+			}else{
+			}
+
+			break;
+		case 1 :
+			Debug.Log(" Over Stabdar");
+			if(tabTypeTurret[_Stat -1]==Enum_TurretType.Standard){
+
+				cleanExplication();
+				switch (levelTurret[_Stat -1]){
+				case 1 :
+
+					_ExplainStandard2.SetActive(isOver);
+					break;
+				case 2 :
+
+					_ExplainStandard3.SetActive(isOver);
+					break;
+				case 3 :
+
+					_ExplainStandard3.SetActive(isOver);
+					break;
+				}
+			}else{
+				cleanExplication();
+				switch (levelTurret[_Stat -1]+level){
+				case 1 :
+					
+					_ExplainStandard1.SetActive(isOver);
+					break;
+				case 2 :
+					
+					_ExplainStandard2.SetActive(isOver);
+					break;
+				case 3 :
+					
+					_ExplainStandard3.SetActive(isOver);
+					break;
+				case 4 :
+					
+					_ExplainStandard3.SetActive(isOver);
+					break;
+				}
+			
+			}
+
+			break;
+		case 2 :
+			Debug.Log(" Over  Disin");
+			if(tabTypeTurret[_Stat -1]==Enum_TurretType.Disintegrator){
+				
+				cleanExplication();
+				switch (levelTurret[_Stat -1]){
+				case 1 :
+					
+					_ExplainDisin2.SetActive(isOver);
+					break;
+				case 2 :
+					
+					_ExplainDisin3.SetActive(isOver);
+					break;
+				case 3 :
+					
+					_ExplainDisin3.SetActive(isOver);
+					break;
+				}
+			}else{
+				cleanExplication();
+				switch (levelTurret[_Stat -1]+level){
+				case 1 :
+					
+					_ExplainDisin1.SetActive(isOver);
+					break;
+				case 2 :
+					
+					_ExplainDisin2.SetActive(isOver);
+					break;
+				case 3 :
+					
+					_ExplainDisin3.SetActive(isOver);
+					break;
+				case 4 :
+					
+					_ExplainDisin3.SetActive(isOver);
+					break;
+				}
+			}
+			break;
+		case 3 :
+			Debug.Log(" Over EMP");
+			if(tabTypeTurret[_Stat -1]==Enum_TurretType.EMP){
+				
+				cleanExplication();
+				switch (levelTurret[_Stat -1]){
+				case 1 :
+					
+					_ExplainEMP2.SetActive(isOver);
+					break;
+				case 2 :
+					
+					_ExplainEMP3.SetActive(isOver);
+					break;
+				case 3 :
+					
+					_ExplainEMP3.SetActive(isOver);
+					break;
+				}
+			}else{
+				cleanExplication();
+				switch (levelTurret[_Stat -1]+level){
+				case 1 :
+					
+					_ExplainEMP1.SetActive(isOver);
+					break;
+				case 2 :
+					
+					_ExplainEMP2.SetActive(isOver);
+					break;
+				case 3 :
+					
+					_ExplainEMP3.SetActive(isOver);
+					break;
+				case 4 :
+					
+					_ExplainEMP3.SetActive(isOver);
+					break;
+				}
+				
+			}
+			break;
+			
+		case 4 :
+			if(isOver){
+			}else{
+			}
+
+			break;
+		}
+
+		}
+
 	public void SelectorInput(int position){
 
 		switch (position) {
@@ -101,8 +274,10 @@ public class UIManager2 : MonoBehaviour {
 				case 1 :
 			Debug.Log("Stabdar");
 			if (_credit >=getPriceStandard(levelTurret[_Stat -1])){
+				SelectorOver(position,true,1);
 				_City.SubToFragmentPlayer (getPriceStandard(levelTurret[_Stat -1]));
 			BuildTurretStandard(getEnumIDTurret());
+				//SelectorOver(position,true,0);
 				//RepareTurret(getEnumIDTurret());
 			}
 			break;
