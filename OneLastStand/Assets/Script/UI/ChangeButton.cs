@@ -26,9 +26,14 @@ public class ChangeButton : MonoBehaviour
 	public GameObject _noneButton;
 	public GameObject _noneButtonSelect;
 
-
+	public GameObject _destroyTurret;
 	
-	public void ChangeButtonFonction(int lvl, Enum_TurretType typeTur,bool isSelect){
+	public void ChangeButtonFonction(int lvl, Enum_TurretType typeTur,bool isSelect,bool isDestroy){
+		if (isDestroy) {
+			_destroyTurret.SetActive(true);
+				} else {
+			_destroyTurret.SetActive(false);
+				}
 		switch (typeTur) {
 		case Enum_TurretType.Disintegrator:
 			DisintegratorLvl(lvl,isSelect);

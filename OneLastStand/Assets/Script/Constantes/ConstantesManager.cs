@@ -111,9 +111,9 @@ public class ConstantesManager {
 
 	//Label var
 	public static int LABEL_LIFE_TIME = 3;//sec
-	public static Color SCORE_LABEL_COLOR = new Color (255,0,0);
-	public static Color FRAGMENT_LABEL_COLOR = new Color (0,0,255);
-	public static Color LIFE_LABEL_COLOR = new Color (0,255,0);
+	public static Color SCORE_LABEL_COLOR = new Color (255,255,255);
+	public static Color FRAGMENT_LABEL_COLOR = new Color (255,255,255);
+	public static Color LIFE_LABEL_COLOR = new Color (255,0,0);
 
 	//Bullet var
 	public static float BULLET_TURRET_SPEED = 250; //px/sec

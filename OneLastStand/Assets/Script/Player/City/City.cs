@@ -28,7 +28,7 @@ public class City : MonoBehaviour{
 	
 	
 	void Start(){
-		_quantiteFrag = 50;
+		_quantiteFrag = 600;
 		_timeMinInShootState = ConstantesManager.TIME_MIN_IN_SHOOT_STATE;
 		
 		
@@ -46,7 +46,7 @@ public class City : MonoBehaviour{
 		}
 		
 		
-		_quantiteFrag = 50;
+		_quantiteFrag = 600;
 		_pv = ConstantesManager.CITY_PV_MAX;
 		_pvMax = ConstantesManager.CITY_PV_MAX;
 		_enumStateCity = Enum_StateCity.Fighting;
@@ -70,7 +70,7 @@ public class City : MonoBehaviour{
 	public void Initialize ()
 	{
 		Debug.Log ("INITIALIZE CITY");
-		_quantiteFrag = 50;
+		_quantiteFrag = 600;
 		_pv = ConstantesManager.CITY_PV_MAX;
 		_pvMax = ConstantesManager.CITY_PV_MAX;
 		_enumStateCity = Enum_StateCity.Fighting;
@@ -113,6 +113,7 @@ public class City : MonoBehaviour{
 		
 		for (int i=0;i<_listTurret.Count;i++) {
 			if(_listTurret[i]._pv > 0 && _listTurret[i]._enumCurrentTurretType != Enum_TurretType.None){
+				Debug.Log("turret i"+i+" turret count"+_listTurret.Count);
 				_listTurret[i].getHit(degat/_nombreTurret);
 				float sub = degat/_nombreTurret;
 				if(sub%10 >= 0.5){

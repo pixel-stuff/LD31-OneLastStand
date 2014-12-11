@@ -66,6 +66,7 @@ public class UIManager2 : MonoBehaviour {
 	public float[] percentLifeTurret ;
 	public int[] levelTurret ;
 	public int[] degatTurret;
+	public bool[] _destroyTurret;
 
 	public int _priceUpgradeTruck;
 
@@ -85,6 +86,7 @@ public class UIManager2 : MonoBehaviour {
 		percentLifeTurret= new float[4];
 		levelTurret= new int[4];
 		degatTurret= new int[4];
+		_destroyTurret = new bool[4];
 
 		tabTypeTurret[0] = Enum_TurretType.None;
 		tabTypeTurret[1] = Enum_TurretType.None;
@@ -413,6 +415,7 @@ public class UIManager2 : MonoBehaviour {
 	void refreshRessource(){
 
 		_percentCity = (float)(_City._pv)/(float)(_City._pvMax);
+		//Debug.Log (_percentCity);
 		_credit = _City._quantiteFrag;
 		_score = _Player._score;
 		_nbVague=_Player._nbVague;
@@ -425,18 +428,21 @@ public class UIManager2 : MonoBehaviour {
 		percentLifeTurret [0] = (float)(turret._pv) / (float)(turret._pvMax);
 		levelTurret[0]= turret.getLevel();
 		degatTurret[0]=turret._pvMax - turret._pv;
+		_destroyTurret[0]=turret.isDestroy();
 
 		turret = _City.GetTurretById (Enum_IdTurret.Turret2);
 		tabTypeTurret [1] = turret._enumCurrentTurretType;
 		percentLifeTurret [1] = (float)(turret._pv) / (float)(turret._pvMax);
 		levelTurret[1]= turret.getLevel();
 		degatTurret[1]=turret._pvMax - turret._pv;
+		_destroyTurret[1]=turret.isDestroy();
 
 		turret = _City.GetTurretById (Enum_IdTurret.Turret3);
 		tabTypeTurret [2] = turret._enumCurrentTurretType;
 		percentLifeTurret [2] = (float)(turret._pv) / (float)(turret._pvMax);
 		levelTurret[2]= turret.getLevel();
 		degatTurret[2]=turret._pvMax - turret._pv;
+		_destroyTurret[2]=turret.isDestroy();
 
 		turret = _City.GetTurretById (Enum_IdTurret.Turret4);
 		tabTypeTurret [3] = turret._enumCurrentTurretType;
@@ -444,7 +450,7 @@ public class UIManager2 : MonoBehaviour {
 		percentLifeTurret [3] = (float)(turret._pv) / (float)(turret._pvMax);
 		levelTurret[3]= turret.getLevel();
 		degatTurret[3]=turret._pvMax - turret._pv;
-
+		_destroyTurret[3]=turret.isDestroy();
 		updateTower ();
 		updateTowerButton ();
 		updateLife ();
@@ -552,18 +558,18 @@ public class UIManager2 : MonoBehaviour {
 						switch (i) {
 						case 1:
 
-				_Tower1Button.GetComponent<ChangeButton> ().ChangeButtonFonction (levelTurret [0], tabTypeTurret [0],isSelect);//ChangeButton(tabTypeTurret[_Stat-1]
+				_Tower1Button.GetComponent<ChangeButton> ().ChangeButtonFonction (levelTurret [0], tabTypeTurret [0],isSelect,_destroyTurret[0]);//ChangeButton(tabTypeTurret[_Stat-1]
 	
 								break;
 						case 2:
-				_Tower2Button.GetComponent<ChangeButton> ().ChangeButtonFonction (levelTurret [1], tabTypeTurret [1],isSelect);//ChangeButton(tabTypeTurret[_Stat-1]
+				_Tower2Button.GetComponent<ChangeButton> ().ChangeButtonFonction (levelTurret [1], tabTypeTurret [1],isSelect,_destroyTurret[1]);//ChangeButton(tabTypeTurret[_Stat-1]
 								break;
 
 			case 3:
-				_Tower3Button.GetComponent<ChangeButton> ().ChangeButtonFonction (levelTurret [2], tabTypeTurret [2],isSelect);//ChangeButton(tabTypeTurret[_Stat-1]
+				_Tower3Button.GetComponent<ChangeButton> ().ChangeButtonFonction (levelTurret [2], tabTypeTurret [2],isSelect,_destroyTurret[2]);//ChangeButton(tabTypeTurret[_Stat-1]
 				break;
 			case 4:
-				_Tower4Button.GetComponent<ChangeButton> ().ChangeButtonFonction (levelTurret [3], tabTypeTurret [3],isSelect);//ChangeButton(tabTypeTurret[_Stat-1]
+				_Tower4Button.GetComponent<ChangeButton> ().ChangeButtonFonction (levelTurret [3], tabTypeTurret [3],isSelect,_destroyTurret[3]);//ChangeButton(tabTypeTurret[_Stat-1]
 				break;
 
 						}

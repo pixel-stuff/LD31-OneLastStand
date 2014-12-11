@@ -102,7 +102,7 @@ public class PlayerManager : MonoBehaviour{
 		_score += score;
 		GameObject label = (GameObject)Instantiate (_labelEphemerePrefab, _city.transform.position , Quaternion.identity);
 		label.transform.parent = _city.transform;
-		label.transform.localPosition = new Vector2 (30, 100);
+		label.transform.localPosition = new Vector2 (30, 300);
 		label.GetComponent<UILabel> ().color = ConstantesManager.SCORE_LABEL_COLOR;
 		label.GetComponent<UILabel> ().text = "+" + score;
 	}
@@ -111,7 +111,7 @@ public class PlayerManager : MonoBehaviour{
 		_score += score;
 		GameObject label = (GameObject)Instantiate (_labelEphemerePrefab, _city.transform.position , Quaternion.identity);
 		label.transform.parent = _city.transform;
-		label.transform.localPosition = new Vector2 (30, 100);
+		label.transform.localPosition = new Vector2 (30, 300);
 		label.GetComponent<UILabel> ().color = ConstantesManager.SCORE_LABEL_COLOR;
 		label.GetComponent<UILabel> ().text = "-" + score;
 	}

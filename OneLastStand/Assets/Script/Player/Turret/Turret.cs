@@ -175,15 +175,36 @@ public class Turret : MonoBehaviour{
 		_enumTurretAim = Enum_TurretAim.None;
 		
 	}
+	public bool isDestroy(){
+		return (_enumCurrentStateTurret == Enum_StateTurret.TurretDestroy) ? true : false;
+		}
 	
 	public int getLevel(){
 		switch (_enumCurrentStateTurret) {
 		case Enum_StateTurret.TurretLevel1:
 			return 1;
+			break;
 		case Enum_StateTurret.TurretLevel2:
 			return 2;
+			break;
 		case Enum_StateTurret.TurretLevel3:
 			return 3;
+			break;
+		case Enum_StateTurret.TurretDestroy:
+			switch (_enumOldStateTurret) {
+			case Enum_StateTurret.TurretLevel1:
+				return 1;
+				break;
+			case Enum_StateTurret.TurretLevel2:
+				return 2;
+				break;
+			case Enum_StateTurret.TurretLevel3:
+				return 3;
+				break;
+			default:
+				Debug.Log("Type is not a level");
+				return 0;
+			}
 		default:
 			Debug.Log("Type is not a level");
 			return 0;
@@ -237,7 +258,7 @@ public class Turret : MonoBehaviour{
 	void OnTriggerEnter2D(Collider2D coll){
 		Ship ship = coll.gameObject.GetComponent<Ship>();
 		ennemiBullet bullet = coll.gameObject.GetComponent<ennemiBullet> ();
-		
+		/*
 		if (ship != null) {
 			getHit(ship._degatKamikaze);
 			return;
@@ -247,7 +268,7 @@ public class Turret : MonoBehaviour{
 			getHit((int)bullet._pvDamage);
 			return;
 		}
-		
+		*/
 	}
 	
 	public void ChangeTypeTurret(Enum_TurretType newType){

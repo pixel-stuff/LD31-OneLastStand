@@ -4235,7 +4235,7 @@ GameObject:
   - 114: {fileID: 11400050}
   m_Layer: 0
   m_Name: UIManager
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12116,7 +12116,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100750}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 349, y: 274, z: 0}
+  m_LocalPosition: {x: 349, y: 274, z: 50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400158}
@@ -14767,7 +14767,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2319e518f86ca2d4dbc74b1a18076979, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fcaee8a589c2da24fa19a2ebeed8693c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21200054
 SpriteRenderer:
@@ -17627,7 +17627,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2319e518f86ca2d4dbc74b1a18076979, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fcaee8a589c2da24fa19a2ebeed8693c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21200314
 SpriteRenderer:
@@ -19805,7 +19805,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2319e518f86ca2d4dbc74b1a18076979, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fcaee8a589c2da24fa19a2ebeed8693c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21200512
 SpriteRenderer:
@@ -20267,7 +20267,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2319e518f86ca2d4dbc74b1a18076979, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fcaee8a589c2da24fa19a2ebeed8693c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21200554
 SpriteRenderer:
