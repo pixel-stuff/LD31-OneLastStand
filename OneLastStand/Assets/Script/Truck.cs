@@ -22,6 +22,9 @@ public class Truck : MonoBehaviour {
 		_enumDirection = Enum_TruckDirection.decharge;
 		_city = GameObject.FindGameObjectWithTag ("City").GetComponent<City> ();
 		_decharge = GameObject.FindGameObjectWithTag ("Decharge").GetComponent<Decharge> ();
+		Vector3 pos = this.transform.localPosition;
+		pos.y = -35;
+		this.transform.localPosition = pos;
 	}
 	
 	public void Initialize(){
@@ -73,6 +76,7 @@ public class Truck : MonoBehaviour {
 		
 		Vector3 origin = this.transform.position;
 		Vector3 target = GetCurrentTarget();
+		target.y = -130;
 		
 		_LastDirectionNormalize = Vector3.Normalize(target - origin);
 		
