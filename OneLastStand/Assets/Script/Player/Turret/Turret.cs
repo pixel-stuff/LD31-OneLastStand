@@ -60,6 +60,8 @@ public class Turret : MonoBehaviour{
 	}
 	
 	public void UpdateShoot (){
+
+
 		if (_enumCurrentStateTurret == Enum_StateTurret.TurretDestroy) {
 			Debug.Log (this.gameObject.name + " is Destroy");
 			return;
@@ -376,6 +378,9 @@ public class Turret : MonoBehaviour{
 		if(_pv > _pvMax){
 			_pv = _pvMax;
 		}
+		if (_pv <= 0) {
+			_pv = 100;
+		}
 		_rateOfFire = ConstantesManager.DISINTEGRATOR_LVL1_RATE_OF_FIRE +RandOn10Percent(ConstantesManager.DISINTEGRATOR_LVL1_RATE_OF_FIRE/10); //shooting/sec
 		_shootDamage = ConstantesManager.DISINTEGRATOR_LVL1_SHOOT_DAMAGE;
 	}
@@ -385,6 +390,9 @@ public class Turret : MonoBehaviour{
 		_pvMax = ConstantesManager.DISINTEGRATOR_LVL2_PV_MAX;
 		if(_pv > _pvMax){
 			_pv = _pvMax;
+		}
+		if (_pv <= 0) {
+			_pv = 100;
 		}
 		_rateOfFire = ConstantesManager.DISINTEGRATOR_LVL2_RATE_OF_FIRE+RandOn10Percent(ConstantesManager.DISINTEGRATOR_LVL2_RATE_OF_FIRE/10); //shooting/sec
 		_shootDamage = ConstantesManager.DISINTEGRATOR_LVL2_SHOOT_DAMAGE;
@@ -396,6 +404,9 @@ public class Turret : MonoBehaviour{
 		if(_pv > _pvMax){
 			_pv = _pvMax;
 		}
+		if (_pv <= 0) {
+			_pv = 100;
+		}
 		_rateOfFire = ConstantesManager.DISINTEGRATOR_LVL3_RATE_OF_FIRE + RandOn10Percent(ConstantesManager.DISINTEGRATOR_LVL3_RATE_OF_FIRE/10); //shooting/sec
 		_shootDamage = ConstantesManager.DISINTEGRATOR_LVL3_SHOOT_DAMAGE;
 	}
@@ -405,6 +416,9 @@ public class Turret : MonoBehaviour{
 		_pvMax = ConstantesManager.EMP_LVL1_PV_MAX;
 		if(_pv > _pvMax){
 			_pv = _pvMax;
+		}
+		if (_pv <= 0) {
+			_pv = 100;
 		}
 		_rateOfFire = ConstantesManager.EMP_LVL1_RATE_OF_FIRE + RandOn10Percent(ConstantesManager.EMP_LVL1_RATE_OF_FIRE/10); //shooting/sec
 		_shootDamage = ConstantesManager.EMP_LVL1_SHOOT_DAMAGE;
@@ -416,6 +430,9 @@ public class Turret : MonoBehaviour{
 		if(_pv > _pvMax){
 			_pv = _pvMax;
 		}
+		if (_pv <= 0) {
+			_pv = 100;
+		}
 		_rateOfFire = ConstantesManager.EMP_LVL2_RATE_OF_FIRE + RandOn10Percent(ConstantesManager.EMP_LVL2_RATE_OF_FIRE/10); //shooting/sec
 		_shootDamage = ConstantesManager.EMP_LVL2_SHOOT_DAMAGE;
 	}
@@ -425,6 +442,9 @@ public class Turret : MonoBehaviour{
 		_pvMax = ConstantesManager.EMP_LVL3_PV_MAX;
 		if(_pv > _pvMax){
 			_pv = _pvMax;
+		}
+		if (_pv <= 0) {
+			_pv = 100;
 		}
 		_rateOfFire = ConstantesManager.EMP_LVL3_RATE_OF_FIRE + RandOn10Percent(ConstantesManager.EMP_LVL3_RATE_OF_FIRE/10); //shooting/sec
 		_shootDamage = ConstantesManager.EMP_LVL3_SHOOT_DAMAGE;
@@ -436,6 +456,9 @@ public class Turret : MonoBehaviour{
 		if(_pv > _pvMax){
 			_pv = _pvMax;
 		}
+		if (_pv <= 0) {
+			_pv = 100;
+		}
 		_rateOfFire = ConstantesManager.STANDARD_LVL1_RATE_OF_FIRE + RandOn10Percent(ConstantesManager.STANDARD_LVL1_RATE_OF_FIRE/10); //shooting/sec
 		_shootDamage = ConstantesManager.STANDARD_LVL1_SHOOT_DAMAGE;
 	}
@@ -446,6 +469,9 @@ public class Turret : MonoBehaviour{
 		if(_pv > _pvMax){
 			_pv = _pvMax;
 		}
+		if (_pv <= 0) {
+			_pv = 100;
+		}
 		_rateOfFire = ConstantesManager.STANDARD_LVL2_RATE_OF_FIRE + RandOn10Percent(ConstantesManager.STANDARD_LVL2_RATE_OF_FIRE/10); //shooting/sec
 		_shootDamage = ConstantesManager.STANDARD_LVL2_SHOOT_DAMAGE;
 	}
@@ -455,6 +481,9 @@ public class Turret : MonoBehaviour{
 		_pvMax = ConstantesManager.STANDARD_LVL3_PV_MAX;
 		if(_pv > _pvMax){
 			_pv = _pvMax;
+		}
+		if (_pv <= 0) {
+			_pv = 100;
 		}
 		_rateOfFire = ConstantesManager.STANDARD_LVL3_RATE_OF_FIRE + RandOn10Percent(ConstantesManager.STANDARD_LVL3_RATE_OF_FIRE/10); //shooting/sec
 		_shootDamage = ConstantesManager.STANDARD_LVL3_SHOOT_DAMAGE;
