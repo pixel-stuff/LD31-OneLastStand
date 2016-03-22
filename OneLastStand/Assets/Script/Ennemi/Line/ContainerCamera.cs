@@ -6,7 +6,7 @@ public class ContainerCamera : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		Camera camera = this.gameObject.camera;
+		Camera camera = this.gameObject.GetComponent<Camera>();
 		this.GetComponent<UIAnchor> ().uiCamera = camera;
 
 	
