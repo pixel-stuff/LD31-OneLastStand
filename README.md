@@ -1,5 +1,4 @@
-# Ludum-OneLastStend
-LD31 - One Last Stand
+# LD31 - One Last Stand
 ----
 **Summary**
 <p>A City fights for its survival. <br />
