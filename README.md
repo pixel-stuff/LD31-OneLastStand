@@ -1,5 +1,5 @@
 # LD31 - One Last Stand
-----
+
 **Summary**
 <p>A City fights for its survival. <br />
 Its only hope lays in destroying its ennemies and gaining materials to improve its defenses.<br />
